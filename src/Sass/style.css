@@ -1,0 +1,209 @@
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.merienda {
+  font-family: "Merienda" !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: #0777AB !important;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.font-18 {
+  font-size: 18px;
+}
+
+.font-50 {
+  font-size: 50px;
+}
+
+.font-24 {
+  font-size: 24px;
+}
+
+.text-blue {
+  color: #0777AB !important;
+}
+
+.w-65 {
+  width: 65%;
+}
+
+.bg-blue {
+  background-color: #0777AB;
+}
+
+.animation {
+  animation: 1.2s ease-out infinite zoom-in-zoom-out2;
+}
+
+@keyframes zoom-in-zoom-out2 {
+  0%, 100% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+}
+/* Placeholder color */
+.custom-input input::-moz-placeholder {
+  color: #CDCDCD;
+  /* Placeholder color */
+}
+.custom-input input::placeholder {
+  color: #CDCDCD;
+  /* Placeholder color */
+}
+
+/* Error message style */
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+.textImg {
+  display: block;
+  animation: heart 2s ease infinite;
+}
+
+@keyframes heart {
+  0% {
+    transform: scale(0.8);
+  }
+  5% {
+    transform: scale(1);
+  }
+  10% {
+    transform: scale(0.8);
+  }
+  15% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+.textImg2 {
+  display: block;
+  animation: heart2 2s ease infinite;
+}
+
+@keyframes heart2 {
+  0% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  10% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.opacity-custom {
+  opacity: 0 !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  /* color of the track */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7DBBF1;
+  /* color of the thumb */
+  border-radius: 5px;
+  /* roundness of the thumb */
+}
+
+.content-container::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar */
+}
+
+.fixed-button {
+  position: fixed;
+  bottom: 20px;
+  left: 44%;
+  z-index: 1000;
+}
+
+.fixed-button button {
+  padding: 10px 20px;
+  background-color: rgba(199, 199, 199, 0.4); /* Semi-transparent E9E9E9 */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  backdrop-filter: blur(16px); /* Blur effect on the background */
+  -webkit-backdrop-filter: blur(16px); /* For Safari support */
+  color: #000; /* Add text color if needed */
+}
+
+.about-us {
+  background-image: url("../img/slider-bg.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center top;
+  background-color: #F9FBFE;
+  border-radius: 30px;
+  border: 1px solid #EEEEEE;
+}
+
+.white-circle {
+  height: 500px;
+  width: 500px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.border-circle {
+  height: 600px;
+  width: 600px;
+  border: 1px solid #EEEEEE;
+  border-radius: 50%;
+}
+
+@media (max-width: 850px) and (min-width: 605px) {
+  .fixed-button {
+    left: 40%;
+  }
+}
+@media (max-width: 604px) and (min-width: 450px) {
+  .fixed-button {
+    left: 35%;
+  }
+}
+@media (max-width: 449px) and (min-width: 390px) {
+  .fixed-button {
+    left: 30%;
+  }
+}
+@media (max-width: 389px) and (min-width: 0px) {
+  .fixed-button {
+    left: 25%;
+  }
+}/*# sourceMappingURL=style.css.map */
