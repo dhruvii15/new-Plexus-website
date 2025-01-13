@@ -20,7 +20,7 @@ const About = () => {
 
     return (
         <>
-            <Container className="pb-5">
+            <Container className="pb-5" id='aboutUsSection'>
                 <Row className="d-flex align-items-center justify-content-center">
                     <Col xs={12} lg={6} className="pt-5">
                         <div className={`image-animate ${isImageVisible ? 'visible' : ''}`}>
@@ -58,6 +58,21 @@ const About = () => {
                         </p>
                     </Col>
                 </Row>
+
+                {/* <Row className='py-4 my-4 d-flex flex-wrap align-items-center justify-content-center'>
+                    <Col xs={12} md={6} lg={3} className='border mt-3' style={{height:"400px"}}>
+                    
+                    </Col>
+                    <Col xs={12} md={6} lg={3} className='border mt-3' style={{height:"400px"}}>
+                    
+                    </Col>
+                    <Col xs={12} md={6} lg={3} className='border mt-3' style={{height:"400px"}}>
+                    
+                    </Col>
+                    <Col xs={12} md={6} lg={3} className='border mt-3' style={{height:"400px"}}>
+                    
+                    </Col>
+                </Row> */}
             </Container>
         </>
     );

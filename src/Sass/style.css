@@ -306,6 +306,20 @@
   animation-play-state: running;
 }
 
+.fixed-top-btn {
+  position: fixed;
+  bottom: 5px;
+  right: 4%;
+  z-index: 1000;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid #0777AB;
+  text-align: center;
+  line-height: 45px;
+  color: #0777AB;
+}
+
 .footer-width {
   width: 75%;
 }
