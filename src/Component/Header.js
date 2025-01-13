@@ -39,7 +39,7 @@ const Header = () => {
                     <Collapse isOpen={isOpen} navbar className="font-18" id="h6-info">
                         <Nav navbar className='ms-auto'>
                             <NavItem>
-                                <Link className="nav-link px-4 text-blue" to="/"> <FontAwesomeIcon icon={faHome} className='fs-6 pe-2'/>Home</Link>
+                                <Link className="nav-link px-4 text-blue" to="/" style={{ fontWeight:"600" , fontSize:"20px" }}> <FontAwesomeIcon icon={faHome} className='fs-6 pe-2'/>Home</Link>
                             </NavItem>
                             <ScrollLink
                                 className="nav-link px-4"
@@ -48,7 +48,7 @@ const Header = () => {
                                 smooth={true}
                                 offset={-70}
                                 duration={200}
-                                style={{ cursor: "pointer" }} // Scroll duration in milliseconds
+                                style={{ cursor: "pointer" , fontWeight:"600" , fontSize:"20px" }} // Scroll duration in milliseconds
                             >
                                 <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2'/>About us
                             </ScrollLink>
@@ -59,7 +59,7 @@ const Header = () => {
                                 smooth={true}
                                 offset={-70}
                                 duration={200}
-                                style={{ cursor: "pointer" }} // Scroll duration in milliseconds
+                                style={{ cursor: "pointer" , fontWeight:"600" , fontSize:"20px" }} // Scroll duration in milliseconds
                             >
                                 <FontAwesomeIcon icon={faAddressCard} className='fs-6 pe-2'/> Portfolio
                             </ScrollLink>
@@ -70,7 +70,7 @@ const Header = () => {
                                 smooth={true}
                                 offset={-70}
                                 duration={200}
-                                style={{ cursor: "pointer" }} // Scroll duration in milliseconds
+                                style={{ cursor: "pointer", fontWeight:"600" , fontSize:"20px"  }} // Scroll duration in milliseconds
                             >
                                 <FontAwesomeIcon icon={faAddressBook} className='fs-6 pe-2'/> Contact us
                             </ScrollLink>

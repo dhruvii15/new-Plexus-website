@@ -265,6 +265,47 @@
     transform: translateY(0px); /* Return to the starting position */
   }
 }
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes scaleIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.image-animate {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 2.5s ease, transform 1.5s ease 1s;
+}
+
+.image-animate.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.text-animate {
+  opacity: 0;
+  animation: slideInFromLeft 1s ease forwards 1s;
+  animation-play-state: paused;
+}
+
+.text-animate.visible {
+  animation-play-state: running;
+}
+
 @media (max-width: 576px) and (min-width: 0px) {
   .game1 {
     width: 60px;
@@ -284,7 +325,7 @@
     z-index: 1000;
   }
   .designer {
-    bottom: -120px;
+    top: -120px;
     right: 80px;
     z-index: 1000;
   }

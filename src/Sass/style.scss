@@ -186,14 +186,13 @@
 }
 
 
-// ================== about-us ==============
+// ================== hero-Section ==============
 .about-us {
     // background-image: url("../img/slider-bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
     background-color: rgb(235, 241, 250);
-    // background-color: #fafbfe;
     border-radius: 30px;
     border: 1px solid #EEEEEE;
 }
@@ -212,7 +211,6 @@
     border-radius: 50%;
 }
 
-// =================== Hero Section ===================
 .hero-title {
     font-size: 50px;
 }
@@ -290,6 +288,38 @@
     }
 }
 
+// ====================About-us ===================
+@keyframes slideInFromLeft {
+    0% { transform: translateY(-150px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  .image-animate {
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 2.5s ease, transform 1.5s ease 1s;
+  }
+
+  .image-animate.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .text-animate {
+    opacity: 0;
+    animation: slideInFromLeft 1s ease forwards 1s;
+    animation-play-state: paused;
+  }
+
+  .text-animate.visible {
+    animation-play-state: running;
+  }
+
 // ================== Responsive ==================
 @media (max-width:576px) and (min-width:0px) {
     .game1 {
@@ -313,7 +343,7 @@
     }
 
     .designer {
-        bottom: -120px;
+        top: -120px;
         right: 80px;
         z-index: 1000;
     }
