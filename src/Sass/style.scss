@@ -162,72 +162,300 @@
 
 // ==================== Hiring button ==================
 .fixed-button {
-    position: fixed; 
-    bottom: 20px;    
-    left: 44%;     
-    z-index: 1000;   
-  }
-  
-  .fixed-button button {
+    position: fixed;
+    bottom: 20px;
+    left: 44%;
+    z-index: 1000;
+}
+
+.fixed-button button {
     padding: 10px 20px;
-    background-color: rgba(199, 199, 199, 0.4); /* Semi-transparent E9E9E9 */
+    background-color: rgba(199, 199, 199, 0.4);
+    /* Semi-transparent E9E9E9 */
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-    backdrop-filter: blur(16px); /* Blur effect on the background */
-    -webkit-backdrop-filter: blur(16px); /* For Safari support */
-    color: #000; /* Add text color if needed */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add a subtle shadow */
+    backdrop-filter: blur(16px);
+    /* Blur effect on the background */
+    -webkit-backdrop-filter: blur(16px);
+    /* For Safari support */
+    color: #000;
+    /* Add text color if needed */
 }
 
 
 // ================== about-us ==============
-.about-us{
-    background-image: url("../img/slider-bg.png");
+.about-us {
+    // background-image: url("../img/slider-bg.png");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     background-position: center top;
     background-color: #F9FBFE;
     border-radius: 30px;
     border: 1px solid #EEEEEE;
 }
 
-.white-circle{
+.white-circle {
     height: 500px;
     width: 500px;
     background-color: white;
     border-radius: 50%;
 }
 
-.border-circle{
+.border-circle {
     height: 600px;
     width: 600px;
-    border: 1px solid #EEEEEE;
+    // border: 1px solid #EEEEEE;
     border-radius: 50%;
 }
- 
-  
+
+// =================== Hero Section ===================
+.hero-title {
+    font-size: 50px;
+}
+
+.arrow-rotate-box {
+    display: inline-block;
+}
+
+.arrow-rotate {
+    transition: transform 0.3s ease;
+    transform: rotate(-40deg);
+}
+
+.arrow-rotate-box:hover .arrow-rotate {
+    transform: rotate(0deg);
+}
+
+.game1 {
+    position: absolute !important;
+    top: 110px;
+    left: 40px;
+    transform: rotate(-15deg);
+    width: 115px;
+}
+
+.game2 {
+    position: absolute !important;
+    bottom: 130px;
+    right: 30px;
+    transform: rotate(-15deg);
+    width: 115px;
+}
+
+.developer {
+    position: absolute;
+    bottom: 110px;
+    right: 250px;
+    animation: translateYInfinite 3s infinite; /* Animation with 2s duration and infinite repeat */
+}
+
+@keyframes translateYInfinite {
+    0% {
+        transform: translateY(0); /* Starting position */
+    }
+    50% {
+        transform: translateY(-25px); /* Move up by 50px */
+    }
+    100% {
+        transform: translateY(0); /* Return to the starting position */
+    }
+}
+
+.designer {
+    position: absolute;
+    bottom: -30px;
+    right: -80px;
+    animation: RotateInfinite 6s infinite ; /* Animation with 2s duration and infinite repeat */
+}
+
+@keyframes RotateInfinite {
+    0% {
+        transform: translateY(0); /* Starting position */
+    }
+    25% {
+        transform: translateX(20px); /* Move up by 50px */
+    }
+    50% {
+        transform: translateY(20px); /* Return to the starting position */
+    }
+    75% {
+        transform: translateX(-20px); /* Return to the starting position */
+    }
+    100% {
+        transform: translateY(0px); /* Return to the starting position */
+    }
+}
+
 // ================== Responsive ==================
+@media (max-width:576px) and (min-width:0px) {
+    .game1 {
+        width: 60px;
+        top: 50px;
+        left: 20px;
+    }
+
+    .game2 {
+        width: 60px;
+        bottom: 50px;
+        right: 20px;
+    }
+}
+
+@media (max-width:930px) and (min-width:0px) {
+    .developer {
+        bottom: 80px;
+        left: 210px;
+        z-index: 1000;
+    }
+
+    .designer {
+        bottom: -120px;
+        right: 80px;
+        z-index: 1000;
+    }
+}
+
+// ========================================
+@media (max-width:1350px) and (min-width:1199px) {
+    .white-circle {
+        height: 450px;
+        width: 450px;
+    }
+
+    .border-circle {
+        height: 550px;
+        width: 550px;
+    }
+}
+
+@media (max-width:1198px) and (min-width:849px) {
+    .white-circle {
+        height: 390px;
+        width: 390px;
+    }
+
+    .border-circle {
+        height: 480px;
+        width: 480px;
+    }
+
+    .game1 {
+        width: 100px;
+        top: 85px;
+        left: 20px;
+    }
+
+    .game2 {
+        width: 100px;
+        bottom: 85px;
+        right: 20px;
+    }
+}
+
 @media (max-width:850px) and (min-width:605px) {
-    .fixed-button {   
-        left: 40%;      
-      }
+    .fixed-button {
+        left: 40%;
+    }
+
+    .hero-title {
+        font-size: 45px;
+    }
+
+    .white-circle {
+        height: 390px;
+        width: 390px;
+    }
+
+    .border-circle {
+        height: 480px;
+        width: 480px;
+    }
+    
+    .game1 {
+        top: 80px;
+        left: 40px;
+        transform: rotate(-20deg);
+        width: 90px;
+    }
+
+    .game2 {
+        bottom: 80px;
+        right: 40px;
+        width: 90px;
+    }
 }
 
 @media (max-width:604px) and (min-width:450px) {
-    .fixed-button {   
-        left: 35%;      
-      }
+    .fixed-button {
+        left: 35%;
+    }
+
+    .hero-title {
+        font-size: 35px;
+    }
+
+    .white-circle {
+        height: 340px;
+        width: 340px;
+    }
+
+    .border-circle {
+        height: 410px;
+        width: 410px;
+    }
+    
+    .game1 {
+        top: 60px;
+        left: 30px;
+        width: 80px;
+    }
+
+    .game2 {
+        bottom: 60px;
+        right: 30px;
+        width: 80px;
+    }
 }
 
 @media (max-width:449px) and (min-width:390px) {
-    .fixed-button {   
-        left: 30%;      
-      }
+    .fixed-button {
+        left: 30%;
+    }
+
+    .hero-title {
+        font-size: 35px;
+    }
+
+    .white-circle {
+        height: 280px;
+        width: 280px;
+    }
+
+    .border-circle {
+        height: 350px;
+        width: 350px;
+    }
 }
 
 @media (max-width:389px) and (min-width:0px) {
-    .fixed-button {   
-        left: 25%;      
-      }
+    .fixed-button {
+        left: 25%;
+    }
+
+    .hero-title {
+        font-size: 30px;
+    }
+
+    .white-circle {
+        height: 260px;
+        width: 260px;
+    }
+
+    .border-circle {
+        height: 300px;
+        width: 300px;
+    }
 }
