@@ -16,10 +16,12 @@ const Home = () => {
         axios.get('https://plexus-technology.in/api/admin/read')
             .then((res) => {
                 setData(res.data.data[0].hiringStatus);
+                setLoading(false);
             })
             .catch((err) => {
                 console.error(err);
                 toast.error("Failed to fetch data.");
+                setLoading(false);
             });
     };
 
@@ -30,7 +32,7 @@ const Home = () => {
 
     return (
         <>
-            {!loading ? (
+            {loading ? (
                 <Loading />
             ) : (
                 <Suspense fallback={<Loading />}>
