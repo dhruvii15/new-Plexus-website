@@ -51,7 +51,7 @@ const Footer = () => {
                     <Col xs={12} lg={7}>
                         <div className='text-center pt-4 footer-width'>
                             <img src={logo} alt='plexus-technology' className='img-fluid' width={220} />
-                            <div className='d-flex align-items-center justify-content-center gap-3 py-2 text-white'>
+                            <div className='d-flex align-items-center justify-content-center gap-3 py-2 text-white ps-3'>
                                 <div className="common-footer hover-box box1" onClick={handleLinkedInClick}>
                                     <FontAwesomeIcon icon={faLinkedin} className="hover-box2 fs-4" />
                                 </div>
