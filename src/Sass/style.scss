@@ -320,6 +320,11 @@
     animation-play-state: running;
   }
 
+//   ================== Footer ====================
+.footer-width{
+    width: 75%;
+}
+
 // ================== Responsive ==================
 @media (max-width:576px) and (min-width:0px) {
     .game1 {
@@ -346,6 +351,10 @@
         top: -120px;
         right: 80px;
         z-index: 1000;
+    }
+
+    .footer-width{
+        width: 100%;
     }
 }
 

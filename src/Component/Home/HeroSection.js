@@ -20,7 +20,7 @@ const Hero = () => {
         const handleGlobalMouseMove = (event) => {
             if (sectionRef.current) {
                 const rect = sectionRef.current.getBoundingClientRect();
-                const isInsideSection = 
+                const isInsideSection =
                     event.clientX >= rect.left &&
                     event.clientX <= rect.right &&
                     event.clientY >= rect.top &&
@@ -56,21 +56,21 @@ const Hero = () => {
                             We transform bold ideas into dynamic mobile apps and games, designed to enrich lives and meet unique needs.
                         </p>
                         <Button
+                            onClick={() => (window.location.href = '/contact-us')}
                             className='border-0 rounded-pill text-white px-4 py-3 arrow-rotate-box'
-                            style={{ 
-                                fontSize: "16px", 
-                                background: "#0777AB", 
+                            style={{
+                                fontSize: "16px",
+                                background: "#0777AB",
                                 marginTop: "10px",
                                 cursor: showCursorImage ? 'none' : 'pointer'
                             }}
                         >
                             <span
-                                onClick={() => (window.location.href = '/contact-us')}
                                 className='pe-2 text-white text-decoration-none m-0'
-                                style={{fontSize:"18px"}}
+                                style={{ fontSize: "18px" }}
                             >
                                 Let's Get connect
-                            </span>{' '}
+                            </span>
                             <FontAwesomeIcon icon={faArrowRight} className='arrow-rotate' />
                         </Button>
 
@@ -90,7 +90,7 @@ const Hero = () => {
                     </Col>
                 </Row>
             </Container>
-            
+
             {showCursorImage && (
                 <img
                     src={you}

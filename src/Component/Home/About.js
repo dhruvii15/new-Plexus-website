@@ -37,7 +37,8 @@ const About = () => {
                         className={`px-5 pt-5 text-animate ${isTextVisible ? 'visible' : ''}`}
                         style={{ fontSize: "17px" }}
                     >
-                        <h3 className="fw-bold pb-4">ABOUT US</h3>
+                        <h3 className="fw-bold pb-5"><span className='py-2 px-3 rounded-pill' style={{border:"1px dashed #0777AB"}}>ABOUT US</span></h3>
+                        {/* <h4 className='pb-4 fw-bold'>Transforming Ideas into Impactful Solutions</h4> */}
                         <p 
                             style={{ lineHeight: "25px", letterSpacing: "1px" }} 
                             className="mb-4"
@@ -58,9 +59,6 @@ const About = () => {
                     </Col>
                 </Row>
             </Container>
-            <div style={{height:"700px"}}>
-
-            </div>
         </>
     );
 };

@@ -306,6 +306,10 @@
   animation-play-state: running;
 }
 
+.footer-width {
+  width: 75%;
+}
+
 @media (max-width: 576px) and (min-width: 0px) {
   .game1 {
     width: 60px;
@@ -328,6 +332,9 @@
     top: -120px;
     right: 80px;
     z-index: 1000;
+  }
+  .footer-width {
+    width: 100%;
   }
 }
 @media (max-width: 1350px) and (min-width: 1199px) {

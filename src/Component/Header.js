@@ -42,7 +42,7 @@ const Header = () => {
                                 <Link className="nav-link px-4 text-blue" to="/" style={{ fontWeight:"600" , fontSize:"20px" }}> <FontAwesomeIcon icon={faHome} className='fs-6 pe-2'/>Home</Link>
                             </NavItem>
                             <ScrollLink
-                                className="nav-link px-4"
+                                className="nav-link px-4 text-black"
                                 to="aboutUsSection"
                                 spy={true}
                                 smooth={true}
@@ -53,7 +53,7 @@ const Header = () => {
                                 <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2'/>About us
                             </ScrollLink>
                             <ScrollLink
-                                className="nav-link px-4"
+                                className="nav-link px-4 text-black"
                                 to="portfolioSection"
                                 spy={true}
                                 smooth={true}
@@ -64,7 +64,7 @@ const Header = () => {
                                 <FontAwesomeIcon icon={faAddressCard} className='fs-6 pe-2'/> Portfolio
                             </ScrollLink>
                             <ScrollLink
-                                className={`nav-link px-4`}
+                                className={`nav-link px-4 text-black`}
                                 to="hiringSection"
                                 spy={true}
                                 smooth={true}
