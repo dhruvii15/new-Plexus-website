@@ -1,19 +1,16 @@
 /* eslint-disable */
 import React from 'react';
-import { Col, Container, Row } from 'reactstrap';
-
-// img
-import logo from "../img/logo.png"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { Container, Grid, Box, Typography, IconButton } from '@mui/material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import logo from '../img/logo.png';
 
 const Footer = () => {
     const handleLinkedInClick = () => {
         const linkedinUrl = 'https://www.linkedin.com/company/plexus-technology2024/';
-
         window.open(linkedinUrl, '_blank');
     };
-
 
     const handleWhatsappClick = () => {
         const phoneNumber = '+91 90238 38674';
@@ -22,55 +19,68 @@ const Footer = () => {
         window.open(whatsappUrl, '_blank');
     };
 
-
     const handleInstaClick = () => {
         const instaUrl = 'https://www.instagram.com/plexus_technology/?igsh=MWdkdWZheGxrZjZkZQ%3D%3D';
-
         window.open(instaUrl, '_blank');
     };
 
-
     return (
-        <div style={{ backgroundColor: "#080808", color: "#848484" }} className='overflow-hidden mx-4 rounded-5 mb-3'>
+        <Box sx={{ backgroundColor: '#080808', color: '#848484', overflow: 'hidden', mx: 3, borderRadius: 5, mb: 3 }}>
             <Container>
-
-                <Row className='d-flex align-items-center justify-content-center py-5 px-2'>
-                    <Col xs={12} lg={5} className='pt-4'>
-                        <h2 className='fw-bold text-white'>Plexus Technology</h2>
-                        <p className='pt-2'>305, A.R Mall, opp. panvel point,<br></br>
-                            mota varachha, 394101</p>
-                        <p className='fw-bold pt-3 m-0'><span className='text-white pe-2'>Phone : </span><span className='fw-normal'>+91 90238 38674</span></p>
-                        <p className='fw-bold'><span className='text-white pe-2'>Email : </span><span className='fw-normal'><a
-                            href="mailto:hr.plexustechnology@gmail.com?subject=Job%20Application&body=Dear%20HR,%0D%0A%0D%0AI%20am%20writing%20to%20express%20my%20interest%20in%20the%20available%20position%20at%20Plexus%20Technology.%20Please%20find%20my%20resume%20attached.%0D%0A%0D%0ABest%20regards,%0D%0A[Your%20Name]"
-                            className="text-decoration-none fs-6"
-                            style={{ fontWeight: "200", color: "#848484" }}
-                        >
-                            hr.plexustechnology@gmail.com
-                        </a></span></p>
-                    </Col>
-                    <Col xs={12} lg={7}>
-                        <div className='text-center pt-4 footer-width'>
-                            <img src={logo} alt='plexus-technology' className='img-fluid' width={220} />
-                            <div className='d-flex align-items-center justify-content-center gap-3 py-2 text-white ps-3'>
+                <Grid container spacing={2} alignItems="center" justifyContent="center" py={5} px={2}>
+                    <Grid item xs={12} lg={5} pt={4}>
+                        <Typography variant="h4" fontWeight="bold" color="white">
+                            Plexus Technology
+                        </Typography>
+                        <Typography variant="body1" pt={2}>
+                            305, A.R Mall, opp. panvel point,<br />
+                            mota varachha, 394101
+                        </Typography>
+                        <Typography variant="body1" fontWeight="bold" pt={3} m={0}>
+                            <span style={{ color: 'white', paddingRight: '8px' }}>Phone:</span>
+                            <span style={{ fontWeight: 'normal' }}>+91 90238 38674</span>
+                        </Typography>
+                        <Typography variant="body1" fontWeight="bold">
+                            <span style={{ color: 'white', paddingRight: '8px' }}>Email:</span>
+                            <span style={{ fontWeight: 'normal' }}>
+                                <a
+                                    href="mailto:hr.plexustechnology@gmail.com?subject=Job%20Application&body=Dear%20HR,%0D%0A%0D%0AI%20am%20writing%20to%20express%20my%20interest%20in%20the%20available%20position%20at%20Plexus%20Technology.%20Please%20find%20my%20resume%20attached.%0D%0A%0D%0ABest%20regards,%0D%0A[Your%20Name]"
+                                    style={{ textDecoration: 'none', fontSize: '1rem', color: '#848484' }}
+                                >
+                                    hr.plexustechnology@gmail.com
+                                </a>
+                            </span>
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} lg={7} textAlign="center" pt={3}>
+                        <Box pt={3}>
+                            <img src={logo} alt="plexus-technology" style={{ width: '220px', height: 'auto' }} />
+                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, py: 2, color: 'white' }}>
                                 <div className="common-footer hover-box box1" onClick={handleLinkedInClick}>
-                                    <FontAwesomeIcon icon={faLinkedin} className="hover-box2 fs-4" />
+                                    <IconButton>
+                                        <LinkedInIcon fontSize="large" className="hover-box2 hover1 fs-4 text-white"/>
+                                    </IconButton>
                                 </div>
                                 <div className="common-footer hover-box box2" onClick={handleWhatsappClick}>
-                                    <FontAwesomeIcon icon={faWhatsapp} className="hover-box2 fs-4" />
+                                    <IconButton>
+                                        <WhatsAppIcon fontSize="large" className="hover-box2 hover2 fs-4 text-white"/>
+                                    </IconButton>
                                 </div>
                                 <div className="common-footer hover-box box3" onClick={handleInstaClick}>
-                                    <FontAwesomeIcon icon={faInstagram} className="hover-box2 fs-4" />
+                                    <IconButton>
+                                        <InstagramIcon fontSize="large" className="hover-box2 hover3 fs-4 text-white"/>
+                                    </IconButton>
                                 </div>
-                            </div>
-                            <p style={{ fontSize: "14px" }} className='py-2'>All rights Reseverd . © Plexus Technology </p>
-                        </div>
-
-                    </Col>
-                </Row>
+                            </Box>
+                            <Typography variant="body2" py={2} style={{ fontSize: '14px' }}>
+                                All rights Reserved. © Plexus Technology
+                            </Typography>
+                        </Box>
+                    </Grid>
+                </Grid>
             </Container>
-
-        </div>
+        </Box>
     );
-}
+};
 
 export default Footer;

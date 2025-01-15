@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Col, Container, Row } from 'reactstrap';
+import React, { useState, useEffect } from "react";
+import { Box, Grid, Typography } from "@mui/material";
 
 // img
-import about from "../../img/about-us.gif"
+import about from "../../img/about-us.gif";
+import { Container } from "reactstrap";
 
 const About = () => {
     const [isImageVisible, setIsImageVisible] = useState(false);
@@ -19,62 +20,105 @@ const About = () => {
     }, []);
 
     return (
-        <>
-            <Container className="pb-5" id='aboutUsSection'>
-                <Row className="d-flex align-items-center justify-content-center">
-                    <Col xs={12} lg={6} className="pt-5">
-                        <div className={`image-animate ${isImageVisible ? 'visible' : ''}`}>
-                            <img 
-                                src={about} 
-                                alt="about-us" 
-                                className="img-fluid" 
-                            />
-                        </div>
-                    </Col>
-                    <Col 
-                        xs={12} 
-                        lg={6} 
-                        className={`px-5 pt-5 text-animate ${isTextVisible ? 'visible' : ''}`}
-                        style={{ fontSize: "17px" }}
+        <Container sx={{ pb: 5 }} id="aboutUsSection">
+            <Grid
+                container
+                alignItems="center"
+                justifyContent="center"
+                // spacing={2}
+                // sx={{ pb: 5 }}
+            >
+                <Grid item xs={12} lg={6} sx={{ pt: 5 }}>
+                    <Box
+                        className={`image-animate ${isImageVisible ? "visible" : ""}`}
+                        // sx={{ textAlign: "center" }}
                     >
-                        <h3 className="fw-bold pb-5"><span className='py-2 px-3 rounded-pill' style={{border:"1px dashed #0777AB"}}>ABOUT US</span></h3>
-                        {/* <h4 className='pb-4 fw-bold'>Transforming Ideas into Impactful Solutions</h4> */}
-                        <p 
-                            style={{ lineHeight: "25px", letterSpacing: "1px" }} 
-                            className="mb-4"
+                        <img src={about} alt="about-us" style={{ maxWidth: "100%" }} className="img-fluid" />
+                    </Box>
+                </Grid>
+                <Grid
+                    item
+                    xs={12}
+                    lg={6}
+                    className={`text-animate ${isTextVisible ? "visible" : ""}`}
+                    sx={{
+                        px: 5,
+                        pt: 5,
+                        fontSize: "17px",
+                        lineHeight: "25px",
+                        letterSpacing: "1px",
+                    }}
+                >
+                    <Typography
+                        variant="h5"
+                        sx={{
+                            fontWeight: "bold",
+                            pb: 5,
+                        }}
+                    >
+                        <Box
+                            component="span"
+                            sx={{
+                                py: 1,
+                                px: 3,
+                                borderRadius: "50px",
+                                border: "1px dashed #0777AB",
+                                display: "inline-block",
+                            }}
                         >
-                            At Plexus Technology, we transform visionary ideas into innovative 
-                            products that meet the ever-changing needs of businesses worldwide. 
-                            Since our founding in 2023, we've been pushing the limits of 
-                            technology, blending expertise with a commitment to excellence.
-                        </p>
-                        <p 
-                            style={{ lineHeight: "25px", letterSpacing: "1px" }}
-                        >
-                            Our team creates solutions that not only address today's challenges 
-                            but also anticipate future needs, ensuring our products stay ahead 
-                            of industry trends and empower businesses to succeed in a fast-paced 
-                            digital world.
-                        </p>
-                    </Col>
-                </Row>
+                            ABOUT US
+                        </Box>
+                    </Typography>
+                    <Typography
+                        paragraph
+                        sx={{
+                            mb: 4,
+                            lineHeight: "25px",
+                            letterSpacing: "1px",
+                        }}
+                    >
+                        At Plexus Technology, we transform visionary ideas into innovative
+                        products that meet the ever-changing needs of businesses worldwide.
+                        Since our founding in 2023, we've been pushing the limits of
+                        technology, blending expertise with a commitment to excellence.
+                    </Typography>
+                    <Typography
+                        sx={{
+                            lineHeight: "25px",
+                            letterSpacing: "1px",
+                        }}
+                    >
+                        Our team creates solutions that not only address today's challenges
+                        but also anticipate future needs, ensuring our products stay ahead
+                        of industry trends and empower businesses to succeed in a fast-paced
+                        digital world.
+                    </Typography>
+                </Grid>
+            </Grid>
 
-                {/* <Row className='py-4 my-4 d-flex flex-wrap align-items-center justify-content-center'>
-                    <Col xs={12} md={6} lg={3} className='border mt-3' style={{height:"400px"}}>
-                    
-                    </Col>
-                    <Col xs={12} md={6} lg={3} className='border mt-3' style={{height:"400px"}}>
-                    
-                    </Col>
-                    <Col xs={12} md={6} lg={3} className='border mt-3' style={{height:"400px"}}>
-                    
-                    </Col>
-                    <Col xs={12} md={6} lg={3} className='border mt-3' style={{height:"400px"}}>
-                    
-                    </Col>
-                </Row> */}
-            </Container>
-        </>
+            <Grid
+                container
+                spacing={2}
+                justifyContent="center"
+                alignItems="center"
+                sx={{ py: 4, my: 4 }}
+            >
+                {[...Array(4)].map((_, index) => (
+                    <Grid
+                        item
+                        xs={12}
+                        md={6}
+                        lg={3}
+                        key={index}
+                        sx={{
+                            border: "1px solid",
+                            mt: 3,
+                            height: "400px",
+                        }}
+                    ></Grid>
+                ))}
+            </Grid>
+        </Container>
     );
 };
 
