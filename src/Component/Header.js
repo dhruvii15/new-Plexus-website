@@ -1,120 +1,88 @@
+/* eslint-disable */
 import React, { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import { AppBar, Toolbar, IconButton, Typography, Box, Button, Drawer, List, ListItem, ListItemText, ListItemIcon } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import HomeIcon from '@mui/icons-material/Home';
-import PersonIcon from '@mui/icons-material/Person';
-import PortfolioIcon from '@mui/icons-material/Work';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import { Link as ScrollLink } from 'react-scroll';
+import { HashLink as Link } from 'react-router-hash-link';
+import { Container, NavbarBrand, Navbar, Nav, NavItem, NavbarToggler, Collapse } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAddressBook, faHome, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons/faBarsStaggered';
+import { Link as ScrollLink } from "react-scroll";
+
 
 // img
 import logo from '../img/logo.png';
+import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 
 const Header = () => {
-    const [drawerOpen, setDrawerOpen] = useState(false);
-
-    const toggleDrawer = (open) => (event) => {
-        if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-            return;
-        }
-        setDrawerOpen(open);
-    };
-
-    const navLinks = [
-        { label: 'Home', icon: <HomeIcon />, to: '/', type: 'link' },
-        { label: 'About Us', icon: <PersonIcon />, to: 'aboutUsSection', type: 'scroll' },
-        { label: 'Portfolio', icon: <PortfolioIcon />, to: 'portfolioSection', type: 'scroll' },
-        { label: 'Contact Us', icon: <ContactMailIcon />, to: 'hiringSection', type: 'scroll' },
-    ];
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
+   
 
     return (
-        <AppBar position="static" color="transparent" elevation={0}>
-            <Toolbar>
-                <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-                    <RouterLink to="/">
+        <div id="top">
+            <Container>
+                <Navbar expand="xl" className="h6-nav-bar pt-4">
+                    <NavbarBrand href="/">
                         <img
                             src={logo}
                             alt="Plexus"
-                            style={{ width: '200px', display: 'none' }}
-                            className="img-fluid d-sm-block"
+                            className="img-fluid d-none d-sm-block"  // Default large screen logo
+                            style={{ width: '200px' }}
                         />
                         <img
                             src={logo}
                             alt="Plexus"
-                            style={{ width: '150px', display: 'block' }}
-                            className="img-fluid d-sm-none"
+                            className="img-fluid d-block d-sm-none" // Small screen logo
+                            style={{ width: '150px' }}
                         />
-                    </RouterLink>
-                </Box>
-                <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                    {navLinks.map((link) => (
-                        link.type === 'link' ? (
-                            <Button
-                                key={link.label}
-                                component={RouterLink}
-                                to={link.to}
-                                sx={{ margin: '0 10px', fontSize: '20px', textTransform: 'none' }}
-                                startIcon={link.icon}
-                            >
-                                {link.label}
-                            </Button>
-                        ) : (
-                            <ScrollLink
-                                key={link.label}
-                                to={link.to}
+                    </NavbarBrand>
+                    <NavbarToggler onClick={toggle}><span> <FontAwesomeIcon icon={faBarsStaggered} className='fs-3' /> </span></NavbarToggler>
+                    <Collapse isOpen={isOpen} navbar className="font-18" id="h6-info">
+                        <Nav navbar className='ms-auto'>
+                            <NavItem>
+                                <Link className="nav-link px-4 text-blue" to="/" style={{ fontSize:"20px" }}> <FontAwesomeIcon icon={faHome} className='fs-6 pe-2'/>Home</Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link className="nav-link px-4 text-black" to="/about-us" style={{ fontSize:"20px" }}> <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2'/>About us</Link>
+                            </NavItem>
+                            {/* <ScrollLink
+                                className="nav-link px-4 text-black"
+                                to="aboutUsSection"
                                 spy={true}
                                 smooth={true}
                                 offset={-70}
                                 duration={200}
-                                style={{ textDecoration: 'none', margin: '0 10px', fontSize: '20px', display: 'flex', alignItems: 'center', cursor: 'pointer' }}
+                                style={{ cursor: "pointer" , fontSize:"20px" }} // Scroll duration in milliseconds
                             >
-                                {link.icon}
-                                <Typography sx={{ marginLeft: 1 }}>{link.label}</Typography>
+                                <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2'/>About us
+                            </ScrollLink> */}
+                            <ScrollLink
+                                className="nav-link px-4 text-black"
+                                to="portfolioSection"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={200}
+                                style={{ cursor: "pointer" , fontSize:"20px" }} // Scroll duration in milliseconds
+                            >
+                                <FontAwesomeIcon icon={faAddressCard} className='fs-6 pe-2'/> Portfolio
                             </ScrollLink>
-                        )
-                    ))}
-                </Box>
-                <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                    <IconButton color="inherit" edge="start" onClick={toggleDrawer(true)}>
-                        <MenuIcon />
-                    </IconButton>
-                    <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer(false)}>
-                        <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
-                            <List>
-                                {navLinks.map((link) => (
-                                    <ListItem button key={link.label}>
-                                        {link.type === 'link' ? (
-                                            <Button
-                                                component={RouterLink}
-                                                to={link.to}
-                                                sx={{ width: '100%', justifyContent: 'flex-start', textTransform: 'none' }}
-                                                startIcon={link.icon}
-                                            >
-                                                {link.label}
-                                            </Button>
-                                        ) : (
-                                            <ScrollLink
-                                                to={link.to}
-                                                spy={true}
-                                                smooth={true}
-                                                offset={-70}
-                                                duration={200}
-                                                style={{ textDecoration: 'none', width: '100%' }}
-                                            >
-                                                <ListItemIcon>{link.icon}</ListItemIcon>
-                                                <ListItemText primary={link.label} />
-                                            </ScrollLink>
-                                        )}
-                                    </ListItem>
-                                ))}
-                            </List>
-                        </Box>
-                    </Drawer>
-                </Box>
-            </Toolbar>
-        </AppBar>
+                            <ScrollLink
+                                className={`nav-link px-4 text-black`}
+                                to="hiringSection"
+                                spy={true}
+                                smooth={true}
+                                offset={-70}
+                                duration={200}
+                                style={{ cursor: "pointer", fontSize:"20px"  }} // Scroll duration in milliseconds
+                            >
+                                <FontAwesomeIcon icon={faAddressBook} className='fs-6 pe-2'/> Contact us
+                            </ScrollLink>
+                        </Nav>
+                    </Collapse>
+                </Navbar>
+            </Container>
+        </div>
     );
-};
+}
 
 export default Header;

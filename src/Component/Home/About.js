@@ -20,7 +20,7 @@ const About = () => {
     }, []);
 
     return (
-        <Container sx={{ pb: 5 }} id="aboutUsSection">
+        <Container sx={{ pb: 5 }}>
             <Grid
                 container
                 alignItems="center"

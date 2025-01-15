@@ -6,7 +6,6 @@ import { faArrowUp, faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons
 import axios from 'axios';
 
 const Header = lazy(() => import('../Component/Header'));
-const About = lazy(() => import('../Component/Home/About'));
 const Hero = lazy(() => import('../Component/Home/HeroSection'));
 const Footer = lazy(() => import('../Component/Footer'));
 
@@ -58,7 +57,6 @@ const Home = () => {
                 <Suspense fallback={<Loading />}>
                     <Header />
                     <Hero />
-                    <About />
                     <Footer />
                 </Suspense>
             )}

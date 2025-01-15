@@ -185,8 +185,9 @@
 }
 
 .border-circle {
-  height: 600px;
-  width: 600px;
+  height: 550px;
+  width: 550px;
+  border: 1px solid #EEEEEE;
   border-radius: 50%;
 }
 
@@ -209,7 +210,7 @@
 
 .game1 {
   position: absolute !important;
-  top: 110px;
+  top: 80px;
   left: 40px;
   transform: rotate(-15deg);
   width: 115px;
@@ -220,49 +221,117 @@
   bottom: 130px;
   right: 30px;
   transform: rotate(-15deg);
-  width: 115px;
+  width: 100px;
+}
+
+.lol {
+  position: absolute !important;
+  top: 60px;
+  left: 40px;
+  transform: rotate(-15deg);
+  width: 80px;
+}
+
+.prankster {
+  position: absolute !important;
+  bottom: 80px;
+  right: 50px;
+  transform: rotate(30deg);
+  width: 80px;
 }
 
 .developer {
   position: absolute;
-  bottom: 110px;
+  bottom: 50px;
   right: 250px;
-  animation: translateYInfinite 3s infinite; /* Animation with 2s duration and infinite repeat */
+  animation: translateYInfinite 3s infinite;
+  /* Animation with 2s duration and infinite repeat */
 }
 
+.first-div {
+  animation: firstDivAnimation 15s linear infinite;
+  transform: scale(1);
+  opacity: 1;
+  animation-delay: 3s;
+}
+
+.sec-div {
+  transform: scale(0);
+  opacity: 0;
+  animation: secondDivAnimation 15s linear infinite;
+  animation-delay: 3s;
+}
+
+@keyframes firstDivAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  40%, 90% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+@keyframes secondDivAnimation {
+  90%, 0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  40% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50%, 80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 @keyframes translateYInfinite {
   0% {
-    transform: translateY(0); /* Starting position */
+    transform: translateY(0);
+    /* Starting position */
   }
   50% {
-    transform: translateY(-25px); /* Move up by 50px */
+    transform: translateY(-25px);
+    /* Move up by 50px */
   }
   100% {
-    transform: translateY(0); /* Return to the starting position */
+    transform: translateY(0);
+    /* Return to the starting position */
   }
 }
 .designer {
   position: absolute;
   bottom: -30px;
   right: -80px;
-  animation: RotateInfinite 6s infinite; /* Animation with 2s duration and infinite repeat */
+  animation: RotateInfinite 6s infinite;
+  /* Animation with 2s duration and infinite repeat */
 }
 
 @keyframes RotateInfinite {
   0% {
-    transform: translateY(0); /* Starting position */
+    transform: translateY(0);
+    /* Starting position */
   }
   25% {
-    transform: translateX(20px); /* Move up by 50px */
+    transform: translateX(20px);
+    /* Move up by 50px */
   }
   50% {
-    transform: translateY(20px); /* Return to the starting position */
+    transform: translateY(20px);
+    /* Return to the starting position */
   }
   75% {
-    transform: translateX(-20px); /* Return to the starting position */
+    transform: translateX(-20px);
+    /* Return to the starting position */
   }
   100% {
-    transform: translateY(0px); /* Return to the starting position */
+    transform: translateY(0px);
+    /* Return to the starting position */
   }
 }
 @keyframes slideInFromLeft {
@@ -385,11 +454,21 @@
 @media (max-width: 576px) and (min-width: 0px) {
   .game1 {
     width: 60px;
-    top: 50px;
+    top: 40px;
     left: 20px;
   }
   .game2 {
     width: 60px;
+    bottom: 50px;
+    right: 20px;
+  }
+  .lol {
+    width: 50px !important;
+    top: 30px;
+    left: 20px;
+  }
+  .prankster {
+    width: 50px !important;
     bottom: 50px;
     right: 20px;
   }
@@ -438,6 +517,16 @@
     bottom: 85px;
     right: 20px;
   }
+  .lol {
+    width: 60px;
+    top: 85px;
+    left: 40px;
+  }
+  .prankster {
+    width: 60px;
+    bottom: 85px;
+    right: 50px;
+  }
 }
 @media (max-width: 850px) and (min-width: 605px) {
   .fixed-button {
@@ -457,13 +546,22 @@
   .game1 {
     top: 80px;
     left: 40px;
-    transform: rotate(-20deg);
     width: 90px;
   }
   .game2 {
     bottom: 80px;
     right: 40px;
     width: 90px;
+  }
+  .lol {
+    top: 60px;
+    left: 60px;
+    width: 70px;
+  }
+  .prankster {
+    bottom: 80px;
+    right: 50px;
+    width: 70px;
   }
 }
 @media (max-width: 604px) and (min-width: 450px) {
@@ -487,6 +585,16 @@
     width: 80px;
   }
   .game2 {
+    bottom: 60px;
+    right: 30px;
+    width: 80px;
+  }
+  .lol {
+    top: 60px;
+    left: 30px;
+    width: 80px;
+  }
+  .prankster {
     bottom: 60px;
     right: 30px;
     width: 80px;
