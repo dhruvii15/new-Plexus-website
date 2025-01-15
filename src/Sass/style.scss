@@ -188,7 +188,7 @@
 
 // ================== hero-Section ==============
 .about-us {
-    // background-image: url("../img/slider-bg.png");
+    // background-image: url("../img/about-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
@@ -207,7 +207,7 @@
 .border-circle {
     height: 550px;
     width: 550px;
-    border: 1px solid #EEEEEE;
+    // border: 1px solid #EEEEEE;
     border-radius: 50%;
     // background-color: white;
 }
@@ -271,7 +271,7 @@
 
 
 .first-div {
-    animation: firstDivAnimation 15s linear infinite;
+    animation: firstDivAnimation 13s linear infinite;
     transform: scale(1);
     opacity: 1;
     animation-delay: 3s;
@@ -280,7 +280,7 @@
 .sec-div {
     transform: scale(0);
     opacity: 0;
-    animation: secondDivAnimation 15s linear infinite;
+    animation: secondDivAnimation 13s linear infinite;
     animation-delay: 3s;
 }
 
@@ -377,6 +377,16 @@
 }
 
 // ====================About-us ===================
+.about-bg {
+    // background-image: url("../img/about-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 30px;
+    background-color: rgb(235, 241, 250);
+    border: 1px solid #EEEEEE;
+}
+
 @keyframes slideInFromLeft {
     0% {
         transform: translateY(-150px);
@@ -421,6 +431,32 @@
 .text-animate.visible {
     animation-play-state: running;
 }
+
+// ================= Vision , Mission ======================
+.about-box{
+    width: 75px;
+    height: 75px;
+    line-height: 75px;
+    // background-color: rgb(250, 223, 195);
+    border: 1px dashed #0777AB ;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.main-box {
+    perspective: 1000px; /* Creates a 3D effect for the flip */
+}
+
+.about-box img {
+    transition: transform 0.5s linear; /* Smooth transition for flip effect */
+    transform-style: preserve-3d; /* Ensures the 3D effect works properly */
+}
+
+.main-box:hover .about-box img {
+    animation: none; /* Remove animation */
+    transform: rotateY(180deg); /* Apply the flip */
+}
+
 
 //   ================== Footer ====================
 .fixed-top-btn {
