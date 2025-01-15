@@ -125,40 +125,6 @@ const About = () => {
                             </p>
                         </div>
                     </Col>
-                    {/* <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
-                        <div className="px-3 py-4 rounded-2 shadow main-box flex-grow-1">
-                            <Row>
-                                <Col xs={12} lg={3}>
-                                    <div className="about-box">
-                                        <img src={mission} alt="vision" width={30} className="img-fluid" />
-                                    </div>
-                                </Col>
-                                <Col xs={12} lg={9} className="pt-3">
-                                    <p className="h4 fw-bold mb-3">Our Mission</p>
-                                    <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
-                                        Our mission is to deliver exceptional technology services by combining creativity, expertise, and customer-centric approaches, ensuring every client achieves their digital transformation goals.
-                                    </p>
-                                </Col>
-                            </Row>
-                        </div>
-                    </Col>
-                    <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
-                        <div className="px-3 py-4 rounded-2 shadow main-box flex-grow-1">
-                            <Row>
-                                <Col xs={12} lg={3}>
-                                    <div className="about-box">
-                                        <img src={commitment} alt="vision" width={50} className="img-fluid" />
-                                    </div>
-                                </Col>
-                                <Col xs={12} lg={9} className="pt-3">
-                                    <p className="h4 fw-bold mb-3">Our Goal</p>
-                                    <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
-                                        Our goal is to be the preferred global partner for IT services by consistently exceeding client expectations through quality, innovation, and trust.
-                                    </p>
-                                </Col>
-                            </Row>
-                        </div>
-                    </Col> */}
                 </Row>
 
 

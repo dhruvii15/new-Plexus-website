@@ -10,6 +10,7 @@ const Hero = lazy(() => import('../Component/Home/HeroSection'));
 const Footer = lazy(() => import('../Component/Footer'));
 const Touch = lazy(() => import('../Component/Home/Touch'));
 const Stack = lazy(() => import('../Component/Home/Stack'));
+const WhyUs = lazy(() => import('../Component/Home/WhyUs'));
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -59,6 +60,7 @@ const Home = () => {
                 <Suspense fallback={<Loading />}>
                     <Header />
                     <Hero />
+                    <WhyUs />
                     <Stack />
                     <Touch />
                     <Footer />
