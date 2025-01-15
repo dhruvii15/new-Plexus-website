@@ -39,7 +39,7 @@ const About = () => {
                 >
                     <Grid item xs={12} lg={6} sx={{ pt: 5 }}>
                         <Box
-                            // className={`image-animate ${isImageVisible ? "visible" : ""}`}
+                            className={`image-animate ${isImageVisible ? "visible" : ""}`}
                         // sx={{ textAlign: "center" }}
                         >
                             <img src={about} alt="about-us" style={{ maxWidth: "100%" }} className="img-fluid" />
@@ -49,7 +49,7 @@ const About = () => {
                         item
                         xs={12}
                         lg={6}
-                        // className={`text-animate ${isTextVisible ? "visible" : ""}`}
+                        className={`text-animate ${isTextVisible ? "visible" : ""}`}
                         sx={{
                             px: 5,
                             pt: 5,
