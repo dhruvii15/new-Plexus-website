@@ -7,8 +7,6 @@ const Footer = lazy(() => import('../Component/Footer'));
 const Touch = lazy(() => import('../Component/Home/Touch'));
 
 const AboutUs = () => {
-
-
     return (
         <>
             <Suspense fallback={<Loading />}>

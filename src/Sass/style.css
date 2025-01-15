@@ -393,6 +393,8 @@
   border: 1px dashed #0777AB;
   border-radius: 8px;
   text-align: center;
+  position: absolute;
+  top: -40px;
 }
 
 .main-box {

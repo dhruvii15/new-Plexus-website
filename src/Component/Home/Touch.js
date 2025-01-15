@@ -15,7 +15,7 @@ const Touch = () => {
         <div className="py-5 mb-5 px-4">
             <div className="bg-blue p-4 p-sm-5" style={{ borderRadius: "24px" }}>
                 <div className="d-flex flex-column align-items-center text-white px-0 px-lg-5 justify-content-center">
-                    <h4 style={{ fontWeight: "600" }} className="pb-2">INQUIRY</h4>
+                    {/* <h4 style={{ fontWeight: "600" }} className="pb-2">INQUIRY</h4> */}
                     <h2 style={{ fontWeight: "700" }}>Let’s Get in Touch</h2>
 
                     <Row className="w-100 pt-3">

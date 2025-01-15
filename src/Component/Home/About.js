@@ -93,23 +93,39 @@ const About = () => {
                     <p className="text-center fs-1 py-4">"Making our mission a reality<br></br>
                         one step at a time”</p>
                     <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
-                        <div className="px-3 py-4 rounded-2 shadow main-box flex-grow-1">
-                            <Row>
-                                <Col xs={12} lg={3}>
-                                    <div className="about-box">
-                                        <img src={vision} alt="vision" width={50} className="img-fluid" />
-                                    </div>
-                                </Col>
-                                <Col xs={12} lg={9} className="pt-3">
-                                    <p className="h4 fw-bold mb-3">Our Vision</p>
-                                    <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
-                                        Our vision is to empower businesses with innovative and reliable IT solutions that drive growth and create lasting impact.
-                                    </p>
-                                </Col>
-                            </Row>
+                        <div className="px-3 py-4 rounded-2 mt-5 shadow main-box flex-grow-1 position-relative">
+                            <div className="about-box">
+                                <img src={vision} alt="vision" width={50} className="img-fluid" />
+                            </div>
+                            <p className="h4 fw-bold mb-3 mt-4">Our Vision</p>
+                            <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
+                                Our vision is to empower businesses with innovative and reliable IT solutions that drive growth and create lasting impact.
+                            </p>
                         </div>
                     </Col>
                     <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
+                        <div className="px-3 py-4 rounded-2 mt-5 shadow main-box flex-grow-1 position-relative">
+                            <div className="about-box">
+                                <img src={mission} alt="vision" width={30} className="img-fluid" />
+                            </div>
+                            <p className="h4 fw-bold mb-3 mt-4">Our Vision</p>
+                            <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
+                                Our vision is to empower businesses with innovative and reliable IT solutions that drive growth and create lasting impact.
+                            </p>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
+                        <div className="px-3 py-4 rounded-2 mt-5 shadow main-box flex-grow-1 position-relative">
+                            <div className="about-box">
+                                <img src={commitment} alt="vision" width={50} className="img-fluid" />
+                            </div>
+                            <p className="h4 fw-bold mb-3 mt-4">Our Vision</p>
+                            <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
+                                Our vision is to empower businesses with innovative and reliable IT solutions that drive growth and create lasting impact.
+                            </p>
+                        </div>
+                    </Col>
+                    {/* <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
                         <div className="px-3 py-4 rounded-2 shadow main-box flex-grow-1">
                             <Row>
                                 <Col xs={12} lg={3}>
@@ -142,7 +158,7 @@ const About = () => {
                                 </Col>
                             </Row>
                         </div>
-                    </Col>
+                    </Col> */}
                 </Row>
 
 
