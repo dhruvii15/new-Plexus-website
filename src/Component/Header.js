@@ -1,5 +1,6 @@
 /* eslint-disable */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom'; // Hook to get the current location
 import { HashLink as Link } from 'react-router-hash-link';
 import { Container, NavbarBrand, Navbar, Nav, NavItem, NavbarToggler, Collapse } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -7,15 +8,26 @@ import { faAddressBook, faHome, faUserTie } from '@fortawesome/free-solid-svg-ic
 import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons/faBarsStaggered';
 import { Link as ScrollLink } from "react-scroll";
 
-
 // img
 import logo from '../img/logo.png';
 import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [activeLink, setActiveLink] = useState(""); // Track the active link
+    const location = useLocation(); // Get the current location
+
     const toggle = () => setIsOpen(!isOpen);
-   
+
+    // Update active link based on current path
+    useEffect(() => {
+        const path = location.pathname;
+        if (path === "/") {
+            setActiveLink("home");
+        } else if (path === "/about-us") {
+            setActiveLink("about");
+        }
+    }, [location.pathname]); // Run whenever the path changes
 
     return (
         <div id="top">
@@ -35,54 +47,65 @@ const Header = () => {
                             style={{ width: '150px' }}
                         />
                     </NavbarBrand>
-                    <NavbarToggler onClick={toggle}><span> <FontAwesomeIcon icon={faBarsStaggered} className='fs-3' /> </span></NavbarToggler>
+                    <NavbarToggler onClick={toggle}>
+                        <span>
+                            <FontAwesomeIcon icon={faBarsStaggered} className='fs-3' />
+                        </span>
+                    </NavbarToggler>
                     <Collapse isOpen={isOpen} navbar className="font-18" id="h6-info">
                         <Nav navbar className='ms-auto'>
                             <NavItem>
-                                <Link className="nav-link px-4 text-blue" to="/" style={{ fontSize:"20px" }}> <FontAwesomeIcon icon={faHome} className='fs-6 pe-2'/>Home</Link>
+                                <Link 
+                                    className={`nav-link px-4 ${activeLink === "home" ? "text-blue" : "text-black"}`} 
+                                    to="/" 
+                                    style={{ fontSize: "20px" }}
+                                >
+                                    <FontAwesomeIcon icon={faHome} className='fs-6 pe-2' />Home
+                                </Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link px-4 text-black" to="/about-us" style={{ fontSize:"20px" }}> <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2'/>About us</Link>
+                                <Link 
+                                    className={`nav-link px-4 ${activeLink === "about" ? "text-blue" : "text-black"}`} 
+                                    to="/about-us" 
+                                    style={{ fontSize: "20px" }}
+                                >
+                                    <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2' />About us
+                                </Link>
                             </NavItem>
-                            {/* <ScrollLink
-                                className="nav-link px-4 text-black"
-                                to="aboutUsSection"
-                                spy={true}
-                                smooth={true}
-                                offset={-70}
-                                duration={200}
-                                style={{ cursor: "pointer" , fontSize:"20px" }} // Scroll duration in milliseconds
-                            >
-                                <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2'/>About us
-                            </ScrollLink> */}
-                            <ScrollLink
-                                className="nav-link px-4 text-black"
-                                to="portfolioSection"
-                                spy={true}
-                                smooth={true}
-                                offset={-70}
-                                duration={200}
-                                style={{ cursor: "pointer" , fontSize:"20px" }} // Scroll duration in milliseconds
-                            >
-                                <FontAwesomeIcon icon={faAddressCard} className='fs-6 pe-2'/> Portfolio
-                            </ScrollLink>
-                            <ScrollLink
-                                className={`nav-link px-4 text-black`}
-                                to="hiringSection"
-                                spy={true}
-                                smooth={true}
-                                offset={-70}
-                                duration={200}
-                                style={{ cursor: "pointer", fontSize:"20px"  }} // Scroll duration in milliseconds
-                            >
-                                <FontAwesomeIcon icon={faAddressBook} className='fs-6 pe-2'/> Contact us
-                            </ScrollLink>
+                            <NavItem>
+                                <ScrollLink
+                                    className={`nav-link px-4 ${activeLink === "portfolio" ? "text-blue" : "text-black"}`}
+                                    to="portfolioSection"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-70}
+                                    duration={200}
+                                    style={{ cursor: "pointer", fontSize: "20px" }}
+                                    onSetActive={() => setActiveLink("portfolio")}
+                                >
+                                    <FontAwesomeIcon icon={faAddressCard} className='fs-6 pe-2' /> Portfolio
+                                </ScrollLink>
+                            </NavItem>
+                            <NavItem>
+                                <ScrollLink
+                                    className={`nav-link px-4 ${activeLink === "contact" ? "text-blue" : "text-black"}`}
+                                    to="hiringSection"
+                                    spy={true}
+                                    smooth={true}
+                                    offset={-70}
+                                    duration={200}
+                                    style={{ cursor: "pointer", fontSize: "20px" }}
+                                    onSetActive={() => setActiveLink("contact")}
+                                >
+                                    <FontAwesomeIcon icon={faAddressBook} className='fs-6 pe-2' /> Contact us
+                                </ScrollLink>
+                            </NavItem>
                         </Nav>
                     </Collapse>
                 </Navbar>
             </Container>
         </div>
     );
-}
+};
 
 export default Header;

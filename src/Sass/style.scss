@@ -271,7 +271,7 @@
 
 
 .first-div {
-    animation: firstDivAnimation 13s linear infinite;
+    animation: firstDivAnimation 8s linear infinite;
     transform: scale(1);
     opacity: 1;
     animation-delay: 3s;
@@ -280,7 +280,7 @@
 .sec-div {
     transform: scale(0);
     opacity: 0;
-    animation: secondDivAnimation 13s linear infinite;
+    animation: secondDivAnimation 8s linear infinite;
     animation-delay: 3s;
 }
 
@@ -378,13 +378,13 @@
 
 // ====================About-us ===================
 .about-bg {
-    // background-image: url("../img/about-bg.jpg");
+    background-image: url("../img/about-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    border-radius: 30px;
+    // border-radius: 30px;
     background-color: rgb(235, 241, 250);
-    border: 1px solid #EEEEEE;
+    // border: 1px solid #EEEEEE;
 }
 
 @keyframes slideInFromLeft {

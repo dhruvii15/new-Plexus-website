@@ -25,8 +25,8 @@ const About = () => {
     return (
         <>
 
-            <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px" }}>
-                <h1 className="hero-title">About Us</h1>
+            <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px"}}>
+                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{background:'rgba(193, 195, 195, 0.63)' , lineHeight:"260px"}}>About Us</h1>
             </div>
 
             <Container sx={{ pb: 5 }}>
