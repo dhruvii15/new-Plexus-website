@@ -4,6 +4,7 @@ import Loading from '../Component/Loading';
 const Header = lazy(() => import('../Component/Header'));
 const About = lazy(() => import('../Component/Home/About'));
 const Footer = lazy(() => import('../Component/Footer'));
+const Touch = lazy(() => import('../Component/Home/Touch'));
 
 const AboutUs = () => {
 
@@ -13,6 +14,7 @@ const AboutUs = () => {
             <Suspense fallback={<Loading />}>
                 <Header />
                 <About />
+                <Touch />
                 <Footer />
             </Suspense>
         </>

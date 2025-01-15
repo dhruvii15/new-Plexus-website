@@ -8,6 +8,7 @@ import axios from 'axios';
 const Header = lazy(() => import('../Component/Header'));
 const Hero = lazy(() => import('../Component/Home/HeroSection'));
 const Footer = lazy(() => import('../Component/Footer'));
+const Touch = lazy(() => import('../Component/Home/Touch'));
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -57,6 +58,7 @@ const Home = () => {
                 <Suspense fallback={<Loading />}>
                     <Header />
                     <Hero />
+                    <Touch />
                     <Footer />
                 </Suspense>
             )}
