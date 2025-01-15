@@ -67,6 +67,10 @@
   font-size: 12px;
 }
 
+.space {
+  letter-spacing: 1px;
+}
+
 .textImg {
   display: block;
   animation: heart 2s ease infinite;
@@ -479,6 +483,19 @@
 
 .hover-box:hover .hover-box2 {
   transform: rotateZ(360deg);
+}
+
+.stack-box {
+  height: 80px;
+  width: 80px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.download-btn {
+  width: 200px;
+  height: 60px;
 }
 
 @media (max-width: 576px) and (min-width: 0px) {

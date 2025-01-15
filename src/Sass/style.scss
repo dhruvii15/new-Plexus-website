@@ -67,7 +67,9 @@
     font-size: 12px;
 }
 
-
+.space{
+    letter-spacing: 1px;
+}
 // =========== Header ================
 .textImg {
     display: block;
@@ -535,6 +537,20 @@
 
 .hover-box:hover .hover-box2 {
     transform: rotateZ(360deg);
+}
+
+// ================= Stack section ====================
+.stack-box{
+    height: 80px;
+    width: 80px;
+    line-height: 80px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.download-btn{
+    width: 200px;
+    height: 60px;
 }
 
 // ================== Responsive ==================

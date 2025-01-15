@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { Col, Container, Row } from "reactstrap";
 
@@ -9,24 +9,10 @@ import mission from "../../img/mision.svg";
 import commitment from "../../img/commitemet.svg";
 
 const About = () => {
-    const [isImageVisible, setIsImageVisible] = useState(false);
-    const [isTextVisible, setIsTextVisible] = useState(false);
-
-    useEffect(() => {
-        const imageTimer = setTimeout(() => setIsImageVisible(true), 100);
-        const textTimer = setTimeout(() => setIsTextVisible(true), 600);
-
-        return () => {
-            clearTimeout(imageTimer);
-            clearTimeout(textTimer);
-        };
-    }, []);
-
     return (
         <>
-
-            <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px"}}>
-                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{background:'rgba(193, 195, 195, 0.63)' , lineHeight:"260px"}}>About Us</h1>
+            <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px" }}>
+                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px" }}>About Us</h1>
             </div>
 
             <Container sx={{ pb: 5 }}>
@@ -39,7 +25,6 @@ const About = () => {
                 >
                     <Grid item xs={12} lg={6} sx={{ pt: 5 }}>
                         <Box
-                            className={`image-animate ${isImageVisible ? "visible" : ""}`}
                         // sx={{ textAlign: "center" }}
                         >
                             <img src={about} alt="about-us" style={{ maxWidth: "100%" }} className="img-fluid" />
@@ -49,7 +34,6 @@ const About = () => {
                         item
                         xs={12}
                         lg={6}
-                        className={`text-animate ${isTextVisible ? "visible" : ""}`}
                         sx={{
                             px: 5,
                             pt: 5,
@@ -107,7 +91,7 @@ const About = () => {
 
                 <Row className="d-flex align-items-stretch justify-content-center my-5 py-5">
                     <p className="text-center fs-1 py-4">"Making our mission a reality<br></br>
-                    one step at a time”</p>
+                        one step at a time”</p>
                     <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
                         <div className="px-3 py-4 rounded-2 shadow main-box flex-grow-1">
                             <Row>
