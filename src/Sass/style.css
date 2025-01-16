@@ -516,7 +516,7 @@
 }
 
 .image-box-reverse {
-  transform: translateX(-100px);
+  transform: translateX(-130px);
 }
 
 .image-box2 {
@@ -642,6 +642,9 @@
     width: 60px;
     bottom: 85px;
     right: 50px;
+  }
+  .image-box-reverse {
+    transform: translateX(-270px);
   }
 }
 @media (max-width: 850px) and (min-width: 605px) {

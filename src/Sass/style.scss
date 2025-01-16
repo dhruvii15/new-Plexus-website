@@ -572,7 +572,7 @@
     transform: translateX(70px);
 }
 .image-box-reverse{
-    transform: translateX(-100px);
+    transform: translateX(-130px);
 }
 
 
@@ -721,6 +721,10 @@
         width: 60px;
         bottom: 85px;
         right: 50px;
+    }
+
+    .image-box-reverse{
+        transform: translateX(-270px);
     }
 }
 

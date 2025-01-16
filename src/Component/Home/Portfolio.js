@@ -49,18 +49,18 @@ const Portfolio = ({ portfolio }) => {
             <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px" }}>
                 <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px" }}>Portfolio</h1>
             </div>
-            <Container className="py-5">
+            <Container className="pt-5">
                 <p className="text-center fs-2 pt-5">"Transforming Ideas into Reality through <br></br>Innovation and Technology"</p>
                 <div className="pb-5">
                     {portfolio && portfolio.length > 0 ? (
                         portfolio.map((item, i) => (
                             <Row
                                 key={i}
-                                className={`border rounded-4 overflow-hidden d-flex align-items-center ${i % 2 === 1 ? "flex-md-row-reverse" : "flex-column-reverse flex-md-row"
+                                className={`border rounded-4 overflow-hidden d-flex align-items-center ${i % 2 === 1 ? "flex-lg-row-reverse" : "flex-column-reverse flex-lg-row"
                                     }`}
                                 style={{ backgroundColor: "#F3F7F7", margin: "90px 0px" }}
                             >
-                                <Col xs={12} md={6} className="h-100 mx-auto ps-5 py-4">
+                                <Col xs={12} lg={6} className="h-100 mx-auto ps-5 py-4">
                                     <h2 className="fw-bold pb-3">{item.title}</h2>
                                     <DescriptionWithReadMore description={item.description} />
 
@@ -90,8 +90,8 @@ const Portfolio = ({ portfolio }) => {
                                         </a>
                                     </div>
                                 </Col>
-                                <Col xs={12} md={6} className="p-0">
-                                    <div className={`portfolio-box ${i % 2 === 1 ? "image-box-reverse" : "image-box"} d-none d-md-block`}>
+                                <Col xs={12} lg={6} className="p-0">
+                                    <div className={`portfolio-box ${i % 2 === 1 ? "image-box-reverse" : "image-box"} d-none d-lg-block`}>
                                         <Row className="d-flex align-items-center justify-content-center h-100">
                                             {[...Array(3)].map((_, colIndex) => (
                                                 <Col xs={4} className={`h-100 ${i % 2 === 1 ? "animation-col-reverse" : "animation-col"}`} key={colIndex}>
@@ -117,7 +117,7 @@ const Portfolio = ({ portfolio }) => {
                                             ))}
                                         </Row>
                                     </div>
-                                    <div className="portfolio-box2 image-box2 d-block d-md-none overflow-hidden shadow">
+                                    <div className="portfolio-box2 image-box2 d-block d-lg-none overflow-hidden shadow">
                                         <Row className="d-flex align-items-center justify-content-center h-100">
                                             {[...Array(3)].map((_, colIndex) => (
                                                 <Col xs={4} className="h-100 animation-col" key={colIndex}>
