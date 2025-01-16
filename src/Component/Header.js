@@ -26,6 +26,8 @@ const Header = () => {
             setActiveLink("home");
         } else if (path === "/about-us") {
             setActiveLink("about");
+        }else if (path === "/portfolio") {
+            setActiveLink("portfolio");
         }
     }, [location.pathname]); // Run whenever the path changes
 
@@ -55,36 +57,31 @@ const Header = () => {
                     <Collapse isOpen={isOpen} navbar className="font-18" id="h6-info">
                         <Nav navbar className='ms-auto'>
                             <NavItem>
-                                <Link 
-                                    className={`nav-link px-4 ${activeLink === "home" ? "text-blue" : "text-black"}`} 
-                                    to="/" 
+                                <Link
+                                    className={`nav-link px-4 ${activeLink === "home" ? "text-blue" : "text-black"}`}
+                                    to="/"
                                     style={{ fontSize: "20px" }}
                                 >
                                     <FontAwesomeIcon icon={faHome} className='fs-6 pe-2' />Home
                                 </Link>
                             </NavItem>
                             <NavItem>
-                                <Link 
-                                    className={`nav-link px-4 ${activeLink === "about" ? "text-blue" : "text-black"}`} 
-                                    to="/about-us" 
+                                <Link
+                                    className={`nav-link px-4 ${activeLink === "about" ? "text-blue" : "text-black"}`}
+                                    to="/about-us"
                                     style={{ fontSize: "20px" }}
                                 >
                                     <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2' />About us
                                 </Link>
                             </NavItem>
                             <NavItem>
-                                <ScrollLink
+                                <Link
                                     className={`nav-link px-4 ${activeLink === "portfolio" ? "text-blue" : "text-black"}`}
-                                    to="portfolioSection"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={200}
-                                    style={{ cursor: "pointer", fontSize: "20px" }}
-                                    onSetActive={() => setActiveLink("portfolio")}
+                                    to="/portfolio"
+                                    style={{ fontSize: "20px" }}
                                 >
-                                    <FontAwesomeIcon icon={faAddressCard} className='fs-6 pe-2' /> Portfolio
-                                </ScrollLink>
+                                    <FontAwesomeIcon icon={faAddressCard} className='fs-6 pe-2' />Portfolio
+                                </Link>
                             </NavItem>
                             <NavItem>
                                 <ScrollLink

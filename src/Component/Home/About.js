@@ -108,9 +108,9 @@ const About = () => {
                             <div className="about-box">
                                 <img src={mission} alt="vision" width={30} className="img-fluid" />
                             </div>
-                            <p className="h4 fw-bold mb-3 mt-4">Our Vision</p>
+                            <p className="h4 fw-bold mb-3 mt-4">Our Mission</p>
                             <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
-                                Our vision is to empower businesses with innovative and reliable IT solutions that drive growth and create lasting impact.
+                            Our mission is to deliver innovative IT solutions that empower businesses and enhance user experiences.
                             </p>
                         </div>
                     </Col>
@@ -119,9 +119,9 @@ const About = () => {
                             <div className="about-box">
                                 <img src={commitment} alt="vision" width={50} className="img-fluid" />
                             </div>
-                            <p className="h4 fw-bold mb-3 mt-4">Our Vision</p>
+                            <p className="h4 fw-bold mb-3 mt-4">Our commitment</p>
                             <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
-                                Our vision is to empower businesses with innovative and reliable IT solutions that drive growth and create lasting impact.
+                            At Plexus Technology, we deliver exceptional service and innovative products. We support employees with flexibility, social events, and growth opportunities.
                             </p>
                         </div>
                     </Col>

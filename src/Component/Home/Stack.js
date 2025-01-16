@@ -11,7 +11,7 @@ import kotlin from "../../img/kotlin.webp"
 import stack1 from "../../img/stack1.png"
 import stack2 from "../../img/stack2.png"
 
-const About = () => {
+const Stack = () => {
     // const handleDownloadClick = (url) => {
     //     window.open(url, '_blank', 'noopener noreferrer');
     // };
@@ -93,4 +93,4 @@ const About = () => {
     );
 };
 
-export default About;
+export default Stack;

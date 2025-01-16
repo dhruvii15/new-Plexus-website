@@ -555,7 +555,80 @@
     height: 60px;
 }
 
+// =============== Portfolio =====================
+.portfolio-box{
+    width: 680px;
+    height: 630px;
+    border-radius: 30px;
+    // background-color: #EBF1FA;
+}
 
+.portfolio-box2{
+    width: 100%;
+    height: 400px;
+}
+
+.image-box{
+    transform: translateX(70px);
+}
+.image-box-reverse{
+    transform: translateX(-100px);
+}
+
+
+.image-box2{
+    transform: translateX(0px);
+}
+
+.animation-col{
+    transform: rotate(-22deg);
+}
+
+.animation-col-reverse{
+    transform: rotate(22deg);
+}
+
+.slider-container {
+    white-space: nowrap;
+    position: relative;
+}
+
+.slider-content {
+    display: inline-flex;
+    // animation: scroll 30s linear infinite;
+    transform: translateY(-900px);
+}
+
+.slider-content2 {
+    display: inline-flex;
+    // animation: scroll2 30s linear infinite;
+    transform: translateY(-400px);
+}
+.slider-content3 {
+    display: inline-flex;
+    // animation: scroll 30s linear infinite;
+    transform: translateY(-900px);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        transform: translateY(-50%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
 
 // ================== Responsive ==================
 @media (max-width:576px) and (min-width:0px) {

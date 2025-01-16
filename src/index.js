@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
+import Portfolio from './Pages/Portfolio';
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,9 @@ const router = createBrowserRouter([
   },{
     path: '/about-us',
     element: <AboutUs />,
+  },{
+    path: '/portfolio',
+    element: <Portfolio />,
   }
 ]);
 
