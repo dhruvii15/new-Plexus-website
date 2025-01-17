@@ -508,7 +508,7 @@
 
 .portfolio-box2 {
   width: 100%;
-  height: 400px;
+  height: 500px;
 }
 
 .image-box {
@@ -516,7 +516,7 @@
 }
 
 .image-box-reverse {
-  transform: translateX(-130px);
+  transform: translateX(-170px);
 }
 
 .image-box2 {

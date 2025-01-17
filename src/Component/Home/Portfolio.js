@@ -44,7 +44,7 @@ const Portfolio = ({ portfolio }) => {
                 <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px" }}>Portfolio</h1>
             </div>
             <Container className="pt-5">
-                <p className="text-center fs-2 pt-5">"Transforming Ideas into Reality through <br></br>Innovation and Technology"</p>
+                {/* <p className="text-center fs-2 pt-5">"Transforming Ideas into Reality through <br></br>Innovation and Technology"</p> */}
                 <div className="pb-5">
                     {portfolio && portfolio.length > 0 ? (
                         portfolio.map((item, i) => (
@@ -143,7 +143,7 @@ const Portfolio = ({ portfolio }) => {
                     ) : (
                         <p>No portfolio item available.</p>
                     )}
-                </div>;
+                </div>
 
             </Container>
         </>
