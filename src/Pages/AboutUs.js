@@ -1,7 +1,7 @@
 import React, { lazy, Suspense, useEffect, useState } from 'react';
 import Loading from '../Component/Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 const Header = lazy(() => import('../Component/Header'));
 const About = lazy(() => import('../Component/Home/About'));
@@ -14,6 +14,15 @@ const AboutUs = () => {
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const storedData = sessionStorage.getItem('hiringStatus');
+        if (storedData) {
+            setData(JSON.parse(storedData)); // Parse the JSON string
+        }
+    }, []);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -39,6 +48,15 @@ const AboutUs = () => {
                 <Touch />
                 <Footer />
             </Suspense>
+
+            {data === "true" && (
+                <div className="fixed-button">
+                    <button className='animation' style={{ fontSize: "18px" }}>
+                        <FontAwesomeIcon icon={faPersonCirclePlus} className="fs-5 pe-2" />
+                        We're Hiring
+                    </button>
+                </div>
+            )}
 
             {isScrollTopVisible && (
                 <p className='fixed-top-btn cursor' onClick={scrollToTop}>

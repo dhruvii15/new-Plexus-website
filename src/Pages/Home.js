@@ -14,13 +14,18 @@ const WhyUs = lazy(() => import('../Component/Home/WhyUs'));
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState(false);
+    const [data, setData] = useState(() => {
+        const storedData = sessionStorage.getItem('hiringStatus');
+        return storedData ? JSON.parse(storedData) : false;
+    });
     const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
 
     const getData = () => {
         axios.get('https://plexus-technology.in/api/admin/read')
             .then((res) => {
-                setData(res.data.data[0].hiringStatus);
+                const hiringStatus = res.data.data[0].hiringStatus;
+                setData(hiringStatus);
+                sessionStorage.setItem('hiringStatus', JSON.stringify(hiringStatus));
                 setLoading(false);
             })
             .catch((err) => {

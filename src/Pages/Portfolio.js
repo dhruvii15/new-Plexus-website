@@ -3,7 +3,7 @@ import Loading from '../Component/Loading';
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 const Header = lazy(() => import('../Component/Header'));
 const Footer = lazy(() => import('../Component/Footer'));
@@ -12,16 +12,25 @@ const Portfolio = lazy(() => import('../Component/Home/Portfolio'));
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
-    const [data, setData] = useState(false);
+    const [portfolio, setPortfolio] = useState(false);
     const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
+    const [data, setData] = useState(null);
 
-    console.log(data);
     
+
+    useEffect(() => {
+        // Retrieve data from sessionStorage
+        const storedData = sessionStorage.getItem('hiringStatus');
+        if (storedData) {
+            setData(JSON.parse(storedData)); // Parse the JSON string
+        }
+    }, []);
+
 
     const getData = () => {
         axios.get('https://plexus-technology.in/api/portfolio/read')
             .then((res) => {
-                setData(res.data.data);
+                setPortfolio(res.data.data);
                 setLoading(false);
             })
             .catch((err) => {
@@ -60,10 +69,19 @@ const Home = () => {
             ) : (
                 <Suspense fallback={<Loading />}>
                     <Header />
-                    <Portfolio portfolio={data} />
+                    <Portfolio portfolio={portfolio} />
                     <Touch />
                     <Footer />
                 </Suspense>
+            )}
+
+            {data === "true" && (
+                <div className="fixed-button">
+                    <button className='animation' style={{ fontSize: "18px" }}>
+                        <FontAwesomeIcon icon={faPersonCirclePlus} className="fs-5 pe-2" />
+                        We're Hiring
+                    </button>
+                </div>
             )}
 
             {isScrollTopVisible && (

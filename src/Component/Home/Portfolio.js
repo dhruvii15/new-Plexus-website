@@ -50,12 +50,15 @@ const Portfolio = ({ portfolio }) => {
                         portfolio.map((item, i) => (
                             <Row
                                 key={i}
-                                className={`border rounded-4 overflow-hidden d-flex align-items-center ${i % 2 === 1 ? "flex-lg-row-reverse" : "flex-column-reverse flex-lg-row"
+                                className={`border rounded-4 overflow-hidden d-flex align-items-center ${i % 2 === 0 ? "flex-column-reverse flex-lg-row" : "flex-column-reverse flex-lg-row-reverse"
                                     }`}
                                 style={{ backgroundColor: "#F3F7F7", margin: "90px 0px" }}
                             >
                                 <Col xs={12} lg={6} className="h-100 mx-auto ps-5 py-4">
-                                    <h2 className="fw-bold pb-3">{item.title}</h2>
+                                <div className="d-flex align-items-center justify-contetn-center pb-4 gap-3">
+                                    <img src={item.icon} alt={item.title} className="img-fluid rounded-2" width={60}/>
+                                    <h3 className="fw-bold m-0">{item.title}</h3>
+                                </div>
                                     <DescriptionWithReadMore description={item.description} />
 
                                     <div className="d-flex mb-2">
@@ -70,17 +73,17 @@ const Portfolio = ({ portfolio }) => {
                                         </div>
                                         <div className="text-center my-2 ps-4">
                                             <h5 className="fw-bold m-0">
-                                                <Counter end={item.country} duration={1000} /> million
+                                                <Counter end={item.country} duration={1000} /> +
                                             </h5>
                                             <p className="m-0">Country</p>
                                         </div>
                                     </div>
-                                    <div className="d-flex gap-3 pt-2">
+                                    <div className="d-flex gap-3 pt-3">
                                         <a href={item.playstoreLink} target="_blank" rel="noreferrer">
-                                            <img src={playstore} alt="playstore" className="img-fluid" />
+                                            <img src={playstore} alt="playstore" className="img-fluid" style={{width:"90%"}} />
                                         </a>
                                         <a href={item.appstoreLink} target="_blank" rel="noreferrer">
-                                            <img src={appstore} alt="appstore" className="img-fluid" />
+                                            <img src={appstore} alt="appstore" className="img-fluid" style={{width:"90%"}} />
                                         </a>
                                     </div>
                                 </Col>

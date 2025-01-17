@@ -565,14 +565,14 @@
 
 .portfolio-box2{
     width: 100%;
-    height: 500px;
+    height: 400px;
 }
 
 .image-box{
     transform: translateX(70px);
 }
 .image-box-reverse{
-    transform: translateX(-170px);
+    transform: translateX(-130px);
 }
 
 
@@ -585,7 +585,7 @@
 }
 
 .animation-col-reverse{
-    transform: rotate(22deg);
+    transform: rotate(20deg);
 }
 
 .slider-container {
@@ -685,6 +685,9 @@
     .border-circle {
         height: 550px;
         width: 550px;
+    }
+    .image-box-reverse{
+        transform: translateX(-170px);
     }
 }
 
