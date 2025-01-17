@@ -3,8 +3,8 @@ import { Col, Container, Row } from "reactstrap";
 import Counter from './Counter';
 
 // IMG
-import playstore from "../../img/playstore.svg";
-import appstore from "../../img/appstore.svg";
+import playstore from "../../img/googleplay.webp";
+import appstore from "../../img/appstore.webp";
 
 const Portfolio = ({ portfolio }) => {
 

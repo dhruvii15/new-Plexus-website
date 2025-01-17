@@ -58,44 +58,39 @@ const Header = () => {
                         <Nav navbar className='ms-auto'>
                             <NavItem>
                                 <Link
-                                    className={`nav-link px-4 ${activeLink === "home" ? "text-blue" : "text-black"}`}
+                                    className={`nav-link px-4 ${activeLink === "home" ? "text-blue" : ""}`}
                                     to="/"
-                                    style={{ fontSize: "20px" }}
+                                    style={{ fontSize: "17px" }}
                                 >
-                                    <FontAwesomeIcon icon={faHome} className='fs-6 pe-2' />Home
+                                    <FontAwesomeIcon icon={faHome} className='fw-normal pe-2' />Home
                                 </Link>
                             </NavItem>
                             <NavItem>
                                 <Link
-                                    className={`nav-link px-4 ${activeLink === "about" ? "text-blue" : "text-black"}`}
+                                    className={`nav-link px-4 ${activeLink === "about" ? "text-blue" : ""}`}
                                     to="/about-us"
-                                    style={{ fontSize: "20px" }}
+                                    style={{ fontSize: "17px" }}
                                 >
-                                    <FontAwesomeIcon icon={faUserTie} className='fs-6 pe-2' />About us
+                                    <FontAwesomeIcon icon={faUserTie} className='fw-normal pe-2' />About us
                                 </Link>
                             </NavItem>
                             <NavItem>
                                 <Link
-                                    className={`nav-link px-4 ${activeLink === "portfolio" ? "text-blue" : "text-black"}`}
+                                    className={`nav-link px-4 ${activeLink === "portfolio" ? "text-blue" : ""}`}
                                     to="/portfolio"
-                                    style={{ fontSize: "20px" }}
+                                    style={{ fontSize: "17px" }}
                                 >
-                                    <FontAwesomeIcon icon={faAddressCard} className='fs-6 pe-2' />Portfolio
+                                    <FontAwesomeIcon icon={faAddressCard} className='fw-normal pe-2' />Portfolio
                                 </Link>
                             </NavItem>
                             <NavItem>
-                                <ScrollLink
-                                    className={`nav-link px-4 ${activeLink === "contact" ? "text-blue" : "text-black"}`}
-                                    to="hiringSection"
-                                    spy={true}
-                                    smooth={true}
-                                    offset={-70}
-                                    duration={200}
-                                    style={{ cursor: "pointer", fontSize: "20px" }}
-                                    onSetActive={() => setActiveLink("contact")}
+                                <Link
+                                    className={`nav-link px-4 ${activeLink === "contact" ? "text-blue" : ""}`}
+                                    to="/contact-us"
+                                    style={{ fontSize: "17px" }}
                                 >
-                                    <FontAwesomeIcon icon={faAddressBook} className='fs-6 pe-2' /> Contact us
-                                </ScrollLink>
+                                    <FontAwesomeIcon icon={faAddressBook} className='fw-normal pe-2' />Contact us
+                                </Link>
                             </NavItem>
                         </Nav>
                     </Collapse>

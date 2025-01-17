@@ -29,7 +29,7 @@ const Footer = () => {
     };
 
     return (
-        <Box sx={{background: '#F8F8F8', color: '#1c1c1c', overflow: 'hidden', borderRadius: 10, boxShadow: '0 -4px 50px rgb(219, 231, 250)' }}>
+        <Box sx={{ background: '#F8F8F8', color: '#1c1c1c', overflow: 'hidden', borderRadius: 10, boxShadow: '0 -4px 50px rgb(219, 231, 250)' }}>
             <Container>
                 <Grid container spacing={2} alignItems="center" justifyContent="center" py={5} px={2}>
                     <Grid item xs={12} lg={5} pt={4}>
@@ -40,15 +40,12 @@ const Footer = () => {
                             305, A.R Mall, opp. panvel point,<br />
                             mota varachha, 394101
                         </Typography>
-                        <Typography variant="body1" fontWeight="bold" pt={3} m={0} 
+                        <Typography variant="body1" fontWeight="bold" pt={3} m={0}
                             onClick={handlePhoneClick}
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
-                                cursor: 'pointer',
-                                '&:hover': {
-                                    color: '#0066cc'
-                                }
+                                cursor: 'pointer'
                             }}>
                             <span style={{ color: 'black', paddingRight: '8px' }}>Phone:</span>
                             <span style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center' }}>
@@ -70,6 +67,9 @@ const Footer = () => {
                     <Grid item xs={12} lg={7} textAlign="center" pt={3}>
                         <Box pt={3}>
                             <img src={logo} alt="plexus-technology" style={{ width: '220px', height: 'auto' }} />
+                            <Typography variant="body2" pt={1} style={{ fontSize: '17px' }} fontWeight="bold">
+                                Follow Us
+                            </Typography>
                             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, py: 2, color: 'black' }}>
                                 <div className="common-footer hover-box box1" onClick={handleLinkedInClick}>
                                     <IconButton>
@@ -87,12 +87,13 @@ const Footer = () => {
                                     </IconButton>
                                 </div>
                             </Box>
-                            <Typography variant="body2" py={2} style={{ fontSize: '14px' }}>
-                                All rights Reserved. © Plexus Technology
-                            </Typography>
                         </Box>
                     </Grid>
                 </Grid>
+            <hr></hr>
+            <Typography className='container' variant="body2" pb={2} style={{ fontSize: '14px' }} textAlign={'start'}>
+                All rights Reserved. © Plexus Technology
+            </Typography>
             </Container>
         </Box>
     );
