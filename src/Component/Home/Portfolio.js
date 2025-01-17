@@ -7,12 +7,6 @@ import playstore from "../../img/playstore.svg";
 import appstore from "../../img/appstore.svg";
 
 const Portfolio = ({ portfolio }) => {
-    const [activeTab, setActiveTab] = useState('2');
-
-    const toggle = tab => {
-        if (activeTab !== tab) setActiveTab(tab);
-    };
-
 
     // Implement Read More / Read Less logic
     const DescriptionWithReadMore = ({ description }) => {
