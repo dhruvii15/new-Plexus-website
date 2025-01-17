@@ -1,27 +1,32 @@
-/* eslint-disable */
 import React from 'react';
 import { Container, Grid, Box, Typography, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import PhoneIcon from '@mui/icons-material/Phone';
 import logo from '../img/logo.png';
 
 const Footer = () => {
+    const phoneNumber = '+91 90238 38674';
+
     const handleLinkedInClick = () => {
         const linkedinUrl = 'https://www.linkedin.com/company/plexus-technology2024/';
         window.open(linkedinUrl, '_blank');
     };
 
     const handleWhatsappClick = () => {
-        const phoneNumber = '+91 90238 38674';
         const message = 'Hi, I would like to inquire about the services provided by Plexus Technology.';
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        const whatsappUrl = `https://wa.me/${phoneNumber.replace(/\s+/g, '')}?text=${encodeURIComponent(message)}`;
         window.open(whatsappUrl, '_blank');
     };
 
     const handleInstaClick = () => {
         const instaUrl = 'https://www.instagram.com/plexus_technology/?igsh=MWdkdWZheGxrZjZkZQ%3D%3D';
         window.open(instaUrl, '_blank');
+    };
+
+    const handlePhoneClick = () => {
+        window.location.href = `tel:${phoneNumber.replace(/\s+/g, '')}`;
     };
 
     return (
@@ -36,9 +41,20 @@ const Footer = () => {
                             305, A.R Mall, opp. panvel point,<br />
                             mota varachha, 394101
                         </Typography>
-                        <Typography variant="body1" fontWeight="bold" pt={3} m={0}>
+                        <Typography variant="body1" fontWeight="bold" pt={3} m={0} 
+                            onClick={handlePhoneClick}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                cursor: 'pointer',
+                                '&:hover': {
+                                    color: '#0066cc'
+                                }
+                            }}>
                             <span style={{ color: 'black', paddingRight: '8px' }}>Phone:</span>
-                            <span style={{ fontWeight: 'normal' }}>+91 90238 38674</span>
+                            <span style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center' }}>
+                                {phoneNumber}
+                            </span>
                         </Typography>
                         <Typography variant="body1" fontWeight="bold">
                             <span style={{ color: 'black', paddingRight: '8px' }}>Email:</span>
