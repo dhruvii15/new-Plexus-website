@@ -19,7 +19,7 @@ const Home = () => {
     
 
     const getData = () => {
-        axios.get('http://localhost:5001/api/portfolio/read')
+        axios.get('https://plexus-technology.in/api/portfolio/read')
             .then((res) => {
                 setData(res.data.data);
                 setLoading(false);
