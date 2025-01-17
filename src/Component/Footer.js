@@ -87,13 +87,17 @@ const Footer = () => {
                                     </IconButton>
                                 </div>
                             </Box>
+                        <hr className='d-block d-md-none'></hr>
+                        <Typography variant="body2" pb={2} style={{ fontSize: '14px' }} textAlign={'center'} className='d-block d-md-none'>
+                            All rights Reserved. © Plexus Technology
+                        </Typography>
                         </Box>
                     </Grid>
                 </Grid>
-            <hr></hr>
-            <Typography className='container' variant="body2" pb={2} style={{ fontSize: '14px' }} textAlign={'start'}>
-                All rights Reserved. © Plexus Technology
-            </Typography>
+                <hr className='d-none d-md-block'></hr>
+                <Typography variant="body2" pb={2} style={{ fontSize: '14px' }} textAlign={'end'} className='d-none d-md-block'>
+                    All rights Reserved. © Plexus Technology
+                </Typography>
             </Container>
         </Box>
     );
