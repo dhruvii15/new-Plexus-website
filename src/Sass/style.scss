@@ -630,6 +630,62 @@
     }
 }
 
+// =================== department ==================
+.department{
+    border-radius: 10px;
+    background-color: #F6F6F6;
+    padding: 8px 15px;
+    color: #3f3f3f;
+    font-size: 15px;
+}
+
+.position-main {
+    padding: 25px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.position-main:hover {
+    background-color: #EBF1FA !important;
+    border: 1px solid #7DBBF1;
+}
+
+.position-main:hover .department{
+    background-color: white !important;
+}
+
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    width: 300px;
+    background-color: #fff;
+  }
+  
+  .search-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  .search-button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .search-button span {
+    color: #555;
+  }
+
+  
 // ================== Responsive ==================
 @media (max-width:576px) and (min-width:0px) {
     .game1 {

@@ -20,6 +20,10 @@ const Home = () => {
     });
     const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
 
+    const handleClick = () => {
+        window.location.href = '/hiring';
+    };
+
     const getData = () => {
         axios.get('https://plexus-technology.in/api/admin/read')
             .then((res) => {
@@ -73,7 +77,7 @@ const Home = () => {
             )}
             {data === "true" && (
                 <div className="fixed-button">
-                    <button className='animation' style={{ fontSize: "18px" }}>
+                    <button className='animation' style={{ fontSize: "18px" }} onClick={handleClick}>
                         <FontAwesomeIcon icon={faPersonCirclePlus} className="fs-5 pe-2" />
                         We're Hiring
                     </button>

@@ -1,34 +1,46 @@
-import React, { lazy, Suspense, useEffect, useState } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Loading from '../Component/Loading';
+import { toast } from 'react-toastify';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 const Header = lazy(() => import('../Component/Header'));
-const About = lazy(() => import('../Component/Home/About'));
 const Footer = lazy(() => import('../Component/Footer'));
 const Touch = lazy(() => import('../Component/Home/Touch'));
+const Hiring = lazy(() => import('../Component/Home/Hiring'));
 
-const AboutUs = () => {
-
+const HiringPage = () => {
+    const [loading, setLoading] = useState(true);
+    const [data, setData] = useState();
     const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-    const [data, setData] = useState(null);
 
     const handleClick = () => {
         window.location.href = '/hiring';
     };
 
-    useEffect(() => {
-        const storedData = sessionStorage.getItem('hiringStatus');
-        if (storedData) {
-            setData(JSON.parse(storedData)); // Parse the JSON string
-        }
-    }, []);
 
+    const getData = () => {
+        axios.get('http://localhost:5001/api/position/read')
+            .then((res) => {
+                const data = res.data.data;
+                setData(data);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.error(err);
+                toast.error("Failed to fetch data.");
+                setLoading(false);
+            });
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
     useEffect(() => {
+        getData();
+
         const handleScroll = () => {
             if (window.scrollY > 200) {
                 setIsScrollTopVisible(true);
@@ -45,14 +57,17 @@ const AboutUs = () => {
     }, []);
 
     return (
-        <>
-            <Suspense fallback={<Loading />}>
-                <Header />
-                <About />
-                <Touch />
-                <Footer />
-            </Suspense>
-
+        <div style={{background:"#FAFAFA"}}>
+            {loading ? (
+                <Loading />
+            ) : (
+                <Suspense fallback={<Loading />} >
+                    <Header />
+                    <Hiring data={data}/>
+                    <Touch />
+                    <Footer />
+                </Suspense>
+            )}
             {data === "true" && (
                 <div className="fixed-button">
                     <button className='animation' style={{ fontSize: "18px" }} onClick={handleClick}>
@@ -67,8 +82,8 @@ const AboutUs = () => {
                     <FontAwesomeIcon icon={faArrowUp} className='px-2' />
                 </p>
             )}
-        </>
+        </div>
     );
 };
 
-export default AboutUs;
+export default HiringPage;

@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
 import Portfolio from './Pages/Portfolio';
+import Hiring from './Pages/Hiring';
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,9 @@ const router = createBrowserRouter([
   },{
     path: '/portfolio',
     element: <Portfolio />,
+  },{
+    path: '/hiring',
+    element: <Hiring />,
   }
 ]);
 

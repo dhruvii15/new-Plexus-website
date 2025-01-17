@@ -4,9 +4,8 @@ import { useLocation } from 'react-router-dom'; // Hook to get the current locat
 import { HashLink as Link } from 'react-router-hash-link';
 import { Container, NavbarBrand, Navbar, Nav, NavItem, NavbarToggler, Collapse } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAddressBook, faHome, faUserTie } from '@fortawesome/free-solid-svg-icons';
+import { faAddressBook, faHome, faPersonCirclePlus, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons/faBarsStaggered';
-import { Link as ScrollLink } from "react-scroll";
 
 // img
 import logo from '../img/logo.png';
@@ -28,8 +27,12 @@ const Header = () => {
             setActiveLink("about");
         }else if (path === "/portfolio") {
             setActiveLink("portfolio");
+        }else if (path === "/hiring") {
+            setActiveLink("hiring");
+        }else if (path === "/contact-us") {
+            setActiveLink("contact-us");
         }
-    }, [location.pathname]); // Run whenever the path changes
+    }, [location.pathname]); 
 
     return (
         <div id="top">
@@ -81,6 +84,15 @@ const Header = () => {
                                     style={{ fontSize: "17px" }}
                                 >
                                     <FontAwesomeIcon icon={faAddressCard} className='fw-normal pe-2' />Portfolio
+                                </Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link
+                                    className={`nav-link px-4 ${activeLink === "hiring" ? "text-blue" : ""}`}
+                                    to="/hiring"
+                                    style={{ fontSize: "17px" }}
+                                >
+                                    <FontAwesomeIcon icon={faPersonCirclePlus} className='fw-normal pe-2' />Hiring
                                 </Link>
                             </NavItem>
                             <NavItem>
