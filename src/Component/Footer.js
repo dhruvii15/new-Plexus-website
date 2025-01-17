@@ -3,7 +3,6 @@ import { Container, Grid, Box, Typography, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import PhoneIcon from '@mui/icons-material/Phone';
 import logo from '../img/logo.png';
 
 const Footer = () => {
