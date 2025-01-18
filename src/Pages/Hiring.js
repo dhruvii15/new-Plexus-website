@@ -57,7 +57,7 @@ const HiringPage = () => {
     }, []);
 
     return (
-        <div style={{background:"#FAFAFA"}}>
+        <div>
             {loading ? (
                 <Loading />
             ) : (

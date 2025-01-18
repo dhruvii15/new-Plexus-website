@@ -572,7 +572,7 @@
   background-color: #F6F6F6;
   padding: 8px 15px;
   color: #3f3f3f;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .position-main {
@@ -597,7 +597,7 @@
   border: 1px solid #ccc;
   border-radius: 20px;
   padding: 5px 10px;
-  width: 300px;
+  width: 100%;
   background-color: #fff;
 }
 
@@ -618,6 +618,11 @@
 
 .search-button span {
   color: #555;
+}
+
+.sticky {
+  position: sticky;
+  top: 50px;
 }
 
 @media (max-width: 576px) and (min-width: 0px) {
