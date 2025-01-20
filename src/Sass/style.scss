@@ -878,7 +878,7 @@ input:focus {
     }
 }
 
-@media (min-width:980px) {
+@media (max-width:1440px) and (min-width:1020px) {
     .white-box{
         position: absolute;
         top: 180px;
@@ -896,6 +896,26 @@ input:focus {
         right: 80px;
     }
 }
+
+@media (min-width:1441px) {
+    .white-box{
+        position: absolute;
+        top: 180px;
+        width: 75%;
+    
+        .white-mini{
+            width: 60%;
+        }
+    }
+    
+    .blue-box{
+        position: absolute;
+        width: 29%;
+        top: 250px;
+        right: 80px;
+    }
+}
+
 
 
 @media (max-width:1198px) and (min-width:849px) {
