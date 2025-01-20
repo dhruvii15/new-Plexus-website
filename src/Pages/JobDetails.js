@@ -23,7 +23,7 @@ const JobDetailsPage = () => {
     };
     
     const getData = useCallback(() => {
-        axios.get(`http://localhost:5001/api/position/read/${id}`)
+        axios.get(`https://plexus-technology.in/api/position/read/${id}`)
             .then((res) => {
                 const data = res.data.data;
                 setJobDetails(data);

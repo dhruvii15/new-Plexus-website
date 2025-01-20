@@ -22,7 +22,7 @@ const HiringPage = () => {
 
 
     const getData = () => {
-        axios.get('http://localhost:5001/api/position/read')
+        axios.get('https://plexus-technology.in/api/position/read')
             .then((res) => {
                 const data = res.data.data;
                 setPosition(data);

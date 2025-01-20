@@ -97,8 +97,8 @@ const ApplyNow = ({ params }) => {
 
             try {
                 const url = id !== undefined
-                    ? `http://localhost:5001/api/hiring/update/${id}`
-                    : 'http://localhost:5001/api/hiring/create';
+                    ? `https://plexus-technology.in/api/hiring/update/${id}`
+                    : 'https://plexus-technology.in/api/hiring/create';
 
                 const method = id !== undefined ? 'patch' : 'post';
 
