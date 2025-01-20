@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Row } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faBusinessTime, faLocationDot, faUpRightFromSquare, faUserTag } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faBusinessTime, faLocationDot, faMagnifyingGlass, faUpRightFromSquare, faUserTag } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 // img
@@ -85,7 +85,7 @@ const Position = ({ data }) => {
                         className='pe-2 text-white text-decoration-none m-0'
                         style={{ fontSize: "16px" }}
                     >
-                        Vacant Position
+                        Open Position
                     </span>
                     <FontAwesomeIcon icon={faArrowRight} className='arrow-rotate' />
                 </Button>
@@ -112,7 +112,7 @@ const Position = ({ data }) => {
                                     onChange={handleSearch}
                                 />
                                 <button className="search-button">
-                                    <span role="img" aria-label="search-icon">🔍</span>
+                                    <span role="img" aria-label="search-icon"><FontAwesomeIcon icon={faMagnifyingGlass} /></span>
                                 </button>
                             </div>
 

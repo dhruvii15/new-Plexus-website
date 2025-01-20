@@ -36,8 +36,8 @@ const JobDetails = ({ data }) => {
     }, []);
 
     const handleJobClick = (itemId) => {
-        navigate(`/hiring/applynow/${itemId}`);
-    };
+        window.location.href = `/hiring/applynow/${itemId}`;
+    };    
 
     return (
         <>
