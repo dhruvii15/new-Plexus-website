@@ -10,6 +10,8 @@ import Home from './Pages/Home';
 import AboutUs from './Pages/AboutUs';
 import Portfolio from './Pages/Portfolio';
 import Hiring from './Pages/Hiring';
+import ApplyNowPage from './Pages/ApplyNow';
+import JobDetailsPage from './Pages/JobDetails';
 
 const queryClient = new QueryClient();
 
@@ -23,10 +25,19 @@ const router = createBrowserRouter([
   },{
     path: '/portfolio',
     element: <Portfolio />,
-  },{
+  },
+  {
     path: '/hiring',
     element: <Hiring />,
-  }
+  },
+  {
+    path: '/hiring/jobdetails/:id', // Move JobDetails to a sibling route
+    element: <JobDetailsPage />,
+  },
+  {
+    path: '/hiring/applynow/:id', // Move JobDetails to a sibling route
+    element: <ApplyNowPage />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -8,10 +8,11 @@ import axios from 'axios';
 const Header = lazy(() => import('../Component/Header'));
 const Footer = lazy(() => import('../Component/Footer'));
 const Touch = lazy(() => import('../Component/Home/Touch'));
-const Hiring = lazy(() => import('../Component/Home/Hiring'));
+const Position = lazy(() => import('../Component/Home/position'));
 
 const HiringPage = () => {
     const [loading, setLoading] = useState(true);
+    const [position, setPosition] = useState();
     const [data, setData] = useState();
     const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
 
@@ -24,7 +25,7 @@ const HiringPage = () => {
         axios.get('http://localhost:5001/api/position/read')
             .then((res) => {
                 const data = res.data.data;
-                setData(data);
+                setPosition(data);
                 setLoading(false);
             })
             .catch((err) => {
@@ -40,6 +41,11 @@ const HiringPage = () => {
 
     useEffect(() => {
         getData();
+
+        const storedData = sessionStorage.getItem('hiringStatus');
+        if (storedData) {
+            setData(JSON.parse(storedData)); // Parse the JSON string
+        }
 
         const handleScroll = () => {
             if (window.scrollY > 200) {
@@ -63,7 +69,7 @@ const HiringPage = () => {
             ) : (
                 <Suspense fallback={<Loading />} >
                     <Header />
-                    <Hiring data={data}/>
+                    <Position data={position}/>
                     <Touch />
                     <Footer />
                 </Suspense>

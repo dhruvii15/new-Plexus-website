@@ -347,7 +347,7 @@
 
 @keyframes slideInFromLeft {
   0% {
-    transform: translateY(-150px);
+    transform: translateY(150px);
     opacity: 0;
   }
   100% {
@@ -423,6 +423,7 @@
   text-align: center;
   line-height: 45px;
   color: #0777AB;
+  background-color: white;
 }
 
 .footer-width {
@@ -567,6 +568,25 @@
     transform: translateY(0);
   }
 }
+.position-bg {
+  background-color: rgb(235, 241, 250) !important;
+  position: relative;
+}
+
+.jobseeker {
+  position: absolute;
+  top: 450px;
+  left: 10%;
+  animation: RotateInfinite 6s infinite;
+}
+
+.recruiter {
+  position: absolute;
+  top: 350px;
+  right: 10%;
+  animation: translateYInfinite 3s infinite;
+}
+
 .department {
   border-radius: 10px;
   background-color: #F6F6F6;
@@ -576,10 +596,13 @@
 }
 
 .position-main {
-  padding: 25px 15px;
+  padding: 25px 0px;
   border-radius: 12px;
   cursor: pointer;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .position-main:hover {
@@ -589,6 +612,14 @@
 
 .position-main:hover .department {
   background-color: white !important;
+}
+
+.right-icon {
+  display: none;
+}
+
+.position-main:hover .right-icon {
+  display: block;
 }
 
 .search-bar-container {
@@ -625,6 +656,62 @@
   top: 50px;
 }
 
+.next-icon {
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  border: 1px solid #0777AB;
+  text-align: center;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.hiring-form {
+  width: 65%;
+}
+
+.custom-file-upload {
+  border: 2px dashed #79ACEC;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.custom-file-upload .custom-file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-file-upload .custom-file-label span {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.custom-file-upload .custom-file-label .form-text {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.custom-file-upload input[type=file] {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.custom-file-upload .file-icon {
+  color: #555;
+  /* Adjust color as needed */
+}
+
 @media (max-width: 576px) and (min-width: 0px) {
   .game1 {
     width: 60px;
@@ -646,6 +733,9 @@
     bottom: 50px;
     right: 20px;
   }
+  .position-main:hover .right-icon {
+    display: none;
+  }
 }
 @media (max-width: 930px) and (min-width: 0px) {
   .developer {
@@ -660,6 +750,9 @@
   }
   .footer-width {
     width: 100%;
+  }
+  .hiring-form {
+    width: 95%;
   }
 }
 @media (max-width: 1350px) and (min-width: 1199px) {
