@@ -2,18 +2,14 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Loading from '../Component/Loading';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp, faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import { useParams } from 'react-router-dom';
 
 const Header = lazy(() => import('../Component/Header'));
 const Footer = lazy(() => import('../Component/Footer'));
-const Touch = lazy(() => import('../Component/Home/Touch'));
-const ApplyNow = lazy(() => import('../Component/Home/ApplyNow'));
-const WhatNext = lazy(() => import('../Component/Home/WhatNext'));
+const ContactUs = lazy(() => import('../Component/Home/ContactUs'));
 
-const ApplyNowPage = () => {
+const ContactusPage = () => {
     const [data, setData] = useState();
     const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
-    const { id } = useParams();
 
 
     const handleClick = () => {
@@ -49,9 +45,7 @@ const ApplyNowPage = () => {
         <div>
             <Suspense fallback={<Loading />} >
                 <Header />
-                <ApplyNow params={id} />
-                <WhatNext />
-                <Touch />
+                <ContactUs />
                 <Footer />
             </Suspense>
             {data === "true" && (
@@ -72,4 +66,4 @@ const ApplyNowPage = () => {
     );
 };
 
-export default ApplyNowPage;
+export default ContactusPage;

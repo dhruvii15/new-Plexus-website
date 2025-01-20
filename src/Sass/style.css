@@ -718,6 +718,26 @@ input:focus {
   /* Adjust color as needed */
 }
 
+.white-box {
+  min-height: 500px;
+  padding: 40px;
+  margin: 100px 0px;
+}
+
+.blue-box {
+  min-height: 500px;
+  background-color: #0777AB;
+  color: #F6F6F6;
+  font-weight: 400;
+  z-index: 1000;
+  padding: 40px;
+  margin: 100px 0px;
+}
+.blue-box .row {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+}
+
 @media (max-width: 576px) and (min-width: 0px) {
   .game1 {
     width: 60px;
@@ -772,6 +792,22 @@ input:focus {
   }
   .image-box-reverse {
     transform: translateX(-170px);
+  }
+}
+@media (min-width: 980px) {
+  .white-box {
+    position: absolute;
+    top: 180px;
+    width: 75%;
+  }
+  .white-box .white-mini {
+    width: 70%;
+  }
+  .blue-box {
+    position: absolute;
+    width: 29%;
+    top: 250px;
+    right: 80px;
   }
 }
 @media (max-width: 1198px) and (min-width: 849px) {

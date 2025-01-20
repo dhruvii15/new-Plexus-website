@@ -12,6 +12,7 @@ import Portfolio from './Pages/Portfolio';
 import Hiring from './Pages/Hiring';
 import ApplyNowPage from './Pages/ApplyNow';
 import JobDetailsPage from './Pages/JobDetails';
+import ContactusPage from './Pages/ContactUs';
 
 const queryClient = new QueryClient();
 
@@ -31,12 +32,16 @@ const router = createBrowserRouter([
     element: <Hiring />,
   },
   {
-    path: '/hiring/jobdetails/:id', // Move JobDetails to a sibling route
+    path: '/hiring/jobdetails/:id', 
     element: <JobDetailsPage />,
   },
   {
-    path: '/hiring/applynow/:id', // Move JobDetails to a sibling route
+    path: '/hiring/applynow/:id', 
     element: <ApplyNowPage />,
+  },
+  {
+    path: '/contact-us', 
+    element: <ContactusPage />,
   },
 ]);
 
