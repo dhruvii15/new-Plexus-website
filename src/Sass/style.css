@@ -794,7 +794,7 @@ input:focus {
     transform: translateX(-170px);
   }
 }
-@media (max-width: 1440px) and (min-width: 1020px) {
+@media (max-width: 1440px) and (min-width: 1080px) {
   .white-box {
     position: absolute;
     top: 180px;
