@@ -38,7 +38,7 @@ const Header = () => {
         } else if (path === "/hiring") {
             setActiveLink("hiring");
         } else if (path === "/contact-us") {
-            setActiveLink("contact-us");
+            setActiveLink("contact");
         }
     }, [location.pathname]);
 
