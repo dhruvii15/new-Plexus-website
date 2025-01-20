@@ -1,11 +1,9 @@
 import { faArrowRight, faBusinessTime, faCheckDouble, faLocationDot, faUserTag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Button, Container } from "reactstrap";
 
 const JobDetails = ({ data }) => {
-    const navigate = useNavigate();
     const [visibleSections, setVisibleSections] = useState({
         responsibilities: false,
         requirements: false,
