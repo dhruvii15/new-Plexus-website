@@ -1,27 +1,39 @@
 import React, { useState } from "react";
-import { Button, Col, Container, Form, FormGroup, FormText, Input, Label, Row } from "reactstrap";
+import { Button, Col, Container, Form, FormGroup, FormText, Input, Label, Row, Spinner } from "reactstrap";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import * as Yup from 'yup';
 import { useFormik } from "formik";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faFile } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import CaptchaInput from "./CaptchaInput";
 
 
-const ApplyNow = ({params}) => {
+const ApplyNow = ({ params }) => {
     const navigate = useNavigate();
-    const [isCaptchaValid, setIsCaptchaValid] = useState(false);
-    
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [hiringResume, setHiringResume] = useState('');
+    const [id, setId] = useState();
+    const [captchaKey, setCaptchaKey] = useState(0);
+
+    const overlayStyle = {
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        backgroundColor: 'rgba(255, 255, 255, 0.7)',
+        zIndex: 9999,
+        display: isSubmitting ? 'flex' : 'none',
+        justifyContent: 'center',
+        alignItems: 'center'
+    };
 
     const handleBackClick = () => {
         navigate('/hiring');
     };
-
-    const [hiringResume, setHiringResume] = useState('');
-    const [id, setId] = useState();
 
     const hiringSchema = Yup.object().shape({
         hiringName: Yup.string().required('* First name is required'),
@@ -62,10 +74,12 @@ const ApplyNow = ({params}) => {
             hiringjoinDays: '',
             hiringskills: '',
             hiringEmail: '',
-            hiringResume: null
+            hiringResume: null,
+            captchaValid: false
         },
         validationSchema: hiringSchema,
-        onSubmit: (values, { setSubmitting, resetForm }) => {
+        onSubmit: async (values, { setSubmitting, resetForm }) => {
+            setIsSubmitting(true);
             let formData = new FormData();
             formData.append('fname', values.hiringName);
             formData.append('lname', values.hiringLastname);
@@ -81,23 +95,33 @@ const ApplyNow = ({params}) => {
             formData.append('resume', values.hiringResume);
             formData.append('id', params);
 
-            const request = id !== undefined
-                ? axios.patch(`http://localhost:5001/api/hiring/update/${id}`, formData)
-                : axios.post('http://localhost:5001/api/hiring/create', formData, {
+            try {
+                const url = id !== undefined
+                    ? `http://localhost:5001/api/hiring/update/${id}`
+                    : 'http://localhost:5001/api/hiring/create';
+
+                const method = id !== undefined ? 'patch' : 'post';
+
+                await axios({
+                    method,
+                    url,
+                    data: formData,
                     headers: { "Content-Type": "multipart/form-data" }
                 });
 
-            request.then((res) => {
-                setSubmitting(false);
+                // Reset everything
                 resetForm();
                 setHiringResume('');
                 setId(undefined);
+                setCaptchaKey(prev => prev + 1); // Force captcha reset
                 toast.success('Your Resume Has Been Submitted Successfully!');
-            }).catch((error) => {
-                setSubmitting(false);
+            } catch (error) {
                 console.error('Form submission error:', error);
                 toast.error("Resume Submission Failed.");
-            });
+            } finally {
+                setIsSubmitting(false);
+                setSubmitting(false);
+            }
         },
     });
 
@@ -121,6 +145,10 @@ const ApplyNow = ({params}) => {
 
     return (
         <>
+            <div style={overlayStyle}>
+                <div><Spinner /></div>
+            </div>
+
             <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px" }}>
                 <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px", textShadow: '0px 3px 0px #0777AB', color: "#132028", fontWeight: "600" }}>Apply Now</h1>
             </div>
@@ -398,9 +426,9 @@ const ApplyNow = ({params}) => {
                                     <Col sm={12}>
                                         <FormGroup>
                                             <CaptchaInput
+                                                key={captchaKey}
                                                 onValidate={(isValid) => {
                                                     formik.setFieldValue('captchaValid', isValid);
-                                                    setIsCaptchaValid(isValid);
                                                 }}
                                             />
                                             {formik.touched.captchaValid && formik.errors.captchaValid ? (
@@ -412,13 +440,25 @@ const ApplyNow = ({params}) => {
 
                                 <Row className="py-5 px-2">
                                     <Col sm={6}>
-                                        <Link to={'/hiring'} className="text-decoration-none">
-                                            <Button block className="py-3 rounded-pill my-2" style={{ background: "none", border: '1px solid #CDCDCD', color: "#CDCDCD" }}>CANCEL</Button>
-                                        </Link>
+                                        <Button
+                                            block
+                                            className="py-3 rounded-pill my-2"
+                                            style={{ background: "none", border: '1px solid #CDCDCD', color: "#CDCDCD" }}
+                                            onClick={handleBackClick}
+                                            disabled={isSubmitting}
+                                        >
+                                            CANCEL
+                                        </Button>
                                     </Col>
                                     <Col sm={6}>
-                                        <Button type="submit" block disabled={formik.isSubmitting} className="py-3 rounded-pill border-white my-2" style={{ backgroundColor: "#0777AB" }}>
-                                            {formik.isSubmitting ? "..." : "SUBMIT"}
+                                        <Button
+                                            type="submit"
+                                            block
+                                            disabled={isSubmitting}
+                                            className="py-3 rounded-pill border-white my-2"
+                                            style={{ backgroundColor: "#0777AB" }}
+                                        >
+                                            {isSubmitting ? "Submitting..." : "SUBMIT"}
                                         </Button>
                                     </Col>
                                 </Row>

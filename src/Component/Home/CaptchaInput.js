@@ -1,60 +1,47 @@
-import { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const CaptchaInput = ({ onValidate }) => {
-    const [captchaText, setCaptchaText] = useState('');
-    const [userInput, setUserInput] = useState('');
-    const [isValid, setIsValid] = useState(false);
-    const [isVerificationAttempted, setIsVerificationAttempted] = useState(false);
-    const [error, setError] = useState('');
-
-    // Generate random captcha text
-    const generateCaptcha = () => {
-        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-        let captcha = '';
+    // Generate initial captcha
+    const generateRandomText = () => {
+        const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let result = '';
         for (let i = 0; i < 6; i++) {
-            captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
         }
-        setCaptchaText(captcha);
-        setUserInput('');
-        setIsValid(false);
-        setError('');
-        setIsVerificationAttempted(false);
-        onValidate(false); // Reset validation state when generating new CAPTCHA
+        return result;
     };
 
-    // Initialize captcha on component mount
-    useEffect(() => {
-        generateCaptcha();
-    }, []);
+    // States
+    const [captcha, setCaptcha] = useState(generateRandomText());
+    const [input, setInput] = useState('');
+    const [message, setMessage] = useState('');
+    const [messageType, setMessageType] = useState('');
 
-    // Handle input change
-    const handleInputChange = (e) => {
-        setUserInput(e.target.value);
-        if (isVerificationAttempted) {
-            setError('Please verify the CAPTCHA');
+    // Generate new captcha
+    const refreshCaptcha = () => {
+        setInput('');
+        setMessage('');
+        setCaptcha(generateRandomText());
+        if (onValidate) {
             onValidate(false);
         }
     };
 
-    // Validate captcha
-    const validateCaptcha = () => {
-        setIsVerificationAttempted(true);
-        if (!userInput) {
-            setError('Please enter the CAPTCHA text');
-            setIsValid(false);
-            onValidate(false);
-            return;
-        }
-
-        if (userInput === captchaText) {
-            setIsValid(true);
-            setError('');
-            onValidate(true);
+    // Handle verification
+    const verify = () => {
+        if (input === captcha) {
+            setMessage('CAPTCHA verified successfully!');
+            setMessageType('success');
+            if (onValidate) {
+                onValidate(true);
+            }
         } else {
-            setIsValid(false);
-            setError('Invalid CAPTCHA. Please try again.');
-            onValidate(false);
-            generateCaptcha();
+            setMessage('Invalid CAPTCHA. Please try again.');
+            setMessageType('danger');
+            if (onValidate) {
+                onValidate(false);
+            }
+            refreshCaptcha();
         }
     };
 
@@ -62,45 +49,56 @@ const CaptchaInput = ({ onValidate }) => {
         <div className="mt-2">
             <div className="mb-3">
                 <div className="d-flex flex-wrap gap-2 align-items-center mb-3">
+                    {/* CAPTCHA display */}
                     <div className="bg-light p-2 rounded">
-                        <span
+                        <span 
                             className="font-monospace fs-4 fw-bold text-decoration-line-through"
-                            style={{
-                                letterSpacing: '0.2em',
-                                transform: 'skew(-10deg)',
-                                display: 'inline-block'
-                            }}
+                            style={{ letterSpacing: '0.2em' }}
                         >
-                            {captchaText}
+                            {captcha}
                         </span>
                     </div>
+
+                    {/* Refresh button */}
                     <button
                         type="button"
-                        onClick={generateCaptcha}
+                        onClick={refreshCaptcha}
                         className="btn btn-link text-primary text-decoration-none fs-3"
                     >
                         ↺
                     </button>
+
+                    {/* Input field */}
                     <div>
                         <input
                             type="text"
-                            value={userInput}
-                            onChange={handleInputChange}
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
                             placeholder="Enter CAPTCHA"
                             className="form-control"
                         />
                     </div>
+
+                    {/* Verify button */}
                     <button 
                         type="button"
-                        onClick={validateCaptcha} 
+                        onClick={verify}
                         className="btn border"
                     >
                         Verify
                     </button>
                 </div>
             </div>
-            {error && <p className="text-danger mt-2" style={{ fontSize: "12px" }}>{error}</p>}
-            {isValid && <p className="text-success mt-2" style={{ fontSize: "12px" }}>CAPTCHA verified successfully!</p>}
+
+            {/* Messages */}
+            {message && (
+                <p 
+                    className={`text-${messageType} mt-2`} 
+                    style={{ fontSize: "12px" }}
+                >
+                    {message}
+                </p>
+            )}
         </div>
     );
 };
