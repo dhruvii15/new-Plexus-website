@@ -15,6 +15,14 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeLink, setActiveLink] = useState(""); // Track the active link
     const location = useLocation(); // Get the current location
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+        const storedData = sessionStorage.getItem('hiringStatus');
+        if (storedData) {
+            setData(JSON.parse(storedData)); // Parse the JSON string
+        }
+    }, []);
 
     const toggle = () => setIsOpen(!isOpen);
 
@@ -25,14 +33,14 @@ const Header = () => {
             setActiveLink("home");
         } else if (path === "/about-us") {
             setActiveLink("about");
-        }else if (path === "/portfolio") {
+        } else if (path === "/portfolio") {
             setActiveLink("portfolio");
-        }else if (path === "/hiring") {
+        } else if (path === "/hiring") {
             setActiveLink("hiring");
-        }else if (path === "/contact-us") {
+        } else if (path === "/contact-us") {
             setActiveLink("contact-us");
         }
-    }, [location.pathname]); 
+    }, [location.pathname]);
 
     return (
         <div id="top">
@@ -86,15 +94,18 @@ const Header = () => {
                                     <FontAwesomeIcon icon={faAddressCard} className='fw-normal pe-2' />Portfolio
                                 </Link>
                             </NavItem>
-                            <NavItem>
-                                <Link
-                                    className={`nav-link px-4 ${activeLink === "hiring" ? "text-blue" : ""}`}
-                                    to="/hiring"
-                                    style={{ fontSize: "17px" }}
-                                >
-                                    <FontAwesomeIcon icon={faPersonCirclePlus} className='fw-normal pe-2' />Hiring
-                                </Link>
-                            </NavItem>
+                            {data === "true" && (
+
+                                <NavItem>
+                                    <Link
+                                        className={`nav-link px-4 ${activeLink === "hiring" ? "text-blue" : ""}`}
+                                        to="/hiring"
+                                        style={{ fontSize: "17px" }}
+                                    >
+                                        <FontAwesomeIcon icon={faPersonCirclePlus} className='fw-normal pe-2' />Hiring
+                                    </Link>
+                                </NavItem>
+                            )}
                             <NavItem>
                                 <Link
                                     className={`nav-link px-4 ${activeLink === "contact" ? "text-blue" : ""}`}
