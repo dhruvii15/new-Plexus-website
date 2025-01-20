@@ -14,8 +14,6 @@ const ApplyNowPage = () => {
     const [data, setData] = useState();
     const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
     const { id } = useParams();
-
-    console.log(id);
     
 
     const handleClick = () => {
@@ -51,7 +49,7 @@ const ApplyNowPage = () => {
         <div>
                 <Suspense fallback={<Loading />} >
                     <Header />
-                    <ApplyNow />
+                    <ApplyNow params={id}/>
                     <WhatNext />
                     <Touch />
                     <Footer />

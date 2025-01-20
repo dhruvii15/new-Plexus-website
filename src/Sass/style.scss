@@ -736,6 +736,13 @@
     width: 65%;
 }
 
+input:focus {
+    outline: none;
+    border-color: transparent; 
+    box-shadow: none !important; 
+  }
+  
+
 .custom-file-upload {
     border: 2px dashed #79ACEC;
     padding: 10px;

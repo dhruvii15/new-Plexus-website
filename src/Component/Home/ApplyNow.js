@@ -8,10 +8,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faFile } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+import CaptchaInput from "./CaptchaInput";
 
 
-const ApplyNow = () => {
+const ApplyNow = ({params}) => {
     const navigate = useNavigate();
+    const [isCaptchaValid, setIsCaptchaValid] = useState(false);
+    
 
     const handleBackClick = () => {
         navigate('/hiring');
@@ -27,7 +30,9 @@ const ApplyNow = () => {
             .matches(/^\+91[0-9]{10}$/, '* Phone number must be valid')
             .required('* Phone number is required'),
         hiringExperience: Yup.string().required('* Work Experience is required'),
-        hiringCity: Yup.string().required('* City is required'),
+        hiringcurrentLocation: Yup.string().required('* Current Location is required'),
+        hiringjoinDays: Yup.string().required('* Join Days is required'),
+        hiringgender: Yup.string().required('* Gender is required'),
         hiringEmail: Yup.string().email('* Invalid email format').required('* Email is required'),
         hiringResume: Yup.mixed()
             .test('fileType', '* Invalid file format', (value) => {
@@ -38,16 +43,24 @@ const ApplyNow = () => {
                 if (!value) return true; // Allow empty values
                 return value.size <= 1024 * 1024; // 1MB limit
             })
-            .required('* Upload Resume is required')
+            .required('* Upload Resume is required'),
+        captchaValid: Yup.boolean()
+            .oneOf([true], '* Please complete the CAPTCHA verification')
+            .required('* CAPTCHA verification is required'),
     });
 
     const formik = useFormik({
         initialValues: {
             hiringName: '',
             hiringLastname: '',
+            hiringgender: '',
+            hiringcurrentSalary: '',
+            hiringexpectedSalary: '',
             hiringMobile: '',
             hiringExperience: '',
-            hiringCity: '',
+            hiringcurrentLocation: '',
+            hiringjoinDays: '',
+            hiringskills: '',
             hiringEmail: '',
             hiringResume: null
         },
@@ -56,15 +69,21 @@ const ApplyNow = () => {
             let formData = new FormData();
             formData.append('fname', values.hiringName);
             formData.append('lname', values.hiringLastname);
+            formData.append('gender', values.hiringgender);
+            formData.append('currentSalary', values.hiringcurrentSalary);
+            formData.append('expectedSalary', values.hiringexpectedSalary);
             formData.append('mobile', values.hiringMobile);
             formData.append('experience', values.hiringExperience);
-            formData.append('city', values.hiringCity);
+            formData.append('location', values.hiringcurrentLocation);
+            formData.append('joinDays', values.hiringjoinDays);
+            formData.append('skills', values.hiringskills);
             formData.append('email', values.hiringEmail);
             formData.append('resume', values.hiringResume);
+            formData.append('id', params);
 
             const request = id !== undefined
-                ? axios.patch(`https://plexus-technology.in/api/hiring/update/${id}`, formData)
-                : axios.post('https://plexus-technology.in/api/hiring/create', formData, {
+                ? axios.patch(`http://localhost:5001/api/hiring/update/${id}`, formData)
+                : axios.post('http://localhost:5001/api/hiring/create', formData, {
                     headers: { "Content-Type": "multipart/form-data" }
                 });
 
@@ -73,11 +92,11 @@ const ApplyNow = () => {
                 resetForm();
                 setHiringResume('');
                 setId(undefined);
-                toast.success('Resume upload successfully!');
+                toast.success('Your Resume Has Been Submitted Successfully!');
             }).catch((error) => {
                 setSubmitting(false);
                 console.error('Form submission error:', error);
-                toast.error("An error occurred. Please try again.");
+                toast.error("Resume Submission Failed.");
             });
         },
     });
@@ -120,7 +139,7 @@ const ApplyNow = () => {
 
 
                                 <FormGroup className="pt-3 d-flex flex-column">
-                                    <Label for="hiringResume">Upload resume</Label>
+                                    <Label for="hiringResume">Upload resume<span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                     <div className="custom-file-upload">
                                         <div className="custom-file-label">
                                             <span className="file-icon">
@@ -144,15 +163,15 @@ const ApplyNow = () => {
                                         ) : null}
                                     </div>
                                 </FormGroup>
-                                <Row>
+
+                                <Row className="py-3">
                                     <Col sm={6}>
                                         <FormGroup>
-                                            <Label for="hiringName">First Name </Label>
+                                            <Label for="hiringName">First Name <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
                                                 id="hiringName"
                                                 name="hiringName"
                                                 type="text"
-                                                placeholder="First Name"
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
                                                 value={formik.values.hiringName}
@@ -166,12 +185,11 @@ const ApplyNow = () => {
 
                                     <Col sm={6}>
                                         <FormGroup>
-                                            <Label for="hiringLastname">Last Name </Label>
+                                            <Label for="hiringLastname">Last Name <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
                                                 id="hiringLastname"
                                                 name="hiringLastname"
                                                 type="text"
-                                                placeholder="Last Name"
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
                                                 value={formik.values.hiringLastname}
@@ -184,10 +202,49 @@ const ApplyNow = () => {
                                     </Col>
                                 </Row>
 
-                                <Row className="pt-3">
+                                <Row className="py-3">
                                     <Col sm={6}>
                                         <FormGroup>
-                                            <Label for="hiringMobile">Phone number </Label>
+                                            <Label for="hiringgender">Gender<span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
+                                            <Input
+                                                id="hiringgender"
+                                                name="hiringgender"
+                                                type="select"
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.hiringgender}
+                                                className="py-2 overflow-hidden"
+                                            >
+                                                <option value="" label="Select an option" />
+                                                <option value="Male" label="Male" />
+                                                <option value="Female" label="Female" />
+                                                <option value="Non-binary" label="Non-binary" />
+                                                <option value="Don't want to disclose" label="Don't want to disclose" />
+                                                <option value="Transgender" label="Transgender" />
+                                            </Input>
+                                        </FormGroup>
+                                    </Col>
+
+                                    <Col sm={6}>
+                                        <FormGroup>
+                                            <Label for="hiringEmail">Email <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
+                                            <Input
+                                                id="hiringEmail"
+                                                name="hiringEmail"
+                                                type="email"
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.hiringEmail}
+                                                className="py-2"
+                                            />
+                                            {formik.touched.hiringEmail && formik.errors.hiringEmail ? (
+                                                <div className="text-danger error-message">{formik.errors.hiringEmail}</div>
+                                            ) : null}
+                                        </FormGroup>
+                                    </Col>
+                                    <Col sm={6}>
+                                        <FormGroup>
+                                            <Label for="hiringMobile">Phone number <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
                                                 id="hiringMobile"
                                                 name="hiringMobile"
@@ -223,10 +280,42 @@ const ApplyNow = () => {
                                         </FormGroup>
 
                                     </Col>
+                                </Row>
+
+                                <Row className="py-3">
+                                    <Col sm={6}>
+                                        <FormGroup>
+                                            <Label for="hiringcurrentSalary">Current Salary </Label>
+                                            <Input
+                                                id="hiringcurrentSalary"
+                                                name="hiringcurrentSalary"
+                                                type="text"
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.hiringcurrentSalary}
+                                                className="py-2"
+                                            />
+                                        </FormGroup>
+                                    </Col>
 
                                     <Col sm={6}>
                                         <FormGroup>
-                                            <Label for="hiringExperience">Work experience</Label>
+                                            <Label for="hiringexpectedSalary">Expected Salary </Label>
+                                            <Input
+                                                id="hiringexpectedSalary"
+                                                name="hiringexpectedSalary"
+                                                type="text"
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.hiringexpectedSalary}
+                                                className="py-2"
+                                            />
+                                        </FormGroup>
+                                    </Col>
+
+                                    <Col sm={6}>
+                                        <FormGroup>
+                                            <Label for="hiringExperience">Work experience <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
                                                 id="hiringExperience"
                                                 name="hiringExperience"
@@ -249,41 +338,73 @@ const ApplyNow = () => {
                                     </Col>
                                 </Row>
 
-                                <Row className="pt-3">
+                                <Row className="py-3">
                                     <Col sm={6}>
                                         <FormGroup>
-                                            <Label for="hiringCity">City </Label>
+                                            <Label for="hiringcurrentLocation">Current Location  <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
-                                                id="hiringCity"
-                                                name="hiringCity"
+                                                id="hiringcurrentLocation"
+                                                name="hiringcurrentLocation"
                                                 type="text"
-                                                placeholder="City"
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
-                                                value={formik.values.hiringCity}
+                                                value={formik.values.hiringcurrentLocation}
                                                 className="py-2"
                                             />
-                                            {formik.touched.hiringCity && formik.errors.hiringCity ? (
-                                                <div className="text-danger error-message">{formik.errors.hiringCity}</div>
+                                            {formik.touched.hiringcurrentLocation && formik.errors.hiringcurrentLocation ? (
+                                                <div className="text-danger error-message">{formik.errors.hiringcurrentLocation}</div>
                                             ) : null}
                                         </FormGroup>
                                     </Col>
 
                                     <Col sm={6}>
                                         <FormGroup>
-                                            <Label for="hiringEmail">Email </Label>
+                                            <Label for="hiringjoinDays">Available to join (in days) <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span> </Label>
                                             <Input
-                                                id="hiringEmail"
-                                                name="hiringEmail"
-                                                type="email"
-                                                placeholder="you@company.com"
+                                                id="hiringjoinDays"
+                                                name="hiringjoinDays"
+                                                type="text"
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
-                                                value={formik.values.hiringEmail}
+                                                value={formik.values.hiringjoinDays}
                                                 className="py-2"
                                             />
-                                            {formik.touched.hiringEmail && formik.errors.hiringEmail ? (
-                                                <div className="text-danger error-message">{formik.errors.hiringEmail}</div>
+                                            {formik.touched.hiringjoinDays && formik.errors.hiringjoinDays ? (
+                                                <div className="text-danger error-message">{formik.errors.hiringjoinDays}</div>
+                                            ) : null}
+                                        </FormGroup>
+                                    </Col>
+
+                                    <Col sm={6}>
+                                        <FormGroup>
+                                            <Label for="hiringskills">Skills </Label>
+                                            <Input
+                                                id="hiringskills"
+                                                name="hiringskills"
+                                                type="text"
+                                                onChange={formik.handleChange}
+                                                onBlur={formik.handleBlur}
+                                                value={formik.values.hiringskills}
+                                                className="py-2"
+                                            />
+                                            {formik.touched.hiringskills && formik.errors.hiringskills ? (
+                                                <div className="text-danger error-message">{formik.errors.hiringskills}</div>
+                                            ) : null}
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+
+                                <Row className="py-3">
+                                    <Col sm={12}>
+                                        <FormGroup>
+                                            <CaptchaInput
+                                                onValidate={(isValid) => {
+                                                    formik.setFieldValue('captchaValid', isValid);
+                                                    setIsCaptchaValid(isValid);
+                                                }}
+                                            />
+                                            {formik.touched.captchaValid && formik.errors.captchaValid ? (
+                                                <div className="text-danger error-message">{formik.errors.captchaValid}</div>
                                             ) : null}
                                         </FormGroup>
                                     </Col>
@@ -291,13 +412,13 @@ const ApplyNow = () => {
 
                                 <Row className="py-5 px-2">
                                     <Col sm={6}>
-                                        <Link to={'/'} className="text-decoration-none">
+                                        <Link to={'/hiring'} className="text-decoration-none">
                                             <Button block className="py-3 rounded-pill my-2" style={{ background: "none", border: '1px solid #CDCDCD', color: "#CDCDCD" }}>CANCEL</Button>
                                         </Link>
                                     </Col>
                                     <Col sm={6}>
                                         <Button type="submit" block disabled={formik.isSubmitting} className="py-3 rounded-pill border-white my-2" style={{ backgroundColor: "#0777AB" }}>
-                                            {formik.isSubmitting ? "..." : "CONTINUE"}
+                                            {formik.isSubmitting ? "..." : "SUBMIT"}
                                         </Button>
                                     </Col>
                                 </Row>
