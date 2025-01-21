@@ -13,8 +13,8 @@ import logo from "../img/logo.png"
           <img
             src={logo}
             alt="loading"
-            height={270}
-            width={270}
+            height={200}
+            width={200}
             className="img-fluid animation"
             style={{ maxHeight: '600px', objectFit: 'contain' }}
           />
