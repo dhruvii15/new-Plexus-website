@@ -66,7 +66,7 @@ const Footer = () => {
                     </Grid>
                     <Grid item xs={12} lg={7} textAlign="center" pt={3}>
                         <Box pt={3}>
-                            <img src={logo} alt="plexus-technology" style={{ width: '220px', height: 'auto' }} />
+                            <img src={logo} alt="plexus-technology" style={{ width: '180px', height: 'auto' }} />
                             <Typography variant="body2" pt={1} style={{ fontSize: '17px' }} fontWeight="bold">
                                 Follow Us
                             </Typography>

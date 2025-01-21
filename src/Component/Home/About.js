@@ -55,7 +55,7 @@ const About = () => {
                                     py: 1,
                                     px: 3,
                                     borderRadius: "50px",
-                                    border: "1px dashed #0777AB",
+                                    border: "1px dashed #0385C3",
                                     display: "inline-block",
                                 }}
                             >

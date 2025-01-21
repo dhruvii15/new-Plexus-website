@@ -77,7 +77,7 @@ const ContactUs = () => {
             <Container className="px-2 px-md-5" style={{ minHeight: "100vh" }}>
                 <div className="bg-white rounded-5 white-box shadow" style={{ left: '110px' }}>
                     <div className="white-mini">
-                        <h3 style={{ color: "#0777AB" }}>Send us a message</h3>
+                        <h3 style={{ color: "#0385C3" }}>Send us a message</h3>
                         <p className="space">Reach out to us and let’s discuss how.<br></br>
                             We’re here to listen and help you achieve your goals.</p>
 
@@ -199,7 +199,7 @@ const ContactUs = () => {
                                     block
                                     disabled={formik.isSubmitting}
                                     className="py-3 rounded-pill border-white"
-                                    style={{ backgroundColor: "#0777AB" }}
+                                    style={{ backgroundColor: "#0385C3" }}
                                 >
                                     {formik.isSubmitting ? "Sending..." : "Send Message"}
                                 </Button>

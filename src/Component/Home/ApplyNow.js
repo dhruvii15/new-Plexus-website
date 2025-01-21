@@ -456,7 +456,7 @@ const ApplyNow = ({ params }) => {
                                             block
                                             disabled={isSubmitting}
                                             className="py-3 rounded-pill border-white my-2"
-                                            style={{ backgroundColor: "#0777AB" }}
+                                            style={{ backgroundColor: "#0385C3" }}
                                         >
                                             {isSubmitting ? "Submitting..." : "SUBMIT"}
                                         </Button>

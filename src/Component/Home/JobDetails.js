@@ -37,7 +37,7 @@ const JobDetails = ({ data }) => {
 
     const handleJobClick = (itemId) => {
         // window.location.href = `/hiring/applynow/${itemId}`;
-        navigate('/hiring/applynow/${itemId}');
+        navigate(`/hiring/applynow/${itemId}`);
     };    
 
     return (
@@ -66,7 +66,7 @@ const JobDetails = ({ data }) => {
                                 className="d-flex align-items-center gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
-                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0777AB" }} />
+                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />
                                 <p className="m-0 fs-5">{duty}</p>
                             </div>
                         ))}
@@ -82,7 +82,7 @@ const JobDetails = ({ data }) => {
                                 className="d-flex align-items-center gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
-                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0777AB" }} />
+                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />
                                 <p className="m-0 fs-5">{needs}</p>
                             </div>
                         ))}
@@ -98,7 +98,7 @@ const JobDetails = ({ data }) => {
                                 className="d-flex align-items-center gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
-                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0777AB" }} />
+                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />
                                 <p className="m-0 fs-5">{benefits}</p>
                             </div>
                         ))}
@@ -110,7 +110,7 @@ const JobDetails = ({ data }) => {
                     onClick={() => handleJobClick(data._id)}
                     style={{
                         fontSize: "16px",
-                        background: "#0777AB",
+                        background: "#0385C3",
                     }}
                 >
                     <span

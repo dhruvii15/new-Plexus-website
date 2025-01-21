@@ -51,7 +51,7 @@ const Hero = () => {
                 <Row className='d-flex align-items-center justify-content-center py-5 flex-column-reverse flex-lg-row'>
                     <Col lg={6} xs={12} className='position-relative pt-3'>
                         <p className='m-0 hero-title fw-bold'>
-                            Creating <span style={{ color: "#0777AB" }}>Entertainment Apps & Games</span> That Inspire
+                            Creating <span style={{ color: "#0385C3" }}>Entertainment Apps & Games</span> That Inspire
                         </p>
                         <p style={{ paddingTop: "10px", width: "85%" }}>
                             We transform bold ideas into dynamic mobile apps and games, designed to enrich lives and meet unique needs.
@@ -61,7 +61,7 @@ const Hero = () => {
                             className='border-0 rounded-pill text-white px-4 py-3 arrow-rotate-box'
                             style={{
                                 fontSize: "16px",
-                                background: "#0777AB",
+                                background: "#0385C3",
                                 marginTop: "10px",
                                 cursor: showCursorImage ? 'none' : 'pointer'
                             }}

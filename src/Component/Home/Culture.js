@@ -29,7 +29,7 @@ const Culture = () => {
                 {data && data.length > 0 ? (
                     <>
                         <h2 className="hero-title w-100 h-100 m-0 text-center" style={{ color: "#132028", fontWeight: "600" }}>
-                            Life at <span style={{ color: "#0777AB" }}>Plexus</span>
+                            Life at <span style={{ color: "#0385C3" }}>Plexus</span>
                         </h2>
                         <p className="container space text-center my-3">
                             At Plexus Technology, we are committed to creating a joyful and supportive workplace where our employees feel valued and happy. We celebrate every festival together, like Holi, Diwali, and Navratri, making every moment special and fun. Our yearly trips to exciting destinations and quarterly activities keep the energy alive, fostering strong bonds and boosting motivation. Here, work is more than just a job—it’s about enjoying every step of the journey together.

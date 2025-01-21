@@ -51,7 +51,7 @@ const Header = () => {
                             src={logo}
                             alt="Plexus"
                             className="img-fluid d-none d-sm-block"  // Default large screen logo
-                            style={{ width: '200px' }}
+                            style={{ width: '180px' }}
                         />
                         <img
                             src={logo}
