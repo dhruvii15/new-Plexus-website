@@ -797,7 +797,7 @@ input:focus {
 .blue-box{
     min-height: 500px;
     background-color: #0777AB;
-    color: #F6F6F6;
+    color: #F6F6F6 !important;
     font-weight: 400;
     z-index: 1000;
     padding: 40px;

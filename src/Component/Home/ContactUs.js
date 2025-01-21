@@ -11,6 +11,17 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const ContactUs = () => {
+    const phoneNumber = '+91 90238 38674';
+
+    const handleLinkedInClick = () => {
+        const linkedinUrl = 'https://www.linkedin.com/company/plexus-technology2024/';
+        window.open(linkedinUrl, '_blank');
+    };
+
+    const handlePhoneClick = () => {
+        window.location.href = `tel:${phoneNumber.replace(/\s+/g, '')}`;
+    };
+
     const Schema = Yup.object().shape({
         Name: Yup.string().required('* First name is required'),
         Lastname: Yup.string(),
@@ -40,9 +51,9 @@ const ContactUs = () => {
                 formData.append('message', values.Message);
 
                 if (values.id) {
-                      await axios.patch(`https://plexus-technology.in/api/user/update/${values.id}`, formData);
+                    await axios.patch(`https://plexus-technology.in/api/user/update/${values.id}`, formData);
                 } else {
-                     await axios.post('https://plexus-technology.in/api/user/create', formData, {
+                    await axios.post('https://plexus-technology.in/api/user/create', formData, {
                         headers: { "Content-Type": "multipart/form-data" }
                     });
                 }
@@ -64,7 +75,7 @@ const ContactUs = () => {
                 <h2 className="mt-4" style={{ textShadow: '0px 3px 0px #0777AB', color: "#132028", fontWeight: "600" }}>Contact us</h2>
             </div>
             <Container className="px-2 px-md-5" style={{ minHeight: "100vh" }}>
-                <div className="bg-white rounded-5 white-box shadow" style={{left:'110px'}}>
+                <div className="bg-white rounded-5 white-box shadow" style={{ left: '110px' }}>
                     <div className="white-mini">
                         <h3 style={{ color: "#0777AB" }}>Send us a message</h3>
                         <p className="space">Reach out to us and let’s discuss how.<br></br>
@@ -188,7 +199,7 @@ const ContactUs = () => {
                                     block
                                     disabled={formik.isSubmitting}
                                     className="py-3 rounded-pill border-white"
-                                    style={{ backgroundColor: "#0777AB"}}
+                                    style={{ backgroundColor: "#0777AB" }}
                                 >
                                     {formik.isSubmitting ? "Sending..." : "Send Message"}
                                 </Button>
@@ -198,7 +209,7 @@ const ContactUs = () => {
                 </div>
                 <div className="rounded-5 blue-box">
                     <p className="fs-5 pb-3">Hi! We are always here to help you.</p>
-                    <Row className="p-3 my-3 ">
+                    <Row className="p-3 my-3 cursor" onClick={handlePhoneClick}>
                         <Col xs={2}>
                             <FontAwesomeIcon icon={faPhone} className="fs-5 pt-2" />
                         </Col>
@@ -207,16 +218,22 @@ const ContactUs = () => {
                             <p className="m-0">+91 90238 38674</p>
                         </Col>
                     </Row>
-                    <Row className="p-3 my-3">
-                        <Col xs={2}>
-                            <FontAwesomeIcon icon={faEnvelope} className="fs-5 pt-2" />
-                        </Col>
-                        <Col xs={10}>
-                            <p className="m-0">Help:</p>
-                            <p className="m-0">hr.plexustechnology@gmail.com</p>
-                        </Col>
-                    </Row>
-                    <Row className="p-3 my-3">
+                    <a
+                        href="mailto:hr.plexustechnology@gmail.com?subject=Help%20Request&body=Dear%20HR,%0D%0A%0D%0AI%20need%20assistance%20with%20[describe%20the%20issue%20or%20topic%20here].%20Could%20you%20please%20provide%20guidance%20or%20support?%0D%0A%0D%0AThank%20you,%0D%0A[Your%20Name]"
+                        className="text-decoration-none"
+                        style={{color:"#F6F6F6"}}
+                    >
+                        <Row className="p-3 my-3">
+                            <Col xs={2}>
+                                <FontAwesomeIcon icon={faEnvelope} className="fs-5 pt-2" />
+                            </Col>
+                            <Col xs={10}>
+                                <p className="m-0">Help:</p>
+                                <p className="m-0">hr.plexustechnology@gmail.com</p>
+                            </Col>
+                        </Row>
+                    </a>
+                    <Row className="p-3 my-3 cursor" onClick={handleLinkedInClick}>
                         <Col xs={2}>
                             <FontAwesomeIcon icon={faLinkedinIn} className="fs-5 pt-2" />
                         </Col>

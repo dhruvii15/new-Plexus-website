@@ -32,19 +32,20 @@ const Position = ({ data }) => {
         navigate(`/hiring/jobdetails/${itemId}`);
     };
 
-    // Modified reduce function to handle "All" as default
     const departments = data.reduce((acc, item) => {
-        const matchesSearch =
-            item.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            item.name.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesDepartment = selectedDepartment === "All" || item.department === selectedDepartment;
-        const matchesjobType = selectedjobType === "All" || item.jobType === selectedjobType;
+        if (item.status !== false) {
+            const matchesSearch =
+                item.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                item.name.toLowerCase().includes(searchTerm.toLowerCase());
+            const matchesDepartment = selectedDepartment === "All" || item.department === selectedDepartment;
+            const matchesjobType = selectedjobType === "All" || item.jobType === selectedjobType;
 
-        if (matchesSearch && matchesDepartment && matchesjobType) {
-            if (!acc[item.department]) {
-                acc[item.department] = [];
+            if (matchesSearch && matchesDepartment && matchesjobType) {
+                if (!acc[item.department]) {
+                    acc[item.department] = [];
+                }
+                acc[item.department].push(item);
             }
-            acc[item.department].push(item);
         }
         return acc;
     }, {});
@@ -53,7 +54,6 @@ const Position = ({ data }) => {
         setSearchTerm(e.target.value);
     };
 
-    // Modified click handlers to handle "All" state
     const handleDepartmentClick = (department) => {
         setSelectedDepartment(department === selectedDepartment ? "All" : department);
     };
@@ -62,9 +62,9 @@ const Position = ({ data }) => {
         setSelectedjobType(jobType === selectedjobType ? "All" : jobType);
     };
 
-    // Get unique departments and jobTypes
-    const uniqueDepartments = ["All", ...new Set(data.map(item => item.department))];
-    const uniquejobTypes = ["All", ...new Set(data.map(item => item.jobType))];
+    // Get unique departments and jobTypes from active positions only
+    const uniqueDepartments = ["All", ...new Set(data.filter(item => item.status !== false).map(item => item.department))];
+    const uniquejobTypes = ["All", ...new Set(data.filter(item => item.status !== false).map(item => item.jobType))];
 
     return (
         <div>
