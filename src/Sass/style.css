@@ -738,18 +738,18 @@ input:focus {
   border-radius: 20px;
 }
 
-.slider-container {
+.slider-container-culture {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
 }
 
-.slider-content {
+.slider-content-culture {
   display: inline-flex;
-  animation: scroll 30s linear infinite;
+  animation: scrollculture 30s linear infinite;
 }
 
-@keyframes scroll {
+@keyframes scrollculture {
   0% {
     transform: translateX(0);
   }

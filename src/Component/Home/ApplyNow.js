@@ -150,7 +150,7 @@ const ApplyNow = ({ params }) => {
             </div>
 
             <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px" }}>
-                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px", textShadow: '0px 3px 0px #0777AB', color: "#132028", fontWeight: "600" }}>Apply Now</h1>
+                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px", color: "#132028", fontWeight: "600" }}>Apply Now</h1>
             </div>
 
             <div className="pb-5 my-5 space">

@@ -94,7 +94,7 @@ const Position = ({ data }) => {
             <Container className="">
                 <div className="text-center py-5 my-5">
                     <small className="bg-gray fs-6">Hiring</small>
-                    <h1 className="w-75 mx-auto fw-bold" style={{ textShadow: '0px 3px 0px #0777AB', color: "#132028" }}>
+                    <h1 className="w-75 mx-auto fw-bold" style={{ color: "#132028" }}>
                         "Spark Your Passion"
                     </h1>
                 </div>

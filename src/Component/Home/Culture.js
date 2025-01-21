@@ -36,8 +36,8 @@ const Culture = () => {
                         </p>
 
                         {/* =========== image ============= */}
-                        <div className="slider-container">
-                            <div style={{ marginTop: "100px" }} className="slider-content">
+                        <div className="slider-container-culture">
+                            <div style={{ marginTop: "100px" }} className="slider-content-culture">
                                 {data.map((data, index) => (
                                     <div key={index} className="d-flex align-items-center justify-content-center" style={{ width: "800px" }}>
                                         <div className="w-50 rounded-3" style={{ height: "500px" , padding:"0px 1px"}}>

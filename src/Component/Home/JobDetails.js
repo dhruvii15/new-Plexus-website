@@ -1,9 +1,11 @@
 import { faArrowRight, faBusinessTime, faCheckDouble, faLocationDot, faUserTag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button, Container } from "reactstrap";
 
 const JobDetails = ({ data }) => {
+    const navigate = useNavigate();
     const [visibleSections, setVisibleSections] = useState({
         responsibilities: false,
         requirements: false,
@@ -34,12 +36,13 @@ const JobDetails = ({ data }) => {
     }, []);
 
     const handleJobClick = (itemId) => {
-        window.location.href = `/hiring/applynow/${itemId}`;
+        // window.location.href = `/hiring/applynow/${itemId}`;
+        navigate('/hiring/applynow/${itemId}');
     };    
 
     return (
         <>
-            <h1 className="py-5 text-center px-3" style={{ textShadow: '0px 3px 0px #0777AB', borderTop: "1px solid #eee", color: "#132028", fontWeight: "600" }}>
+            <h1 className="py-5 text-center px-3" style={{ borderTop: "1px solid #eee", color: "#132028", fontWeight: "600" }}>
                 Your next big opportunity is just a click away.
             </h1>
             <div className="bg-blue text-white d-flex align-items-center p-2" style={{ minHeight: "200px" }}>

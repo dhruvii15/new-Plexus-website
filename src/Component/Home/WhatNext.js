@@ -9,7 +9,7 @@ const WhatNext = () => {
 
 
             <Container className="py-5">
-                <h1 className="text-center" style={{ textShadow: '0px 3px 0px #0777AB', color: "#132028", fontWeight: "600" }}>So What Next ?</h1>
+                <h1 className="text-center" style={{ color: "#132028", fontWeight: "600" }}>So What Next ?</h1>
                 <Row className="pb-5 d-flex align-items-stretch justify-content-center">
                     <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
                         <div className="px-3 rounded-3 mt-5 text-center flex-grow-1 position-relative">
