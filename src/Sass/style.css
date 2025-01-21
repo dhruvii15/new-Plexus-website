@@ -727,7 +727,7 @@ input:focus {
 .blue-box {
   min-height: 500px;
   background-color: #0777AB;
-  color: #F6F6F6;
+  color: #F6F6F6 !important;
   font-weight: 400;
   z-index: 1000;
   padding: 40px;
@@ -738,6 +738,25 @@ input:focus {
   border-radius: 20px;
 }
 
+.slider-container {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.slider-content {
+  display: inline-flex;
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
 @media (max-width: 576px) and (min-width: 0px) {
   .game1 {
     width: 60px;

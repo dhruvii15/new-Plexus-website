@@ -7,6 +7,7 @@ const Header = lazy(() => import('../Component/Header'));
 const About = lazy(() => import('../Component/Home/About'));
 const Footer = lazy(() => import('../Component/Footer'));
 const Touch = lazy(() => import('../Component/Home/Touch'));
+const Culture = lazy(() => import('../Component/Home/Culture'));
 
 const AboutUs = () => {
 
@@ -49,6 +50,7 @@ const AboutUs = () => {
             <Suspense fallback={<Loading />}>
                 <Header />
                 <About />
+                <Culture />
                 <Touch />
                 <Footer />
             </Suspense>

@@ -91,7 +91,7 @@ const Position = ({ data }) => {
                 </Button>
             </div>
 
-            <Container className="px-4">
+            <Container className="">
                 <div className="text-center py-5 my-5">
                     <small className="bg-gray fs-6">Hiring</small>
                     <h1 className="w-75 mx-auto fw-bold" style={{ textShadow: '0px 3px 0px #0777AB', color: "#132028" }}>
@@ -101,9 +101,9 @@ const Position = ({ data }) => {
 
                 <Row id="open-position-section" className="d-flex justify-content-center border rounded-4 px-4 pb-5 mb-5" style={{ background: "#FAFAFA" }}>
                     <h2 className="pt-5 text-center">Open Position</h2>
-                    <Col xs={12} lg={12} className="pt-4">
-                        <div className="rounded-3">
-                            <div className="search-bar-container my-2">
+                    <Col xs={12} lg={4} className="pt-5 px-4">
+                        <div className="rounded-3 sticky">
+                            <div className="search-bar-container my-4">
                                 <input
                                     type="text"
                                     placeholder="Search for a job or department"
@@ -159,9 +159,28 @@ const Position = ({ data }) => {
                         </div>
                     </Col>
 
-                    <Col xs={12} lg={12} className="pb-5">
-                        <div className="my-4">
+                    <Col xs={12} lg={8} className="py-5">
+                        <div className="my-3">
                             {Object.keys(departments).map((department, index) => (
+                                <div key={index}>
+                                    <h5 className="fw-bold py-2">{department}</h5>
+                                    {departments[department].map((item, index) => (
+                                        <Row key={index} className="position-main my-3" onClick={() => handleJobClick(item._id)}>
+                                            <Col xs={11}>
+                                                <p className="fs-5 ms-2">{item.name}</p>
+                                                <div className="d-flex flex-wrap">
+                                                    <span className="department mx-2 mt-1"><FontAwesomeIcon icon={faLocationDot} className="pe-2" /> surat</span>
+                                                    <span className="department mx-2 mt-1"><FontAwesomeIcon icon={faBusinessTime} className="pe-2" />{item.jobType}</span>
+                                                    <span className="department mx-2 mt-1"><FontAwesomeIcon icon={faUserTag} className="pe-2" />{item.experience}</span>
+                                                </div>
+                                            </Col>
+                                            <Col xs={1}>
+                                                <FontAwesomeIcon icon={faUpRightFromSquare} style={{ color: "0777AB" }} className="right-icon" />
+                                            </Col>
+                                        </Row>
+                                    ))}
+                                </div>
+                            ))}{Object.keys(departments).map((department, index) => (
                                 <div key={index}>
                                     <h5 className="fw-bold py-2">{department}</h5>
                                     {departments[department].map((item, index) => (

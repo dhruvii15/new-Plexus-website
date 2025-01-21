@@ -809,6 +809,28 @@ input:focus {
     }
 }
 
+// ================== Gallery =====================
+.slider-container {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.slider-content {
+    display: inline-flex;
+    animation: scroll 30s linear infinite;
+}
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
 // ================== Responsive ==================
 @media (max-width:576px) and (min-width:0px) {
     .game1 {
