@@ -56,8 +56,8 @@ const Stack = () => {
                     </Col>
                     <Col xs={12} lg={6} className={`py-4 px-5 text-animate ${isTextVisible ? "visible" : ""}`}>
                         <p className="space">Our mobile app is developed using Swift for iOS and Kotlin for Android, ensuring native performance and seamless user experiences across both platforms. These technologies offer efficient, fast, and reliable solutions. Explore our app with the provided screenshots to see its capabilities in action.</p>
-                        <div className="py-3 d-flex align-items-center flex-wrap">
-                            <div className="stack-box mt-2 shadow"><img src={figma} alt="figma" className="img-fluid" style={{width:"35%"}} /></div>
+                        <div className="py-3 d-flex align-items-center" style={{width:"100%"}}>
+                            <div className="stack-box mt-2 shadow"><img src={figma} alt="figma" className="img-fluid" style={{ width: "35%" }} /></div>
                             <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
                             <div className="stack-box mt-2 shadow"><img src={swift} alt="swift" className="img-fluid w-50" /></div>
                             <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
@@ -65,8 +65,8 @@ const Stack = () => {
                             <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
                             <div className="stack-box mt-2 shadow"><img src={ios} alt="ios" className="img-fluid w-50" /></div>
                         </div>
-                        <div className="py-3 d-flex align-items-center flex-wrap">
-                            <div className="stack-box mt-2 shadow"><img src={figma} alt="figma" className="img-fluid" style={{width:"35%"}} /></div>
+                        <div className="py-3 d-flex align-items-center" style={{width:"100%"}}>
+                            <div className="stack-box mt-2 shadow"><img src={figma} alt="figma" className="img-fluid" style={{ width: "35%" }} /></div>
                             <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
                             <div className="stack-box mt-2 shadow"><img src={kotlin} alt="kotlin" className="img-fluid w-50 p-1" /></div>
                             <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
