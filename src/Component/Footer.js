@@ -4,7 +4,6 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import logo from '../img/logo.png';
-import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const phoneNumber = '+91 90238 38674';
@@ -70,29 +69,38 @@ const Footer = () => {
                         <Box pt={4}>
                             <Typography variant="h5" fontWeight="bold" color="black">
                                 Quick Links
-                                    <Typography variant="body1" style={{ paddingTop: "11px" }}>
-                                        <Link to="/about-us" style={{ textDecoration: "none", color: "inherit" }}>
-                                            About us
-                                        </Link>
-                                    </Typography>
-                                    <Typography variant="body1" style={{ paddingTop: "11px" }}>
-                                        <Link to="/portfolio" style={{ textDecoration: "none", color: "inherit" }}>
-                                            Portfolio
-                                        </Link>
-                                    </Typography>
-                                    <Typography variant="body1" style={{ paddingTop: "11px" }}>
-                                        <Link to="/about-us" style={{ textDecoration: "none", color: "inherit" }}>
-                                            Company Culture
-                                        </Link>
-                                    </Typography>
-                                    <Typography variant="body1" style={{ paddingTop: "11px" }}>
-                                        <Link to="/contact-us" style={{ textDecoration: "none", color: "inherit" }}>
-                                            Contact us
-                                        </Link>
-                                    </Typography>
+                                <Typography
+                                    variant="body1"
+                                    style={{ paddingTop: "11px" , cursor:"pointer" }}
+                                    onClick={() => window.location.href = "/about-us"}
+                                >
+                                    About us
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    style={{ paddingTop: "11px" , cursor:"pointer" }}
+                                    onClick={() => window.location.href = "/portfolio"}
+                                >
+                                    Portfolio
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    style={{ paddingTop: "11px" , cursor:"pointer" }}
+                                    onClick={() => window.location.href = "/about-us"}
+                                >
+                                    Company Culture
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    style={{ paddingTop: "11px" , cursor:"pointer" }}
+                                    onClick={() => window.location.href = "/contact-us"}
+                                >
+                                    Contact us
+                                </Typography>
                             </Typography>
                         </Box>
                     </Grid>
+
                     <Grid item xs={12} md={4} textAlign="center" pt={4}>
                         <Box pt={4}>
                             <img src={logo} alt="plexus-technology" style={{ width: '180px', height: 'auto' }} />

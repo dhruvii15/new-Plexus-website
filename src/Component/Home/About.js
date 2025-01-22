@@ -12,7 +12,7 @@ const About = () => {
     return (
         <>
             <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "280px" }}>
-                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(212, 227, 248, 0.45)', lineHeight: "280px", color: "#132028", fontWeight: "600" }}>About Us</h1>
+                <h1 className="hero-title w-100 h-100 m-0 text-center text-white" style={{ background: 'rgba(0, 0, 0, 0.5)', lineHeight: "280px", color: "#132028", fontWeight: "600" }}>About Us</h1>
             </div>
 
             <Container sx={{ pb: 5 }}>
@@ -55,7 +55,7 @@ const About = () => {
                                     py: 1,
                                     px: 3,
                                     borderRadius: "50px",
-                                    border: "1px dashed #0385C3",
+                                    border: "1px dashed #0777AB",
                                     display: "inline-block",
                                 }}
                             >

@@ -79,14 +79,14 @@ const Stack = () => {
                             <div className='position-absolute left-0 first-div'>
                                 <Button className="bg-transparent text-black rounded-pill d-flex align-items-center justify-content-start gap-2 py-2 px-3" 
                                 onClick={() => handleDownloadClick('https://example.com')}
-                                style={{border:"1px dashed #0385C3"}}>
+                                style={{border:"1px dashed #0777AB"}}>
                                     <FontAwesomeIcon icon={faDownload} className="fs-5"/> Download
                                 </Button>
                             </div>
                             <div className='left-0 position-absolute sec-div'>
                                 <Button className="bg-transparent text-black rounded-pill d-flex align-items-center justify-content-start gap-2 py-2 px-3" 
                                 onClick={() => handleDownloadClick('https://example.com')}
-                                style={{border:"1px dashed #0385C3"}}>
+                                style={{border:"1px dashed #0777AB"}}>
                                 <FontAwesomeIcon icon={faDownload}  className="fs-5"/> Download
                                 </Button>
                             </div>

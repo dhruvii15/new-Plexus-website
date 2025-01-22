@@ -37,7 +37,7 @@ const Touch = () => {
                                     }
                                 }}
                             >
-                                <FontAwesomeIcon icon={faPhone} className="fs-5" style={{ color: "#0385C3" }} />
+                                <FontAwesomeIcon icon={faPhone} className="fs-5" style={{ color: "#0777AB" }} />
                                 <p className="m-0 text-black">{phoneNumber}</p>
                             </div>
                         </Col>
@@ -48,7 +48,7 @@ const Touch = () => {
                                 className="text-decoration-none"
                             >
                                 <div className="rounded-2 bg-white p-3 d-flex align-items-center gap-3">
-                                    <FontAwesomeIcon icon={faEnvelope} className="fs-5" style={{ color: "#0385C3" }} />
+                                    <FontAwesomeIcon icon={faEnvelope} className="fs-5" style={{ color: "#0777AB" }} />
                                     <p className="m-0 text-black">hr.plexustechnology@gmail.com</p>
                                 </div>
                             </a>
@@ -67,7 +67,7 @@ const Touch = () => {
                                     }
                                 }}
                             >
-                                <FontAwesomeIcon icon={faLinkedin} className="fs-5" style={{ color: "#0385C3" }} />
+                                <FontAwesomeIcon icon={faLinkedin} className="fs-5" style={{ color: "#0777AB" }} />
                                 <p className="m-0 text-black">Plexus Technology</p>
                             </div>
                         </Col>

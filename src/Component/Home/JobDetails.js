@@ -47,7 +47,7 @@ const JobDetails = ({ data }) => {
             </h1>
             <div className="bg-blue text-white d-flex align-items-center p-2" style={{ minHeight: "200px" }}>
                 <Container>
-                    <h2 className="pb-3 fw-normal">{data.name}</h2>
+                    <h2 className="pb-3 fw-normal">{data.position}</h2>
                     <div className="d-flex flex-wrap gap-2 gap-sm-4 space fw-normal" style={{ fontSize: "14px" }}>
                         <span><FontAwesomeIcon icon={faLocationDot} className="pe-2" /> surat</span>
                         <span><FontAwesomeIcon icon={faBusinessTime} className="pe-2" />{data.jobType}</span>
@@ -66,7 +66,7 @@ const JobDetails = ({ data }) => {
                                 className="d-flex gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
-                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />
+                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0777AB" }} />
                                 <p className="m-0 fs-5">{duty}</p>
                             </div>
                         ))}
@@ -82,7 +82,7 @@ const JobDetails = ({ data }) => {
                                 className="d-flex gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
-                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />
+                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0777AB" }} />
                                 <p className="m-0 fs-5">{needs}</p>
                             </div>
                         ))}
@@ -98,7 +98,7 @@ const JobDetails = ({ data }) => {
                                 className="d-flex gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
-                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />
+                                <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0777AB" }} />
                                 <p className="m-0 fs-5">{benefits}</p>
                             </div>
                         ))}
@@ -110,7 +110,7 @@ const JobDetails = ({ data }) => {
                     onClick={() => handleJobClick(data._id)}
                     style={{
                         fontSize: "16px",
-                        background: "#0385C3",
+                        background: "#0777AB",
                     }}
                 >
                     <span

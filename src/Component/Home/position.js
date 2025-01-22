@@ -9,6 +9,7 @@ import jobseeker from "../../img/jobseeker.png"
 import recruiter from "../../img/recruiter.png"
 
 const Position = ({ data }) => {
+    
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedDepartment, setSelectedDepartment] = useState("All");
@@ -36,7 +37,7 @@ const Position = ({ data }) => {
         if (item.status !== false) {
             const matchesSearch =
                 item.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                item.name.toLowerCase().includes(searchTerm.toLowerCase());
+                item.position.toLowerCase().includes(searchTerm.toLowerCase());
             const matchesDepartment = selectedDepartment === "All" || item.department === selectedDepartment;
             const matchesjobType = selectedjobType === "All" || item.jobType === selectedjobType;
 
@@ -68,16 +69,17 @@ const Position = ({ data }) => {
 
     return (
         <div>
-            <div className="position-bg space px-4 mt-1 text-center d-flex align-items-center justify-content-center flex-column gap-3" style={{ minHeight: "300px" }}>
-                <h1 className="fw-bold">Join a Team That Fuels Your <br></br>Growth and Success</h1>
-                <p>Be part of a team that values your potential, encourages your growth, and inspires you to achieve greatness. <br></br>Together, we create a culture of success, innovation, and support.</p>
-                <img src={jobseeker} alt="jobseeker" className="img-fluid jobseeker" />
-                <img src={recruiter} alt="recruiter" className="img-fluid recruiter" />
-                {/* <Button
+            <div className="apply-bg position-bg" style={{ minHeight: "300px" }}>
+                <div className="w-100 h-100 m-0 text-center text-white d-flex align-items-center justify-content-center flex-column gap-3" style={{ background: 'rgba(0, 0, 0, 0.45)', color: "#132028", minHeight:"300px"}}>
+                    <h1 className="fw-bold">Join a Team That Fuels Your <br></br>Growth and Success</h1>
+                    <p>Be part of a team that values your potential, encourages your growth, and inspires you to achieve greatness. <br></br>Together, we create a culture of success, innovation, and support.</p>
+                    <img src={jobseeker} alt="jobseeker" className="img-fluid jobseeker" />
+                    <img src={recruiter} alt="recruiter" className="img-fluid recruiter" />
+                    {/* <Button
                     className='border-0 rounded-pill text-white px-5 py-3 arrow-rotate-box'
                     style={{
                         fontSize: "16px",
-                        background: "#0385C3",
+                        background: "#0777AB",
                     }}
                     onClick={scrollToOpenPosition}
                 >
@@ -89,6 +91,7 @@ const Position = ({ data }) => {
                     </span>
                     <FontAwesomeIcon icon={faArrowRight} className='arrow-rotate' />
                 </Button> */}
+                </div>
             </div>
 
             <Container className="">
@@ -126,7 +129,7 @@ const Position = ({ data }) => {
                                             style={{
                                                 opacity: searchTerm && !department.toLowerCase().includes(searchTerm.toLowerCase()) ? 0.5 : 1,
                                                 cursor: 'pointer',
-                                                backgroundColor: selectedDepartment === department ? '#0385C3' : '#f0f0f0',
+                                                backgroundColor: selectedDepartment === department ? '#0777AB' : '#f0f0f0',
                                                 color: selectedDepartment === department ? 'white' : 'black'
                                             }}
                                             onClick={() => handleDepartmentClick(department)}
@@ -146,7 +149,7 @@ const Position = ({ data }) => {
                                             className={`department ${selectedjobType === jobType ? 'active' : ''}`}
                                             style={{
                                                 cursor: 'pointer',
-                                                backgroundColor: selectedjobType === jobType ? '#0385C3' : '#f0f0f0',
+                                                backgroundColor: selectedjobType === jobType ? '#0777AB' : '#f0f0f0',
                                                 color: selectedjobType === jobType ? 'white' : 'black'
                                             }}
                                             onClick={() => handlejobTypeClick(jobType)}
@@ -163,11 +166,11 @@ const Position = ({ data }) => {
                         <div className="my-3">
                             {Object.keys(departments).map((department, index) => (
                                 <div key={index}>
-                                    <h4 className="py-2" style={{fontWeight:"600"}}>{department}</h4>
+                                    <h4 className="py-2" style={{ fontWeight: "600" }}>{department}</h4>
                                     {departments[department].map((item, index) => (
                                         <Row key={index} className="position-main my-3" onClick={() => handleJobClick(item._id)}>
                                             <Col xs={11}>
-                                                <p className="fs-6 ms-2">{item.name}</p>
+                                                <p className="fs-6 ms-2">{item.position}</p>
                                                 <div className="d-flex flex-wrap">
                                                     <span className="department mx-2 mt-1"><FontAwesomeIcon icon={faLocationDot} className="pe-2" /> surat</span>
                                                     <span className="department mx-2 mt-1"><FontAwesomeIcon icon={faBusinessTime} className="pe-2" />{item.jobType}</span>
@@ -175,7 +178,7 @@ const Position = ({ data }) => {
                                                 </div>
                                             </Col>
                                             <Col xs={1}>
-                                                <FontAwesomeIcon icon={faUpRightFromSquare} style={{ color: "0385C3" }} className="right-icon" />
+                                                <FontAwesomeIcon icon={faUpRightFromSquare} style={{ color: "0777AB" }} className="right-icon" />
                                             </Col>
                                         </Row>
                                     ))}

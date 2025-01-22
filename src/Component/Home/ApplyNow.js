@@ -150,7 +150,7 @@ const ApplyNow = ({ params }) => {
             </div>
 
             <div className="apply-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "280px" }}>
-                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(212, 227, 248, 0.5)', lineHeight: "280px", color: "#132028", fontWeight: "600" }}>Apply Now</h1>
+                <h1 className="hero-title w-100 h-100 m-0 text-center text-white" style={{  background: 'rgba(0, 0, 0, 0.45)', lineHeight: "280px", color: "#132028", fontWeight: "600" }}>Apply Now</h1>
             </div>
 
             <div className="pb-5 my-5 space">
@@ -443,7 +443,7 @@ const ApplyNow = ({ params }) => {
                                     disabled={isSubmitting}
                                     className="border-white px-5 py-2 rounded-2 my-2"
                                     style={{
-                                        backgroundColor: "#0385C3",
+                                        backgroundColor: "#0777AB",
                                         width: "auto",  // Adjust padding for better aesthetics
                                     }}
                                 >
