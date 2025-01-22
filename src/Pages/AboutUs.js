@@ -6,7 +6,6 @@ import { faArrowUp, faPersonCirclePlus } from '@fortawesome/free-solid-svg-icons
 const Header = lazy(() => import('../Component/Header'));
 const About = lazy(() => import('../Component/Home/About'));
 const Footer = lazy(() => import('../Component/Footer'));
-const Touch = lazy(() => import('../Component/Home/Touch'));
 const Culture = lazy(() => import('../Component/Home/Culture'));
 
 const AboutUs = () => {
@@ -51,7 +50,6 @@ const AboutUs = () => {
                 <Header />
                 <About />
                 <Culture />
-                <Touch />
                 <Footer />
             </Suspense>
 

@@ -70,8 +70,7 @@ const ContactUs = () => {
     });
     return (
         <>
-
-            <div className="position-bg space py-5 d-flex align-items-center align-items-lg-start justify-content-center position-relative" style={{ height: "300px" }}>
+            <div className="position-bg space py-5 d-flex contact-title justify-content-center position-relative" style={{ height: "300px" }}>
                 <h2 className="mt-4" style={{ color: "#132028", fontWeight: "600" }}>Contact us</h2>
             </div>
             <Container className="px-2 px-md-5" style={{ minHeight: "100vh" }}>

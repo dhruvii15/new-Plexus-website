@@ -40,14 +40,14 @@ const Portfolio = ({ portfolio }) => {
 
     return (
         <>
-            <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px" }}>
-                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px" ,color: "#132028", fontWeight: "600" }}>Portfolio</h1>
+            <div className="portfolio-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "280px" }}>
+                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(212, 227, 248, 0.6)', lineHeight: "280px" ,color: "#132028", fontWeight: "600" }}>Portfolio</h1>
             </div>
             <Container className="pt-5">
                 {/* <p className="text-center fs-2 pt-5">"Transforming Ideas into Reality through <br></br>Innovation and Technology"</p> */}
                 <div className="pb-5">
                     {portfolio && portfolio.length > 0 ? (
-                        portfolio.map((item, i) => (
+                        portfolio.sort((a, b) => a.rank - b.rank).map((item, i) => (
                             <Row
                                 key={i}
                                 className={`border rounded-4 overflow-hidden d-flex align-items-center ${i % 2 === 0 ? "flex-column-reverse flex-lg-row" : "flex-column-reverse flex-lg-row-reverse"

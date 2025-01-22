@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, Col, Container, Row } from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRight, faBusinessTime, faLocationDot, faMagnifyingGlass, faUpRightFromSquare, faUserTag } from "@fortawesome/free-solid-svg-icons";
+import { faBusinessTime, faLocationDot, faMagnifyingGlass, faUpRightFromSquare, faUserTag } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 // img
@@ -14,19 +14,19 @@ const Position = ({ data }) => {
     const [selectedDepartment, setSelectedDepartment] = useState("All");
     const [selectedjobType, setSelectedjobType] = useState("All");
 
-    const scrollToOpenPosition = () => {
-        const element = document.getElementById('open-position-section');
-        if (element) {
-            const headerOffset = 80;
-            const elementPosition = element.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    // const scrollToOpenPosition = () => {
+    //     const element = document.getElementById('open-position-section');
+    //     if (element) {
+    //         const headerOffset = 80;
+    //         const elementPosition = element.getBoundingClientRect().top;
+    //         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
-        }
-    };
+    //         window.scrollTo({
+    //             top: offsetPosition,
+    //             behavior: 'smooth'
+    //         });
+    //     }
+    // };
 
     const handleJobClick = (itemId) => {
         navigate(`/hiring/jobdetails/${itemId}`);
@@ -68,12 +68,12 @@ const Position = ({ data }) => {
 
     return (
         <div>
-            <div className="position-bg space px-4 text-center d-flex align-items-center justify-content-center flex-column gap-3" style={{ height: "600px" }}>
+            <div className="position-bg space px-4 mt-1 text-center d-flex align-items-center justify-content-center flex-column gap-3" style={{ minHeight: "300px" }}>
                 <h1 className="fw-bold">Join a Team That Fuels Your <br></br>Growth and Success</h1>
                 <p>Be part of a team that values your potential, encourages your growth, and inspires you to achieve greatness. <br></br>Together, we create a culture of success, innovation, and support.</p>
                 <img src={jobseeker} alt="jobseeker" className="img-fluid jobseeker" />
                 <img src={recruiter} alt="recruiter" className="img-fluid recruiter" />
-                <Button
+                {/* <Button
                     className='border-0 rounded-pill text-white px-5 py-3 arrow-rotate-box'
                     style={{
                         fontSize: "16px",
@@ -88,13 +88,13 @@ const Position = ({ data }) => {
                         Open Position
                     </span>
                     <FontAwesomeIcon icon={faArrowRight} className='arrow-rotate' />
-                </Button>
+                </Button> */}
             </div>
 
             <Container className="">
-                <div className="text-center py-5 my-5">
+                <div className="text-center py-5 my-4">
                     <small className="bg-gray fs-6">Hiring</small>
-                    <h1 className="w-75 mx-auto fw-bold" style={{ color: "#132028" }}>
+                    <h1 className="mx-auto fw-bold" style={{ color: "#132028" }}>
                         "Spark Your Passion"
                     </h1>
                 </div>

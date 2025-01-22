@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import {Col, Container, Row } from "reactstrap";
+import { Col, Container, Row } from "reactstrap";
 
 //img
 import ios from "../../img/ios.webp"
 import swift from "../../img/swift.webp"
-import swift_ui from "../../img/swift_ui.webp"
 import objective from "../../img/objective.webp"
 import android from "../../img/android.webp"
 import kotlin from "../../img/kotlin.webp"
+import java from "../../img/java.svg"
+import figma from "../../img/figma.svg"
 import stack1 from "../../img/stack1.png"
 import stack2 from "../../img/stack2.png"
 
@@ -56,18 +57,22 @@ const Stack = () => {
                     <Col xs={12} lg={6} className={`py-4 px-5 text-animate ${isTextVisible ? "visible" : ""}`}>
                         <p className="space">Our mobile app is developed using Swift for iOS and Kotlin for Android, ensuring native performance and seamless user experiences across both platforms. These technologies offer efficient, fast, and reliable solutions. Explore our app with the provided screenshots to see its capabilities in action.</p>
                         <div className="py-3 d-flex align-items-center flex-wrap">
+                            <div className="stack-box mt-2 shadow"><img src={figma} alt="figma" className="img-fluid" style={{width:"35%"}} /></div>
+                            <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
+                            <div className="stack-box mt-2 shadow"><img src={swift} alt="swift" className="img-fluid w-50" /></div>
+                            <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
+                            <div className="stack-box mt-2 shadow"><img src={objective} alt="objective" className="img-fluid w-50" /></div>
+                            <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
                             <div className="stack-box mt-2 shadow"><img src={ios} alt="ios" className="img-fluid w-50" /></div>
-                            <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
-                            <div className="stack-box mt-2 shadow"><img src={swift} alt="ios" className="img-fluid w-50" /></div>
-                            <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
-                            <div className="stack-box mt-2 shadow"><img src={swift_ui} alt="ios" className="img-fluid w-50" /></div>
-                            <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
-                            <div className="stack-box mt-2 shadow"><img src={objective} alt="ios" className="img-fluid w-50" /></div>
                         </div>
                         <div className="py-3 d-flex align-items-center flex-wrap">
-                            <div className="stack-box mt-2 shadow"><img src={android} alt="ios" className="img-fluid w-50" /></div>
+                            <div className="stack-box mt-2 shadow"><img src={figma} alt="figma" className="img-fluid" style={{width:"35%"}} /></div>
                             <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
-                            <div className="stack-box mt-2 shadow"><img src={kotlin} alt="ios" className="img-fluid w-50" /></div>
+                            <div className="stack-box mt-2 shadow"><img src={kotlin} alt="kotlin" className="img-fluid w-50 p-1" /></div>
+                            <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
+                            <div className="stack-box mt-2 shadow"><img src={java} alt="java" className="img-fluid w-50" /></div>
+                            <p className="border m-0" style={{ width: "40px", height: "1px" }}></p>
+                            <div className="stack-box mt-2 shadow"><img src={android} alt="android" className="img-fluid w-50" /></div>
                         </div>
 
                         {/* <div className='download-btn d-flex align-items-center justify-content-start position-relative mt-3'>

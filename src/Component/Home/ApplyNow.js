@@ -149,8 +149,8 @@ const ApplyNow = ({ params }) => {
                 <div><Spinner /></div>
             </div>
 
-            <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px" }}>
-                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px", color: "#132028", fontWeight: "600" }}>Apply Now</h1>
+            <div className="apply-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "280px" }}>
+                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(212, 227, 248, 0.5)', lineHeight: "280px", color: "#132028", fontWeight: "600" }}>Apply Now</h1>
             </div>
 
             <div className="pb-5 my-5 space">
@@ -192,8 +192,8 @@ const ApplyNow = ({ params }) => {
                                     </div>
                                 </FormGroup>
 
-                                <Row className="py-3">
-                                    <Col sm={6}>
+                                <Row>
+                                    <Col sm={6} className="py-2">
                                         <FormGroup>
                                             <Label for="hiringName">First Name <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
@@ -211,7 +211,7 @@ const ApplyNow = ({ params }) => {
                                         </FormGroup>
                                     </Col>
 
-                                    <Col sm={6}>
+                                    <Col sm={6} className="py-2">
                                         <FormGroup>
                                             <Label for="hiringLastname">Last Name <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
@@ -230,8 +230,8 @@ const ApplyNow = ({ params }) => {
                                     </Col>
                                 </Row>
 
-                                <Row className="py-3">
-                                    <Col sm={6}>
+                                <Row>
+                                    <Col sm={6} className="py-2">
                                         <FormGroup>
                                             <Label for="hiringgender">Gender<span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
@@ -253,7 +253,7 @@ const ApplyNow = ({ params }) => {
                                         </FormGroup>
                                     </Col>
 
-                                    <Col sm={6}>
+                                    <Col sm={6} className="py-2">
                                         <FormGroup>
                                             <Label for="hiringEmail">Email <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
@@ -270,7 +270,7 @@ const ApplyNow = ({ params }) => {
                                             ) : null}
                                         </FormGroup>
                                     </Col>
-                                    <Col sm={6}>
+                                    <Col sm={12}>
                                         <FormGroup>
                                             <Label for="hiringMobile">Phone number <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
@@ -310,8 +310,8 @@ const ApplyNow = ({ params }) => {
                                     </Col>
                                 </Row>
 
-                                <Row className="py-3">
-                                    <Col sm={6}>
+                                <Row>
+                                    <Col sm={6} className="py-2">
                                         <FormGroup>
                                             <Label for="hiringcurrentSalary">Current Salary </Label>
                                             <Input
@@ -326,7 +326,7 @@ const ApplyNow = ({ params }) => {
                                         </FormGroup>
                                     </Col>
 
-                                    <Col sm={6}>
+                                    <Col sm={6} className="py-2">
                                         <FormGroup>
                                             <Label for="hiringexpectedSalary">Expected Salary </Label>
                                             <Input
@@ -341,7 +341,7 @@ const ApplyNow = ({ params }) => {
                                         </FormGroup>
                                     </Col>
 
-                                    <Col sm={6}>
+                                    <Col sm={12}>
                                         <FormGroup>
                                             <Label for="hiringExperience">Work experience <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
@@ -366,8 +366,8 @@ const ApplyNow = ({ params }) => {
                                     </Col>
                                 </Row>
 
-                                <Row className="py-3">
-                                    <Col sm={6}>
+                                <Row>
+                                    <Col sm={6} className="py-2">
                                         <FormGroup>
                                             <Label for="hiringcurrentLocation">Current Location  <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span></Label>
                                             <Input
@@ -385,7 +385,7 @@ const ApplyNow = ({ params }) => {
                                         </FormGroup>
                                     </Col>
 
-                                    <Col sm={6}>
+                                    <Col sm={6} className="py-2">
                                         <FormGroup>
                                             <Label for="hiringjoinDays">Available to join (in days) <span className='text-danger ps-2 fw-normal' style={{ fontSize: "17px" }}>* </span> </Label>
                                             <Input
@@ -403,7 +403,7 @@ const ApplyNow = ({ params }) => {
                                         </FormGroup>
                                     </Col>
 
-                                    <Col sm={6}>
+                                    <Col sm={12}>
                                         <FormGroup>
                                             <Label for="hiringskills">Skills </Label>
                                             <Input
@@ -422,7 +422,7 @@ const ApplyNow = ({ params }) => {
                                     </Col>
                                 </Row>
 
-                                <Row className="py-3">
+                                <Row>
                                     <Col sm={12}>
                                         <FormGroup>
                                             <CaptchaInput
@@ -438,30 +438,17 @@ const ApplyNow = ({ params }) => {
                                     </Col>
                                 </Row>
 
-                                <Row className="py-5 px-2">
-                                    <Col sm={6}>
-                                        <Button
-                                            block
-                                            className="py-3 rounded-pill my-2"
-                                            style={{ background: "none", border: '1px solid #CDCDCD', color: "#CDCDCD" }}
-                                            onClick={handleBackClick}
-                                            disabled={isSubmitting}
-                                        >
-                                            CANCEL
-                                        </Button>
-                                    </Col>
-                                    <Col sm={6}>
-                                        <Button
-                                            type="submit"
-                                            block
-                                            disabled={isSubmitting}
-                                            className="py-3 rounded-pill border-white my-2"
-                                            style={{ backgroundColor: "#0385C3" }}
-                                        >
-                                            {isSubmitting ? "Submitting..." : "SUBMIT"}
-                                        </Button>
-                                    </Col>
-                                </Row>
+                                <Button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="border-white px-5 py-2 rounded-2 my-2"
+                                    style={{
+                                        backgroundColor: "#0385C3",
+                                        width: "auto",  // Adjust padding for better aesthetics
+                                    }}
+                                >
+                                    {isSubmitting ? "Submitting..." : "SUBMIT"}
+                                </Button>
 
                             </Form>
                         </div>

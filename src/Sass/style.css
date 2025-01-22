@@ -338,11 +338,11 @@
   }
 }
 .about-bg {
-  background-image: url("../img/about-bg.jpg");
+  background-image: url("../img/about-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  background-color: rgb(235, 241, 250);
+  background-color: rgb(188, 212, 247);
 }
 
 @keyframes slideInFromLeft {
@@ -501,6 +501,14 @@
   height: 60px;
 }
 
+.portfolio-bg {
+  background-image: url("../img/portfolio-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: rgb(188, 212, 247);
+}
+
 .portfolio-box {
   width: 680px;
   height: 630px;
@@ -575,14 +583,14 @@
 
 .jobseeker {
   position: absolute;
-  top: 450px;
+  top: 160px;
   left: 10%;
   animation: RotateInfinite 6s infinite;
 }
 
 .recruiter {
   position: absolute;
-  top: 350px;
+  top: 100px;
   right: 10%;
   animation: translateYInfinite 3s infinite;
 }
@@ -666,6 +674,14 @@
   margin: auto;
 }
 
+.apply-bg {
+  background-image: url("../img/apply-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-color: rgb(188, 212, 247);
+}
+
 .hiring-form {
   width: 65%;
 }
@@ -738,6 +754,10 @@ input:focus {
   border-radius: 20px;
 }
 
+.contact-title {
+  align-items: center;
+}
+
 .slider-container-culture {
   overflow: hidden;
   white-space: nowrap;
@@ -780,6 +800,12 @@ input:focus {
   }
   .position-main:hover .right-icon {
     display: none;
+  }
+  .jobseeker {
+    width: 100px;
+  }
+  .recruiter {
+    width: 100px;
   }
 }
 @media (max-width: 930px) and (min-width: 0px) {
@@ -828,6 +854,9 @@ input:focus {
     top: 250px;
     right: 80px;
   }
+  .contact-title {
+    align-items: start;
+  }
 }
 @media (min-width: 1441px) {
   .white-box {
@@ -843,6 +872,9 @@ input:focus {
     width: 29%;
     top: 250px;
     right: 80px;
+  }
+  .contact-title {
+    align-items: start;
   }
 }
 @media (max-width: 1198px) and (min-width: 849px) {

@@ -57,13 +57,13 @@ const JobDetails = ({ data }) => {
             </div>
 
             <Container className="py-5 text-center">
-                <div className="py-5 animate-section" data-section="responsibilities">
+                <div className="py-5 animate-section text-start" data-section="responsibilities">
                     <h3 className="fw-bold text-start" style={{ color: "#132028" }}>Key Responsibilities:</h3>
                     <div className={`text-animate ${visibleSections.responsibilities ? 'visible' : ''}`}>
                         {data.duties.map((duty, index) => (
                             <div
                                 key={index}
-                                className="d-flex align-items-center gap-3 py-2"
+                                className="d-flex gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
                                 <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />
@@ -73,13 +73,13 @@ const JobDetails = ({ data }) => {
                     </div>
                 </div>
 
-                <div className="py-5 animate-section" data-section="requirements">
-                    <h3 className="fw-bold text-start" style={{ color: "#132028" }}>Requirements:</h3>
+                <div className="py-5 animate-section text-start" data-section="requirements">
+                    <h3 className="fw-bold" style={{ color: "#132028" }}>Requirements:</h3>
                     <div className={`text-animate ${visibleSections.requirements ? 'visible' : ''}`}>
                         {data.needs.map((needs, index) => (
                             <div
                                 key={index}
-                                className="d-flex align-items-center gap-3 py-2"
+                                className="d-flex gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
                                 <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />
@@ -89,13 +89,13 @@ const JobDetails = ({ data }) => {
                     </div>
                 </div>
 
-                <div className="py-5 animate-section" data-section="benefits">
+                <div className="py-5 animate-section text-start" data-section="benefits">
                     <h3 className="fw-bold text-start" style={{ color: "#132028" }}>Benefits:</h3>
                     <div className={`text-animate ${visibleSections.benefits ? 'visible' : ''}`}>
                         {data.benefits.map((benefits, index) => (
                             <div
                                 key={index}
-                                className="d-flex align-items-center gap-3 py-2"
+                                className="d-flex gap-3 py-2"
                                 style={{ color: "#44464a" }}
                             >
                                 <FontAwesomeIcon icon={faCheckDouble} className="pt-2" style={{ color: "#0385C3" }} />

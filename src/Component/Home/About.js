@@ -11,8 +11,8 @@ import commitment from "../../img/commitemet.svg";
 const About = () => {
     return (
         <>
-            <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "260px" }}>
-                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(193, 195, 195, 0.63)', lineHeight: "260px",color: "#132028", fontWeight: "600"  }}>About Us</h1>
+            <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "280px" }}>
+                <h1 className="hero-title w-100 h-100 m-0 text-center" style={{ background: 'rgba(212, 227, 248, 0.45)', lineHeight: "280px", color: "#132028", fontWeight: "600" }}>About Us</h1>
             </div>
 
             <Container sx={{ pb: 5 }}>
@@ -95,6 +95,17 @@ const About = () => {
                     <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
                         <div className="px-3 py-4 rounded-2 mt-5 shadow main-box flex-grow-1 position-relative">
                             <div className="about-box">
+                                <img src={mission} alt="vision" width={30} className="img-fluid" />
+                            </div>
+                            <p className="h4 fw-bold mb-3 mt-4">Our Mission</p>
+                            <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
+                                Our mission is to deliver innovative IT solutions that empower businesses and enhance user experiences.
+                            </p>
+                        </div>
+                    </Col>
+                    <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
+                        <div className="px-3 py-4 rounded-2 mt-5 shadow main-box flex-grow-1 position-relative">
+                            <div className="about-box">
                                 <img src={vision} alt="vision" width={50} className="img-fluid" />
                             </div>
                             <p className="h4 fw-bold mb-3 mt-4">Our Vision</p>
@@ -106,22 +117,11 @@ const About = () => {
                     <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
                         <div className="px-3 py-4 rounded-2 mt-5 shadow main-box flex-grow-1 position-relative">
                             <div className="about-box">
-                                <img src={mission} alt="vision" width={30} className="img-fluid" />
-                            </div>
-                            <p className="h4 fw-bold mb-3 mt-4">Our Mission</p>
-                            <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
-                            Our mission is to deliver innovative IT solutions that empower businesses and enhance user experiences.
-                            </p>
-                        </div>
-                    </Col>
-                    <Col xs={12} md={6} xl={4} className="mt-3 d-flex">
-                        <div className="px-3 py-4 rounded-2 mt-5 shadow main-box flex-grow-1 position-relative">
-                            <div className="about-box">
                                 <img src={commitment} alt="vision" width={50} className="img-fluid" />
                             </div>
                             <p className="h4 fw-bold mb-3 mt-4">Our commitment</p>
                             <p style={{ lineHeight: "25px", letterSpacing: "1px" }}>
-                            At Plexus Technology, we deliver exceptional service and innovative products. We support employees with flexibility, social events, and growth opportunities.
+                                At Plexus Technology, we deliver exceptional service and innovative products. We support employees with flexibility, social events, and growth opportunities.
                             </p>
                         </div>
                     </Col>

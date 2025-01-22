@@ -66,8 +66,8 @@ const Footer = () => {
                     </Grid>
                     <Grid item xs={12} lg={7} textAlign="center" pt={3}>
                         <Box pt={3}>
-                            <img src={logo} alt="plexus-technology" style={{ width: '180px', height: 'auto' }} />
-                            <Typography variant="body2" pt={1} style={{ fontSize: '17px' }} fontWeight="bold">
+                            <img src={logo} alt="plexus-technology" style={{ width: '180px', height: 'auto' }}/>
+                            <Typography variant="body2" pt={2} style={{ fontSize: '17px' }} fontWeight="bold">
                                 Follow Us
                             </Typography>
                             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 2, py: 2, color: 'black' }}>
@@ -87,10 +87,10 @@ const Footer = () => {
                                     </IconButton>
                                 </div>
                             </Box>
-                        <hr className='d-block d-md-none'></hr>
-                        <Typography variant="body2" pb={2} style={{ fontSize: '14px' }} textAlign={'center'} className='d-block d-md-none'>
-                            All rights Reserved. © Plexus Technology
-                        </Typography>
+                            <hr className='d-block d-md-none'></hr>
+                            <Typography variant="body2" pb={2} style={{ fontSize: '14px' }} textAlign={'center'} className='d-block d-md-none'>
+                                All rights Reserved. © Plexus Technology
+                            </Typography>
                         </Box>
                     </Grid>
                 </Grid>
