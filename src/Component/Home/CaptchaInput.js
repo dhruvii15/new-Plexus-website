@@ -1,7 +1,9 @@
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 
 const CaptchaInput = ({ onValidate }) => {
-    // Generate initial captcha
+    // Generate random CAPTCHA text
     const generateRandomText = () => {
         const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
         let result = '';
@@ -17,7 +19,7 @@ const CaptchaInput = ({ onValidate }) => {
     const [message, setMessage] = useState('');
     const [messageType, setMessageType] = useState('');
 
-    // Generate new captcha
+    // Refresh CAPTCHA
     const refreshCaptcha = () => {
         setInput('');
         setMessage('');
@@ -27,7 +29,7 @@ const CaptchaInput = ({ onValidate }) => {
         }
     };
 
-    // Handle verification
+    // Verify CAPTCHA
     const verify = () => {
         if (input === captcha) {
             setMessage('CAPTCHA verified successfully!');
@@ -45,56 +47,79 @@ const CaptchaInput = ({ onValidate }) => {
         }
     };
 
+    // Render distorted CAPTCHA as styled text
+    const renderCaptchaText = () => {
+        return captcha.split('').map((char, index) => (
+            <span
+                key={index}
+                style={{
+                    display: 'inline-block',
+                    transform: `rotate(${Math.random() * 30 - 25}deg)`,
+                    fontSize: `${Math.random() * 2 + 20}px`,
+                    fontWeight: '600',
+                    color: `hsl(${Math.random() * 360}, 70%, 50%)`,
+                    margin: '0 2px',
+                    padding: '2px'
+                }}
+            >
+                {char}
+            </span>
+        ));
+    };
+
     return (
-        <div className="mt-2">
-            <div className="mb-3">
+        <div className="my-4">
+            <div>
                 <div className="d-flex flex-wrap gap-2 align-items-center mb-3">
-                    {/* CAPTCHA display */}
-                    <div className="bg-light p-2 rounded">
-                        <span 
-                            className="font-monospace fs-4 fw-bold text-decoration-line-through"
-                            style={{ letterSpacing: '0.2em' }}
+                    {/* CAPTCHA Display */}
+                    <div
+                        className="bg-light rounded d-flex align-items-center justify-content-center px-2"
+                    >
+                        {renderCaptchaText()}
+
+                        {/* Refresh Button */}
+                        <button
+                            type="button"
+                            onClick={refreshCaptcha}
+                            className="btn btn-link text-primary text-decoration-none fs-3 ps-4"
                         >
-                            {captcha}
-                        </span>
+                            ↺
+                        </button>
                     </div>
 
-                    {/* Refresh button */}
-                    <button
-                        type="button"
-                        onClick={refreshCaptcha}
-                        className="btn btn-link text-primary text-decoration-none fs-3"
-                    >
-                        ↺
-                    </button>
-
-                    {/* Input field */}
+                    {/* Input Field */}
                     <div>
-                        <input
-                            type="text"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            placeholder="Enter CAPTCHA"
-                            className="form-control"
-                        />
-                    </div>
+                        <div className="input-group">
+                            {/* Input Field */}
+                            <input
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Enter CAPTCHA"
+                                className="form-control"
+                                style={{padding:"14px"}}
+                            />
+                            {/* Check Icon */}
 
-                    {/* Verify button */}
-                    <button 
-                        type="button"
-                        onClick={verify}
-                        className="btn border"
-                    >
-                        Verify
-                    </button>
+
+                            {/* Verify Button */}
+                            <button
+                                type="button"
+                                onClick={verify}
+                                className="btn border px-3"
+                            >
+                                <FontAwesomeIcon icon={faCheck} className='text-success fs-5' />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             {/* Messages */}
             {message && (
-                <p 
-                    className={`text-${messageType} mt-2`} 
-                    style={{ fontSize: "12px" }}
+                <p
+                    className={`text-${messageType} mt-2`}
+                    style={{ fontSize: '12px' }}
                 >
                     {message}
                 </p>

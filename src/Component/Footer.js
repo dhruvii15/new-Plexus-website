@@ -4,6 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import logo from '../img/logo.png';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const phoneNumber = '+91 90238 38674';
@@ -32,23 +33,24 @@ const Footer = () => {
         <Box sx={{ background: '#F8F8F8', color: '#1c1c1c', overflow: 'hidden', borderRadius: 10, boxShadow: '0 -4px 50px rgb(219, 231, 250)' }}>
             <Container>
                 <Grid container spacing={2} alignItems="center" justifyContent="center" py={5} px={2}>
-                    <Grid item xs={12} lg={5} pt={4}>
-                        <Typography variant="h4" fontWeight="bold" color="black">
+                    <Grid item xs={12} md={4} pt={4} textAlign="center">
+                        <Typography variant="h5" fontWeight="bold" color="black" pt={4}>
                             Plexus Technology
                         </Typography>
                         <Typography variant="body1" pt={2}>
                             305, A.R Mall, opp. panvel point,<br />
                             mota varachha, 394101
                         </Typography>
-                        <Typography variant="body1" fontWeight="bold" pt={3} m={0}
+                        <Typography variant="body1" textAlign="center" fontWeight="bold" pt={3} m={0}
                             onClick={handlePhoneClick}
                             sx={{
                                 display: 'flex',
                                 alignItems: 'center',
+                                justifyContent: 'center',
                                 cursor: 'pointer'
                             }}>
                             <span style={{ color: 'black', paddingRight: '8px' }}>Phone:</span>
-                            <span style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center' }}>
+                            <span style={{ fontWeight: 'normal', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 {phoneNumber}
                             </span>
                         </Typography>
@@ -64,9 +66,36 @@ const Footer = () => {
                             </span>
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} lg={7} textAlign="center" pt={3}>
-                        <Box pt={3}>
-                            <img src={logo} alt="plexus-technology" style={{ width: '180px', height: 'auto' }}/>
+                    <Grid item xs={12} md={4} textAlign="center" pt={4}>
+                        <Box pt={4}>
+                            <Typography variant="h5" fontWeight="bold" color="black">
+                                Quick Links
+                                    <Typography variant="body1" style={{ paddingTop: "11px" }}>
+                                        <Link to="/about-us" style={{ textDecoration: "none", color: "inherit" }}>
+                                            About us
+                                        </Link>
+                                    </Typography>
+                                    <Typography variant="body1" style={{ paddingTop: "11px" }}>
+                                        <Link to="/portfolio" style={{ textDecoration: "none", color: "inherit" }}>
+                                            Portfolio
+                                        </Link>
+                                    </Typography>
+                                    <Typography variant="body1" style={{ paddingTop: "11px" }}>
+                                        <Link to="/about-us" style={{ textDecoration: "none", color: "inherit" }}>
+                                            Company Culture
+                                        </Link>
+                                    </Typography>
+                                    <Typography variant="body1" style={{ paddingTop: "11px" }}>
+                                        <Link to="/contact-us" style={{ textDecoration: "none", color: "inherit" }}>
+                                            Contact us
+                                        </Link>
+                                    </Typography>
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} md={4} textAlign="center" pt={4}>
+                        <Box pt={4}>
+                            <img src={logo} alt="plexus-technology" style={{ width: '180px', height: 'auto' }} />
                             <Typography variant="body2" pt={2} style={{ fontSize: '17px' }} fontWeight="bold">
                                 Follow Us
                             </Typography>
