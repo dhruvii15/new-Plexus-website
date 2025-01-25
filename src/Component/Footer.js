@@ -3,7 +3,7 @@ import { Container, Grid, Box, Typography, IconButton } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import logo from '../img/logo.png';
+import logo from '../img/logo.svg';
 
 const Footer = () => {
     const phoneNumber = '+91 90238 38674';

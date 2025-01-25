@@ -8,7 +8,7 @@ import { faAddressBook, faHome, faPersonCirclePlus, faUserTie } from '@fortaweso
 import { faBarsStaggered } from '@fortawesome/free-solid-svg-icons/faBarsStaggered';
 
 // img
-import logo from '../img/logo.png';
+import logo from '../img/logo.svg';
 import { faAddressCard } from '@fortawesome/free-regular-svg-icons';
 
 const Header = () => {

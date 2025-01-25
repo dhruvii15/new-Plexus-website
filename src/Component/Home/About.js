@@ -3,7 +3,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { Col, Container, Row } from "reactstrap";
 
 // img
-import about from "../../img/about-us.gif";
+import about from "../../img/about-us.svg";
 import vision from "../../img/vision.svg";
 import mission from "../../img/mision.svg";
 import commitment from "../../img/commitemet.svg";
@@ -12,10 +12,10 @@ const About = () => {
     return (
         <>
             <div className="about-bg mt-1 d-flex align-items-center justify-content-center" style={{ height: "280px" }}>
-                <h1 className="hero-title w-100 h-100 m-0 text-center text-white" style={{ background: 'rgba(0, 0, 0, 0.5)', lineHeight: "280px", color: "#132028", fontWeight: "600" }}>About Us</h1>
+                <h1 className="hero-title w-100 h-100 m-0 text-center text-white" style={{ background: 'rgba(0, 0, 0, 0.60)', lineHeight: "280px", color: "#132028", fontWeight: "600" }}>About Us</h1>
             </div>
 
-            <Container sx={{ pb: 5 }}>
+            <Container sx={{ pb: 5 }} style={{paddingTop:"100px"}}>
                 <Grid
                     container
                     alignItems="center"
@@ -23,7 +23,7 @@ const About = () => {
                 // spacing={2}
                 // sx={{ pb: 5 }}
                 >
-                    <Grid item xs={12} lg={6} sx={{ pt: 5 }}>
+                    <Grid item xs={12} lg={6} sx={{ pt: 5 , textAlign:"center" }} >
                         <Box
                         // sx={{ textAlign: "center" }}
                         >
